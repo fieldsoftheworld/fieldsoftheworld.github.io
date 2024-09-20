@@ -1,312 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+    <meta charset="UTF-8">
+    <title>Fields of The World (FTW)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/ftw.ico" type="image/x-icon"> <!-- Added favicon -->
+    <style>
+        /* Basic Reset */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #2f3b32; /* Dark greenish brown for text */
+        background-color: #f9f5f0; /* Very light beige/brown background */
+    }
+    /* Header Styling */
+    header {
+        background: url('images/banner.png') no-repeat center center/cover;
+        height: 40vh; /* Reduced height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+        position: relative;
+    }
+    header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(34, 55, 30, 0.3); /* Greenish overlay for better text contrast */
+        z-index: 1;
+    }
+    header h1 {
+        font-size: 3.5rem; /* Slightly smaller to match reduced height */
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 2;
+        text-shadow: 2px 2px 5px rgba(25, 35, 15, 0.7); /* Dark green shadow for readability */
+    }
+    header p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        text-shadow: 1px 1px 3px rgba(25, 35, 15, 0.5); /* Dark green shadow for readability */
+    }
+    /* Navigation Bar */
+    nav {
+        background: rgba(40, 55, 40, 0.8); /* Dark green with slight transparency */
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+    nav ul li {
+        margin: 0 1.5rem;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    nav ul li a:hover {
+        color: #cde0c1; /* Soft green hover color */
+    }
+    /* Section Styling */
+    section {
+        padding: 2rem 2rem; /* Reduced padding */
+        max-width: 1200px;
+        margin: auto;
+    }
+    section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #5f7f55; /* Green tone for headings */
+    }
+    .content {
+        max-width: 800px;
+        margin: auto;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .content p {
+        margin-bottom: 1.5rem;
+    }
+    .content a {
+        color: #5f7f55; /* Muted green for links */
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .content a:hover {
+        text-decoration: underline;
+    }
+    /* Key Features */
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .feature-item {
+        flex: 1 1 30%;
+        margin: 1rem;
+        padding: 2rem;
+        background: #ebe4c7; /* Updated background color */
+        border-radius: 8px;
+        text-align: center; /* Center text */
+    }
+    .feature-item h3 {
+        margin-bottom: 1rem;
+        color: #5f7f55; /* Same green tone for feature headings */
+    }
+    /* CTA Buttons */
+    .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    .cta-buttons a {
+        margin: 0.5rem;
+        padding: 1rem 2rem;
+        background: #5f7f55; /* Green background for buttons */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: background 0.3s;
+    }
+    .cta-buttons a:hover {
+        background: #49663d; /* Darker green for hover effect */
+    }
+    /* Footer */
+    footer {
+        background: #2f3b32; /* Dark greenish brown for footer */
+        color: #fff;
+        padding: 2rem 0;
+        text-align: center;
+    }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          header h1 {
+              font-size: 2.5rem;
+          }
+          header p {
+              font-size: 1.2rem;
+          }
+          .feature-item {
+              flex: 1 1 100%;
+          }
+      }
+  </style>
+  
 </head>
 <body>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Key Features</a></li>
+            <li><a href="#get-started">Get Started</a></li>
+            <li><a href="#why">Why?</a></li>
+            <li><a href="#contributing">Contributing</a></li>
+        </ul>
+    </nav>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+    <!-- Header Section -->
+    <header>
+        <h1>Fields of The World (FTW)</h1>
+        <p>A Comprehensive Benchmark Dataset for Agricultural Field Boundaries</p>
+    </header>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About</h2>
+        <div class="content" style="display: flex; align-items: flex-start; margin-top: -20px; text-align: left;">
+            <img src="images/logo.jpg" alt="Logo" style="width: 160px; height: auto; margin-right: 30px;"> <!-- Updated logo spacing -->
+            <div>
+                <p>
+                    <strong>Fields of The World (FTW)</strong> is a comprehensive benchmark dataset designed to enhance the development of machine learning models for instance segmentation of agricultural field boundaries. It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 27 countries.
+                </p>
+                <p><a href="#">Learn more</a></p>
             </div>
+        </div>
+    </section>
+
+        <!-- Key Features Section -->
+        <section id="features">
+          <h2>Key Features</h2>
+          <div class="features">
+              <div class="feature-item">
+                  <img src="images/global.png" alt="Global Coverage Icon" style="width: 80px; height: 80px; display: block; margin: 0 auto;"> <!-- Updated icon -->
+                  <h3>Global Coverage</h3>
+                  <p>
+                      The extensive geographic coverage and large amount of data allows for the development of models that can generalize well to different agricultural practices and field types.
+                  </p>
+              </div>
+              <div class="feature-item">
+                  <img src="images/ml.png" alt="ML-Ready Icon" style="width: 80px; height: 80px; display: block; margin: 0 auto;"> <!-- Updated icon -->
+                  <h3>User-Friendly</h3>
+                  <p>
+                      The dataset is well-structured with great documentation and tools so that any AI/ML researcher can immediately experiment and build models, even without geospatial expertise.
+                  </p>
+              </div>
+              <div class="feature-item">
+                  <img src="images/open.png" alt="Open Ecosystem Icon" style="width: 80px; height: 80px; display: block; margin: 0 auto;"> <!-- Updated icon -->
+                  <h3>An Open Ecosystem</h3>
+                  <p>
+                      FTW is built with a number of open building blocks so that it is easy for a variety of individuals and organizations to contribute their data, software, compute, and expertise.
+                  </p>
+              </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
+    <!-- Get Started Section -->
+    <section id="get-started">
+        <h2>Get Started</h2>
         <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+            <div class="cta-buttons">
+                <a href="#">Read the Paper</a>
+                <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">Start Experimenting</a>
+                <a href="https://beta.source.coop/repositories/kerner-lab/fields-of-the-world/description/" target="_blank">Get the Data</a>
+            </div>
         </div>
+    </section>
+
+    <!-- Why Section -->
+    <section id="why">
+      <h2>Why?</h2>
+      <div class="content">
+          <p>
+              There is a growing need for accurate and scalable field boundary data for global agricultural monitoring and assessments. Traditional data collection has not met that need, but there is large potential to use AI & Earth Observation Imagery to meet the demand. Fields of the World aims to be an "ImageNet for Fields" by creating a foundational dataset that spurs on a greater ecosystem of collaboration.
+          </p>
       </div>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+    <!-- Contributing Section -->
+    <section id="contributing">
+        <h2>Contributing</h2>
+        <div class="content">
+            <p>
+                We welcome contributions from the community! Our goal is to create an open, collaborative ecosystem where we all work together to advance a commons of data, models, benchmarks and software for agricultural insights.
+            </p>
+            <p><a href="#">Find out how to contribute</a></p>
+        </div>
+    </section>
 
-    <!-- End of Statcounter Code -->
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Fields of The World Project. All rights reserved.
+    </footer>
 
-  </body>
-  </html>
+</body>
+</html>
