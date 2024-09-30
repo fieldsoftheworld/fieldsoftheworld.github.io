@@ -182,6 +182,23 @@
               flex: 1 1 100%;
           }
       }
+
+      .dark-green-background {
+          background-color: #2f3b32; /* Dark greenish brown background */
+          padding: 1rem;
+          border-radius: 8px;
+          color: #f9f5f0; /* Very light beige/brown text color */
+      }
+
+      .dark-green-background a {
+          color: #cde0c1; /* Soft green color for links */
+          text-decoration: none;
+          font-weight: bold;
+      }
+
+      .dark-green-background a:hover {
+          text-decoration: underline;
+      }
   </style>
   
 </head>
@@ -214,7 +231,7 @@
                 <p>
                     <strong>Fields of The World (FTW)</strong> is a comprehensive benchmark dataset designed to enhance the development of machine learning models for instance segmentation of agricultural field boundaries. It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 27 countries.
                 </p>
-                <p><a href="#">Learn more</a></p>
+                <!-- p><a href="#">Learn more</a></p -->
             </div>
         </div>
     </section>
@@ -276,13 +293,21 @@
             <p>
                 We welcome contributions from the community! Our goal is to create an open, collaborative ecosystem where we all work together to advance a commons of data, models, benchmarks and software for agricultural insights.
             </p>
-            <p><a href="#">Find out how to contribute</a></p>
+            <!-- p><a href="#">Find out how to contribute</a></p -->
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        &copy; 2023 Fields of The World Project. All rights reserved.
+        <p class="dark-green-background" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            <a property="dct:title" rel="cc:attributionURL" href="https://fieldsofthe.world">Fields of the World website</a> is licensed under 
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                CC BY-SA 4.0
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+            </a>
+        </p>
     </footer>
 
 </body>
