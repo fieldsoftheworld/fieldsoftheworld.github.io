@@ -25,7 +25,7 @@ function displayImages() {
     }
 
     images[index - 1].style.display = "block";  // Show the current image
-    setTimeout(displayImages, 6000);  // Change image every second
+    setTimeout(displayImages, 9000);  // Change image every second
 }
 
 });
