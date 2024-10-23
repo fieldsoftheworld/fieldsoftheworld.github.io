@@ -3,7 +3,7 @@ import { Map, Overlay, View } from "ol";
 import TileLayer from 'ol/layer/WebGLTile.js';
 import VectorTile from "ol/layer/VectorTile";
 import { useGeographic } from 'ol/proj';
-import { OSM } from "ol/source";
+import { XYZ } from "ol/source";
 import Style from "ol/style/Style";
 import Stroke from "ol/style/Stroke";
 import LayerSwitcher from "ol-ext/control/LayerSwitcher"
@@ -20,7 +20,15 @@ const map = new Map({
   layers: [
     new TileLayer({
       displayInLayerSwitcher: false,
-      source: new OSM()
+      source: new XYZ({
+        url: 'https://basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png'
+      })
+    }),
+    new TileLayer({
+      displayInLayerSwitcher: false,
+      source: new XYZ({
+        url: 'https://basemaps.cartocdn.com/rastertiles/dark_only_labels/{z}/{x}/{y}.png'
+      })
     })
   ],
   view: new View({
@@ -43,15 +51,17 @@ const fields = new VectorTile({
   source: new PMTilesVectorSource({
     url: URL
   }),
-  style: new Style({
-    stroke: new Stroke({
-      color: 'rgb(255, 0, 0)',
-      width: 1
-    }),
-    fill: new Fill({
-      color: 'rgba(255, 0, 0, 0.1)'
-    })
-  })
+  style: function(feature, resolution) {
+    return new Style({
+      stroke: new Stroke({
+        color: 'rgb(255, 0, 0)',
+        width: Math.max(1, resolution/5000)
+      }),
+      fill: new Fill({
+        color: 'rgba(255, 0, 0, 0.1)'
+      })
+    });
+  }
 });
 map.addLayer(fields);
 
