@@ -46,6 +46,7 @@
         color: #fff;
         text-align: center;
         position: relative;
+        min-height: 250px;
     }
     header::before {
         content: '';
@@ -87,6 +88,7 @@
     }
     nav ul li {
         margin: 0 1.5rem;
+        white-space: nowrap;
     }
     nav ul li a {
         color: #fff;
@@ -96,6 +98,28 @@
     }
     nav ul li a:hover {
         color: #cde0c1; /* Soft green hover color */
+    }
+    /* On screens that are 992px or less, set the background color to blue */
+    @media screen and (max-width: 800px) {
+        nav {
+            background: rgba(40, 55, 40, 1); /* Dark green with slight transparency */
+            position: static;
+        }
+        nav ul {
+            display: block;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            text-align: center;
+        }
+        nav ul li:first-child {
+            border-top: none;
+        }
+        nav ul li a {
+            display: block;
+        }
     }
     /* Section Styling */
     section {
