@@ -1,0 +1,17 @@
+{
+  "name": "map",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "ol": "^10.0.0",
+    "ol-ext": "^4.0.22",
+    "ol-pmtiles": "^0.5.0"
+  }
+}

@@ -1,0 +1,81 @@
+@import "node_modules/ol/ol.css";
+@import "node_modules/ol-ext/dist/ol-ext.css";
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+a {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: sans-serif;
+  position: absolute;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 1rem;
+  color: white;
+  z-index: 2;
+  left: 1rem;
+  top: 1rem;
+  text-align: center;
+}
+
+h1 .back, h1 .back:hover {
+  display: block;
+  font-size: 0.85rem;
+  color: white;
+  text-decoration: underline;
+}
+
+#hint {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.ol-popup {
+  font-family: sans-serif;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 400px;
+  max-height: 400px;
+  overflow: auto;
+}
+.ol-popup p {
+  margin: 0.5rem 0;
+  padding: 0;
+  color: red;
+}
+.ol-popup h3 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.ol-popup h3:first-of-type {
+  margin-top: 0;
+}
+.ol-popup ul {
+  margin: 0;
+  padding: 0;
+}
+.ol-popup ul li {
+  list-style: none;
+  margin: 0 0 0.25rem;
+}
