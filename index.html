@@ -9,14 +9,14 @@
     <meta property="og:description" content="FTW is a novel ML benchmark dataset for agricultural field instance segmentation spanning 24 countries on four continents. It includes 70,462 samples with instance and semantic segmentation masks paired with multi-date, multi-spectral Sentinel-2 satellite images."/>
     <meta property="og:url" content="https://fieldsofthe.world"/>
     <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X630-->
-    <meta property="og:image" content="static/images/banner.webp" />
+    <meta property="og:image" content="static/images/banner1.webp" />
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
   
     <meta name="twitter:title" content="Fields of The World: A Comprehensive Benchmark Dataset for Agricultural Field Boundaries">
     <meta name="twitter:description" content="FTW is a novel ML benchmark dataset for agricultural field instance segmentation spanning 24 countries on four continents. It includes 70,462 samples with instance and semantic segmentation masks paired with multi-date, multi-spectral Sentinel-2 satellite images.">
     <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
-    <meta name="twitter:image" content="static/images/banner.webp">
+    <meta name="twitter:image" content="static/images/banner1.webp">
     <meta name="twitter:card" content="summary_large_image">
     <!-- Keywords for your paper to be indexed by-->
     <meta name="keywords" content="machine learning, agricultural field boundaries, instance segmentation, benchmark dataset, Sentinel-2, global agriculture">
@@ -38,8 +38,11 @@
     }
     /* Header Styling */
     header {
-        background: url('static/images/banner.webp') no-repeat center center/cover;
-        height: 40vh; /* Reduced height */
+        background-image: url('static/images/banner3.webp');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 30vh; /* Reduced height */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -60,6 +63,7 @@
     }
     header h1 {
         font-size: 3.5rem; /* Slightly smaller to match reduced height */
+        margin-top: 2rem;
         margin-bottom: 0.5rem;
         position: relative;
         z-index: 2;
@@ -100,6 +104,9 @@
         color: #cde0c1; /* Soft green hover color */
     }
     @media screen and (max-width: 800px) {
+        header h1 {
+            margin-top: 0;
+        }
         nav {
             background: rgba(40, 55, 40, 1); /* Dark green with slight transparency */
             position: static;
