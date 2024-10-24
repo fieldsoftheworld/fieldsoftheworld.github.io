@@ -119,6 +119,10 @@
         z-index: 4;
         text-shadow: 1px 1px 3px rgba(25, 35, 15, 0.5); /* Dark green shadow for readability */
     }
+    header h1,
+    header p {
+        text-shadow: 2px 2px 4px black;
+    }
     /* Navigation Bar */
     nav {
         background: rgba(40, 55, 40, 0.8); /* Dark green with slight transparency */
@@ -205,7 +209,7 @@
     }
     @media screen and (min-width: 800px) {
         .content.about img {
-            margin-right: 30px;
+            margin-left: 30px;
         }
         .content.about {
             display: flex;
@@ -291,6 +295,17 @@
 </head>
 <body>
 
+    <!-- Header Section -->
+    <header>
+        <div class="fadein">
+            <img id="b1" src="static/images/banner1.webp" alt="FTW Original">
+            <img id="b2" src="static/images/banner2.webp" alt="FTW Instance Mask">
+            <img id="b3" src="static/images/banner3.webp" alt="FTW Semantic Mask">
+        </div>
+        <h1>Fields of The World (FTW)</h1>
+        <p>A Comprehensive Benchmark Dataset for Agricultural Field Boundaries</p>
+    </header>
+
     <!-- Navigation Bar -->
     <nav>
         <ul>
@@ -304,28 +319,17 @@
         </ul>
     </nav>
 
-    <!-- Header Section -->
-    <header>
-        <div class="fadein">
-            <img id="b1" src="static/images/banner1.webp" alt="FTW Original">
-            <img id="b2" src="static/images/banner2.webp" alt="FTW Instance Mask">
-            <img id="b3" src="static/images/banner3.webp" alt="FTW Semantic Mask">
-        </div>
-        <h1>Fields of The World (FTW)</h1>
-        <p>A Comprehensive Benchmark Dataset for Agricultural Field Boundaries</p>
-    </header>
-
     <!-- About Section -->
     <section id="about">
         <h2>About</h2>
         <div class="content about">
-            <img src="static/images/ftw_logo.png" alt="FTW logo">
             <div>
                 <p>
                     <strong>Fields of The World (FTW)</strong> is a comprehensive benchmark dataset designed to enhance the development of machine learning models for instance segmentation of agricultural field boundaries.
                     It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 27 countries.
                 </p>
             </div>
+            <img src="static/images/ftw_logo.png" alt="FTW logo">
         </div>
     </section>
 
