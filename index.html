@@ -22,7 +22,7 @@
     <meta name="keywords" content="machine learning, agricultural field boundaries, instance segmentation, benchmark dataset, Sentinel-2, global agriculture">
     <title>Fields of The World (FTW)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="static/images/ftw.ico" type="image/x-icon"> <!-- Added favicon -->
+    <link rel="icon" type="image/png" href="../static/images/ftw_logo.png" />
     <style>
         /* Basic Reset */
         * {
@@ -99,7 +99,6 @@
     nav ul li a:hover {
         color: #cde0c1; /* Soft green hover color */
     }
-    /* On screens that are 992px or less, set the background color to blue */
     @media screen and (max-width: 800px) {
         nav {
             background: rgba(40, 55, 40, 1); /* Dark green with slight transparency */
@@ -149,6 +148,20 @@
     }
     .content a:hover {
         text-decoration: underline;
+    }
+    .content.about img {
+        width: 160px;
+        height: auto;
+    }
+    @media screen and (min-width: 800px) {
+        .content.about img {
+            margin-right: 30px;
+        }
+        .content.about {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+        }
     }
     /* Key Features */
     .features {
@@ -250,13 +263,13 @@
     <!-- About Section -->
     <section id="about">
         <h2>About</h2>
-        <div class="content" style="display: flex; align-items: flex-start; margin-top: -20px; text-align: left;">
-            <img src="static/images/logo.jpg" alt="Logo" style="width: 160px; height: auto; margin-right: 30px;"> <!-- Updated logo spacing -->
+        <div class="content about">
+            <img src="static/images/ftw_logo.png" alt="FTW logo">
             <div>
                 <p>
-                    <strong>Fields of The World (FTW)</strong> is a comprehensive benchmark dataset designed to enhance the development of machine learning models for instance segmentation of agricultural field boundaries. It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 27 countries.
+                    <strong>Fields of The World (FTW)</strong> is a comprehensive benchmark dataset designed to enhance the development of machine learning models for instance segmentation of agricultural field boundaries.
+                    It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 27 countries.
                 </p>
-                <!-- p><a href="#">Learn more</a></p -->
             </div>
         </div>
     </section>
