@@ -38,10 +38,6 @@
     }
     /* Header Styling */
     header {
-        background-image: url('static/images/banner3.webp');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
         height: 30vh; /* Reduced height */
         display: flex;
         flex-direction: column;
@@ -50,6 +46,53 @@
         text-align: center;
         position: relative;
         min-height: 250px;
+    }
+    header .fadein,
+    header .fadein img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    header .fadein img {
+        animation-name: fade;
+        animation-iteration-count: infinite;
+        animation-duration: 6s;
+    }
+    @-webkit-keyframes fade {
+        0% {opacity: 1;}
+        33% {opacity: 1;}
+        43% {opacity: 0;}
+        90% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    @keyframes fade {
+        0% {opacity: 1;}
+        33% {opacity: 1;}
+        43% {opacity: 0;}
+        90% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    #b1 {
+        animation-delay: -6s;
+        z-index: 1;
+    }
+    #b2 {
+        animation-delay: -4s;
+        z-index: 2;
+    }
+    #b3 {
+        animation-delay: -2s;
+        z-index: 3;
+    }
+    #b2, #b3 {
+        opacity: 0;
+        animation-name: fade;
+        animation-iteration-count: infinite;
+        animation-duration: 6s;
     }
     header::before {
         content: '';
@@ -66,14 +109,14 @@
         margin-top: 2rem;
         margin-bottom: 0.5rem;
         position: relative;
-        z-index: 2;
+        z-index: 4;
         text-shadow: 2px 2px 5px rgba(25, 35, 15, 0.7); /* Dark green shadow for readability */
     }
     header p {
         font-size: 1.5rem;
         margin-bottom: 1rem;
         position: relative;
-        z-index: 2;
+        z-index: 4;
         text-shadow: 1px 1px 3px rgba(25, 35, 15, 0.5); /* Dark green shadow for readability */
     }
     /* Navigation Bar */
@@ -263,6 +306,11 @@
 
     <!-- Header Section -->
     <header>
+        <div class="fadein">
+            <img id="b1" src="static/images/banner1.webp" alt="FTW Original">
+            <img id="b2" src="static/images/banner2.webp" alt="FTW Instance Mask">
+            <img id="b3" src="static/images/banner3.webp" alt="FTW Semantic Mask">
+        </div>
         <h1>Fields of The World (FTW)</h1>
         <p>A Comprehensive Benchmark Dataset for Agricultural Field Boundaries</p>
     </header>
