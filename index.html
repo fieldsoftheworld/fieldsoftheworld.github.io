@@ -60,39 +60,40 @@
     header .fadein img {
         animation-name: fade;
         animation-iteration-count: infinite;
-        animation-duration: 6s;
+        animation-duration: 9s;
     }
     @-webkit-keyframes fade {
         0% {opacity: 1;}
-        33% {opacity: 1;}
-        43% {opacity: 0;}
-        90% {opacity: 0;}
+        28% {opacity: 1;}
+        38% {opacity: 0;}
+        85% {opacity: 0;}
         100% {opacity: 1;}
     }
     @keyframes fade {
         0% {opacity: 1;}
-        33% {opacity: 1;}
-        43% {opacity: 0;}
-        90% {opacity: 0;}
+        28% {opacity: 1;}
+        38% {opacity: 0;}
+        85% {opacity: 0;}
         100% {opacity: 1;}
     }
     #b1 {
-        animation-delay: -6s;
+        animation-delay: -9s;
         z-index: 1;
+        opacity: 1 !important;
     }
     #b2 {
-        animation-delay: -4s;
+        animation-delay: -6s;
         z-index: 2;
     }
     #b3 {
-        animation-delay: -2s;
+        animation-delay: -3s;
         z-index: 3;
     }
     #b2, #b3 {
         opacity: 0;
         animation-name: fade;
         animation-iteration-count: infinite;
-        animation-duration: 6s;
+        animation-duration: 9s;
     }
     header::before {
         content: '';
@@ -144,7 +145,7 @@
     nav ul li a {
         color: #fff;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: normal;
         transition: color 0.3s;
     }
     nav ul li a:hover {
