@@ -5,9 +5,12 @@ layout: default
 <h2>Tutorial: Run the FTW Baseline model</h2>
 <div class="content">
     <section id="tutorial-content" class="left-justified">
-        <p>This is a quick tutorial on how to download and format a pair of Sentinel-2 scenes for inference, run a FTW Baseline model and produce <a href="https://github.com/fieldsoftheworld/fiboa">fiboa</a> (GeoParquet) output. You can do this for anywhere in the world, and we'll use a small area in Austria for this example. The following animated gif shows the process:</p>
-        <img src="static/images/ftw-example.gif" alt="Tutorial 1" style="width: 100%;">
-        <h4 style="text-align: center; font-weight: normal;">(It's ~30mb so it may take a while to load on slower connections)</h4>
+        <p>This is a quick tutorial on how to download and format a pair of Sentinel-2 scenes for inference, run a FTW Baseline model and produce <a href="https://github.com/fieldsoftheworld/fiboa">fiboa</a> (GeoParquet) output. You can do this for anywhere in the world, and we'll use a small area in Austria for this example. The following video shows the process:</p>
+
+        <video width="800px" height="452" controls muted>
+            <source src="/static/videos/ftw-tutorial.webm" type="video/webm">
+            Download the <a href="/static/videos/ftw-tutorial.webm">video</a>
+        </video>
     
         <h3>Downloading the Model</h3>
         <p>The easiest way to get started is to download the model from the <a href="https://github.com/fieldsoftheworld/ftw-baselines">FTW Baseline repo</a>. Just navigate to the <a href="https://github.com/fieldsoftheworld/ftw-baselines/releases">Releases</a> page and select any of the four models for download. There's not a ton of difference between two class and three class models - the two classes are field and non-field, and the third class is the boundary (but it's not used in the polygonization / fiboa output).</p>

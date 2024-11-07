@@ -292,3 +292,7 @@ pre {
 code {
   color: maroon;
 }
+
+video {
+    margin: 1em 0;
+}
