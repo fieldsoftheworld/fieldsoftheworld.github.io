@@ -166,14 +166,19 @@ main {
 main h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-align: center;
   color: #5f7f55; /* Green tone for headings */
+  text-align: center;
+}
+.index h3 {
+  font-size: 1.5rem;
+}
+.index h3, .index .content {
+    text-align: center;
 }
 .content {
   max-width: 800px;
   margin: auto;
   font-size: 1.2rem;
-  text-align: center;
 }
 .content p {
   margin-bottom: 1.5rem;
@@ -223,7 +228,7 @@ main h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 1rem 0;
 }
 .cta-buttons a {
   margin: 0.5rem;
@@ -272,10 +277,6 @@ footer {
 
 .dark-green-background a:hover {
   text-decoration: underline;
-}
-
-.left-justified {
-  text-align: left;
 }
 
 .license-img {

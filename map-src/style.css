@@ -33,9 +33,12 @@ h1 {
   text-align: center;
 }
 
-h1 .back, h1 .back:hover {
+h1 .links {
   display: block;
   font-size: 0.85rem;
+}
+
+h1 a, a:hover {
   color: white;
   text-decoration: underline;
 }
