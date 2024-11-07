@@ -142,12 +142,12 @@ nav ul li a:hover {
     }
 }
 /* Section Styling */
-section {
+main {
     padding: 2rem 2rem; /* Reduced padding */
     max-width: 1200px;
     margin: auto;
 }
-section h2 {
+main h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -260,4 +260,10 @@ footer {
 
   .left-justified {
       text-align: left;
+  }
+
+  .license-img {
+    height: 22px !important;
+    margin-left: 3px;
+    vertical-align: text-bottom;
   }
