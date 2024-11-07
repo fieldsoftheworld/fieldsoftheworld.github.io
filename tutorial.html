@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutorial - Fields of The World (FTW)</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+
+    <!-- Include the header -->
+    <header>
+        <div class="fadein">
+            <img id="b1" src="static/images/banner1.webp" alt="FTW Original">
+            <img id="b2" src="static/images/banner2.webp" alt="FTW Instance Mask">
+            <img id="b3" src="static/images/banner3.webp" alt="FTW Semantic Mask">
+        </div>
+        <h1>Fields of The World (FTW)</h1>
+        <p>A Comprehensive Benchmark Dataset for Agricultural Field Boundaries</p>
+    </header>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#features">Key Features</a></li>
+            <li><a href="index.html#get-started">Get Started</a></li>
+            <li><a href="index.html#why">Why?</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+            <li><a href="map/">Map</a></li>
+            <li><a href="paper.html">Paper</a></li>
+        </ul>
+    </nav>
+    <!-- Contributing Content -->
+    <section id="tutorial">
+        <h2>Tutorial: Run the FTW Baseline model</h2>
+        <div class="content">
+            <section id="tutorial-content" class="left-justified">
+                <p>This is a quick tutorial on how to download and format a pair of Sentinel-2 scenes for inference, run a FTW Baseline model and produce <a href="https://github.com/fieldsoftheworld/fiboa">fiboa</a> (GeoParquet) output. You can do this for anywhere in the world, and we'll use a small area in Austria for this example. The following animated gif shows the process:</p>
+                <img src="static/images/ftw-example.gif" alt="Tutorial 1" style="width: 100%;">
+                <h4 style="text-align: center; font-weight: normal;">(It's ~30mb so it may take a while to load on slower connections)</h4>
+            
+                <h3>Downloading the Model</h3>
+                <p>The easiest way to get started is to download the model from the <a href="https://github.com/fieldsoftheworld/ftw-baselines">FTW Baseline repo</a>. Just navigate to the <a href="https://github.com/fieldsoftheworld/ftw-baselines/releases">Releases</a> page and select any of the four models for download. There's not a ton of difference between two class and three class models - the two classes are field and non-field, and the third class is the boundary (but it's not used in the polygonization / fiboa output).</p>
+                <p>The 'CCBY' models are trained only on data with <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a> licenses (or more liberal ones), so they are best for companies who want to be sure the IP in the model is totally clean. The 'FULL' models use all the datasets in FTW - all data in FTW is openly licensed, but there are 'share-alike' and 'non-commercial' licenses in the full dataset. You can see detailed licensing information for each dataset at the bottom of the <a href="https://source.coop/repositories/kerner-lab/fields-of-the-world/description">FTW data homepage</a> in Source Cooperative. It's relatively easy to <a href="https://github.com/fieldsoftheworld/ftw-baselines/blob/main/EXPERIMENTS.md">train your own models</a>, selecting exactly which datasets to use, but for this exercise we'll just use the pre-trained models.</p>
+            
+                <h3>Downloading the Data</h3>
+                <p>After downloading the model, you can run the following command to download a pair of Sentinel-2 scenes for the area of interest. This will download the data to the current directory as a file named <code>austria.tif</code>.</p>
+                <pre><code>ftw inference download \
+    --win_a S2B_MSIL2A_20210617T100559_R022_T33UUP_20210624T063729 \
+    --win_b S2B_MSIL2A_20210925T101019_R022_T33UUP_20210926T121923 \
+    -f -o austria.tif --bbox=12.7,48.4,12.97,48.57</code></pre>
+                <p>This will create an 8-band GeoTiff file with the first four bands as the RGB + NIR bands of the first scene, and the last four bands as the RGB + NIR bands of the second scene. You can select your own Sentinel-2 scenes, we recommend using the <a href="https://planetarycomputer.microsoft.com/explore">Planetary Computer Explore tool</a> to find scenes in your desired AOI.</p>
+                <p>To select the timeframe for the two images (Window A and Window B), look at the <a href="https://ipad.fas.usda.gov/ogamaps/cropcalendar.aspx">crop calendar</a> by USDA to findthe approximate time for planting and harvesting. For example, if you open the crop calendar and select <a href="https://ipad.fas.usda.gov/rssiws/al/crop_calendar/che.aspx">China</a>, you will find that most of the crops are planted from Feb to May, and harvested from Aug to Nov. We then put these dates as filtering parameters in the Planetary Computer Explorer. Set the cloud threshold to 10% or less. Then select a clear observation that covers the full area of interest.</p>
+                <p>You can include a bounding box to select a subset of the Sentinel-2 scenes. If you don't include a bounding box the tool will download the entire scene, which can take awhile to download and to run inference on. We selected a relatively small area so that you can run see the results in a reasonable amount of time.</p>
+            
+                <h3>Running the Model</h3>
+                <p>Now that you've got the data downloaded and in the right input format, you can run the model. You'll want to copy the model from where you downloaded it to the current directory, and then run the following command:</p>
+                <pre><code>ftw inference run austria.tif -f -o austria-inf.tif \
+    --gpu 0 -m 3_Class_FULL_FTW_Pretrained.ckpt</code></pre>
+                <p>This will run the model and save the output as a GeoTiff file named <code>austria-inf.tif</code>. The <code>--gpu</code> flag specifies which GPU to use (starting from 0). If you don't specify a GPU it will run on the CPU, and likely take a while. If you're on an Apple Silicon GPU you can use the <code>--mps_mode</code> flag and it should help.</p>
+                <p>The results should look something like this (overlaid on the original data, in QGIS):</p>
+                <img src="static/images/austria-inf.webp" alt="Inference Result" style="width: 100%;">
+            
+                <h3>Producing Vector Output</h3>
+                <p>Next we'll polygonize the output to produce a vector file. We'll use the polygonize command for this.</p>
+                <pre><code>ftw inference polygonize austria-inf.tif</code></pre>
+                <p>This will create a GeoParquet file named <code>austria-inf.parquet</code> in the current directory. It will follow the <a href="https://github.com/fieldsoftheworld/fiboa">Fiboa standard</a> for geospatial data, and include the area. The polygonization algorithm is not very complex - right now it simplifies things to 15 meters, which smoothes the edges, and removes any polygons that are under 500 meters (configurable with the <code>--simplify</code> flag). We hope to offer more polygonization options in the future, and <a href="contributing.html">contributions are welcome</a>. You can also generate GeoJSON, FlatGeobuf or GeoPackage output, just use the <code>--output</code> flag and end the file name with the appropriate extension.</p>
+                <p>If you haven't managed to get things working feel free to or <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues">file an issue</a> and let us know where things went wrong, and we'll hopefully be able to help you out.</p>
+            
+                <h3>Summary</h3>
+                <p>You've done it! You've successfully run a model to generate field boundaries. You can try out the different models and see results in different areas, and even try to train your own models or contribute more training data. Remember that the results won't always be perfect, but our goal is to get the right feedback loops and 'architectures of participation' so that we're all working collaboratively to build robust, global models that will work anywhere. If you've made it this far we'd love to hear from you, so please <a href="https://github.com/orgs/fieldsoftheworld/discussions">start a discussion</a> with your experiences, use cases, and any questions or feedback.</p>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="dark-green-background">
+            <a property="dct:title" rel="cc:attributionURL" href="https://fieldsofthe.world">Fields of the World website</a> is licensed under 
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                CC BY-SA 4.0
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+            </a>
+        </p>
+    </footer>
+
+</body>
+</html>
