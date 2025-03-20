@@ -87,7 +87,6 @@ for (const year of [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017]) {
     visible: false,
     source: new XYZ({
       url: `https://tiles.maps.eox.at/wmts?layer=s2cloudless-${year}_3857&style=default&tilematrixset=GoogleMapsCompatible&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}`,
-      attributions: `Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data ${year}`
     })
   }))
 }
@@ -134,10 +133,16 @@ function createCustomLayerSwitcher() {
         });
         s2Layers.forEach(layer => {
           layer.setVisible(layer.get('title') === e.target.value);
+          if (layer.get('title') === e.target.value) {
+            // Show attribution for selected layer
+            attribution.innerHTML = `Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data ${e.target.value})`;
+            attribution.style.display = 'block';
+          }
         });
       } else {
-        // If unchecking, hide all s2 layers
+        // If unchecking, hide all s2 layers and attribution
         s2Layers.forEach(layer => layer.setVisible(false));
+        attribution.style.display = 'none';
       }
     });
   });
@@ -276,3 +281,15 @@ function getYearFromTimestamp(timestamp) {
   
   return null;
 }
+
+// Create attribution element
+function createAttribution() {
+  const attribution = document.createElement('div');
+  attribution.className = 'map-attribution';
+  attribution.style.display = 'none';
+  return attribution;
+}
+
+// Add attribution to map
+const attribution = createAttribution();
+map.getTargetElement().appendChild(attribution);

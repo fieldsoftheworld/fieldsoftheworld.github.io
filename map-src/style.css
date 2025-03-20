@@ -259,7 +259,7 @@ h1 a, a:hover {
 .ol-zoom {
   top: auto;
   left: auto;
-  bottom: 20px;
+  bottom: 45px;
   left: 20px;
 }
 
@@ -285,4 +285,18 @@ h1 a, a:hover {
 .ol-zoom-in:hover,
 .ol-zoom-out:hover {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Attribution styles */
+.map-attribution {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  z-index: 1000;
+  line-height: 1.4;
 }
