@@ -170,6 +170,7 @@ h1 a, a:hover {
 .layer-options label {
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -237,6 +238,7 @@ h1 a, a:hover {
 }
 
 .legend-item {
+  font-size: 14px;
   display: flex;
   align-items: center;
   margin: 4px 0;
