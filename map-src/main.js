@@ -82,7 +82,7 @@ map.getTargetElement().appendChild(legend);
 const s2Layers = [];
 for (const year of [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017]) {
   s2Layers.push(new TileLayer({
-    title: `Sentinel 2 ${year}`,
+    title: `${year}`,
     displayInLayerSwitcher: true,
     visible: false,
     source: new XYZ({
@@ -111,7 +111,7 @@ function createCustomLayerSwitcher() {
     <div class="group-title">Sentinel 2</div>
     <div class="layer-options">
       ${s2Layers.map((layer, index) => {
-        const year = layer.get('title').split(' ')[2]; // Extract year from title
+        const year = layer.get('title'); // Extract year from title
         return `
           <label>
             <input type="checkbox" name="s2" value="${layer.get('title')}" data-year="${year}">
@@ -254,7 +254,7 @@ function getSelectedFieldBoundary(event, features) {
     const selectedYear = getYearFromTimestamp(properties.determination_datetime.split('T')[0]);
     if (selectedYear) {
       s2Layers.forEach(layer => {
-        layer.setVisible(layer.get('title').includes(selectedYear.toString()));
+        layer.setVisible(layer.get('title') === selectedYear.toString());
       });
     }
   }
