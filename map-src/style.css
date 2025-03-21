@@ -14,7 +14,18 @@ html, body {
   z-index: 1;
 }
 
-a {
+.source-link {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.source-link a {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+.source-link a:hover {
   color: #0077cc;
   text-decoration: underline;
 }
@@ -61,6 +72,7 @@ h1 a, a:hover {
   min-width: 400px;
   max-height: 400px;
   overflow: auto;
+  text-transform: capitalize; 
 }
 .ol-popup p {
   margin: 0.5rem 0;
@@ -81,4 +93,210 @@ h1 a, a:hover {
 .ol-popup ul li {
   list-style: none;
   margin: 0 0 0.25rem;
+}
+
+.ol-layerswitcher {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.ol-layerswitcher .layerswitcher {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ol-layerswitcher .layerswitcher li {
+  margin: 5px 0;
+}
+
+.ol-layerswitcher .layerswitcher input[type="radio"] {
+  margin-right: 5px;
+}
+
+.ol-layerswitcher .layerswitcher .group {
+  margin-left: 15px;
+  border-left: 2px solid #ccc;
+  padding-left: 10px;
+}
+
+.ol-layerswitcher .layerswitcher .group li {
+  margin: 3px 0;
+}
+
+.ol-layerswitcher .layerswitcher label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ol-layerswitcher .layerswitcher input[type="radio"]:checked + label {
+  font-weight: bold;
+  color: #2196F3;
+}
+
+/* Layer switcher styles */
+.custom-layer-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+.layer-group {
+  margin-bottom: 10px;
+}
+
+.group-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.layer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.layer-options label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+}
+
+.layer-options input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid white;
+  border-radius: 2px;
+  position: relative;
+}
+
+/* Year-specific checkbox colors - only apply when checked */
+.layer-options input[type="checkbox"][data-year="2024"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2023"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2022"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2021"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2020"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2019"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2018"]:checked { border-color: white; }
+.layer-options input[type="checkbox"][data-year="2017"]:checked { border-color: white; }
+
+/* Checkbox checked state */
+.layer-options input[type="checkbox"]:checked {
+  background-color: black;
+}
+
+/* Custom checkmark */
+.layer-options input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Legend styles */
+.map-legend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+.legend-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.legend-item {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border: 1px solid white;
+}
+
+.legend-label {
+  color: white;
+}
+
+/* Zoom controls positioning */
+.ol-zoom {
+  top: auto;
+  left: auto;
+  bottom: 45px;
+  left: 20px;
+}
+
+.ol-zoom-in,
+.ol-zoom-out {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  color: white !important;
+  border: 1px solid white !important;
+  margin: 2px;
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 18px !important;
+}
+
+.ol-zoom-in {
+  border-radius: 5px 5px 0 0 !important;
+}
+
+.ol-zoom-out {
+  border-radius: 0 0 5px 5px !important;
+}
+
+.ol-zoom-in:hover,
+.ol-zoom-out:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Attribution styles */
+.map-attribution {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  z-index: 1000;
+  line-height: 1.4;
 }
