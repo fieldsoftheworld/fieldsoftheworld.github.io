@@ -1,6 +1,6 @@
 import { Map, Overlay, View } from "ol";
-import { getCenter } from "ol/extent";
 import { PMTilesVectorSource } from "ol-pmtiles";
+import LayerGroup from 'ol/layer/Group';
 import VectorTile from "ol/layer/VectorTile";
 import TileLayer from 'ol/layer/WebGLTile.js';
 import { useGeographic } from 'ol/proj';
@@ -8,7 +8,6 @@ import { XYZ } from "ol/source";
 import Fill from "ol/style/Fill";
 import Stroke from "ol/style/Stroke";
 import Style from "ol/style/Style";
-import LayerGroup from 'ol/layer/Group';
 import "./style.css";
 
 const URL = 'https://data.source.coop/kerner-lab/fields-of-the-world/ftw-sources.pmtiles';
