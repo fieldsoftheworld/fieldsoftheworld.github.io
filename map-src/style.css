@@ -311,7 +311,7 @@ h1 a, a:hover {
 }
 
 /* CARTO attribution styles */
-.carto-attribution {
+.basemap-attribution {
   position: absolute;
   bottom: 5px;
   right: 20px;
@@ -323,11 +323,11 @@ h1 a, a:hover {
   z-index: 1000;
 }
 
-.carto-attribution a {
+.basemap-attribution a {
   color: white;
   text-decoration: none;
 }
 
-.carto-attribution a:hover {
+.basemap-attribution a:hover {
   text-decoration: underline;
 }

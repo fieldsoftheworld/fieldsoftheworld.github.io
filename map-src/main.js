@@ -294,13 +294,13 @@ const attribution = createAttribution();
 map.getTargetElement().appendChild(attribution);
 
 // Create CARTO attribution element
-function createCartoAttribution() {
+function createMapAttribution() {
   const attribution = document.createElement('div');
-  attribution.className = 'carto-attribution';
+  attribution.className = 'basemap-attribution';
   attribution.innerHTML = '<a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors. &copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>';
   return attribution;
 }
 
 // Add CARTO attribution to map
-const cartoAttribution = createCartoAttribution();
+const cartoAttribution = createMapAttribution();
 map.getTargetElement().appendChild(cartoAttribution);
