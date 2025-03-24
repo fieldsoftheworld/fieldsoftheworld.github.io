@@ -21,7 +21,7 @@ const map = new Map({
     displayInLayerSwitcher: false,
     title: 'Light Base',
     source: new XYZ({
-      url: 'https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png'
+      url: 'https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png',
     })
   })],
   view: new View({
@@ -134,7 +134,7 @@ function createCustomLayerSwitcher() {
           layer.setVisible(layer.get('title') === e.target.value);
           if (layer.get('title') === e.target.value) {
             // Show attribution for selected layer
-            attribution.innerHTML = `Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data ${e.target.value})`;
+            attribution.innerHTML = `Sentinel-2 cloudless - <a href="https://s2maps.eu" target="_blank">https://s2maps.eu</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data ${e.target.value})`;
             attribution.style.display = 'block';
           }
         });
@@ -292,3 +292,15 @@ function createAttribution() {
 // Add attribution to map
 const attribution = createAttribution();
 map.getTargetElement().appendChild(attribution);
+
+// Create CARTO attribution element
+function createCartoAttribution() {
+  const attribution = document.createElement('div');
+  attribution.className = 'carto-attribution';
+  attribution.innerHTML = '<a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors. &copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>';
+  return attribution;
+}
+
+// Add CARTO attribution to map
+const cartoAttribution = createCartoAttribution();
+map.getTargetElement().appendChild(cartoAttribution);
