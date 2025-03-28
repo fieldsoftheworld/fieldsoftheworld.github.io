@@ -72,11 +72,17 @@ vi.mock('ol/layer/Group', async (importOriginal) => {
   };
 });
 
+vi.mock('ol/control/defaults', async (importOriginal) => {
+  const defaults = await importOriginal();
+  return vi.fn().mockImplementation(() => defaults);
+});
+
 //mock ol/Map
 vi.mock('ol/Map', async (importOriginal) => {
   const map = await importOriginal();
   return {
     ...map,
+    defaultControls: vi.fn(),
     addLayer: vi.fn(),
     getLayers: vi.fn(),
     getView: vi.fn(),
