@@ -31,7 +31,6 @@ describe('MapPopup', () => {
 
     // Mock document methods
     document.getElementById = vi.fn().mockReturnValue(mockPopup);
-    
     // Mock overlay
     mockOverlay = {
       getElement: vi.fn().mockReturnValue(mockPopup),

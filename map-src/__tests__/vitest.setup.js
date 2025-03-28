@@ -20,6 +20,10 @@ vi.stubGlobal('document', {
   createTextNode: vi.fn(),
   querySelector: vi.fn(),
   querySelectorAll: vi.fn().mockReturnValue([]),
+  getElementById: vi.fn().mockReturnValue({ 
+    querySelector: vi.fn(),
+    querySelectorAll: vi.fn().mockReturnValue([])
+  }),
   body: {
     appendChild: vi.fn(),
     removeChild: vi.fn()
@@ -82,6 +86,7 @@ vi.mock('ol/Map', async (importOriginal) => {
   const map = await importOriginal();
   return {
     ...map,
+    target: 'map',
     defaultControls: vi.fn(),
     addLayer: vi.fn(),
     getLayers: vi.fn(),

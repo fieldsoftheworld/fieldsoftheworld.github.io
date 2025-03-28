@@ -12,7 +12,8 @@ describe('MapLegend', () => {
 
     // Mock DOM elements
     mockContainer = {
-      appendChild: vi.fn()
+      appendChild: vi.fn(),
+      id: 'map'
     };
 
     // Mock document methods

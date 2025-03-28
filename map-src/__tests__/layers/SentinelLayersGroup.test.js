@@ -4,8 +4,15 @@ import { XYZ } from 'ol/source';
 import LayerGroup from 'ol/layer/Group';
 import { createSentinelLayersGroup } from '../../layers/SentinelLayersGroup';
 
+const MockMap = vi.fn();
+MockMap.prototype.addLayer = vi.fn();
+MockMap.prototype.getTargetElement = vi.fn().mockReturnValue({
+  appendChild: vi.fn(),
+  id: 'map'
+});
+MockMap.prototype.querySelectorAll = vi.fn().mockReturnValue([]);
 describe('SentinelLayersGroup', () => {
-  const mockMap = new Map();
+  const mockMap = new MockMap();
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -27,7 +34,7 @@ describe('SentinelLayersGroup', () => {
     expect(layer.getProperties().displayInLayerSwitcher).toBe(true);
     expect(layer.getProperties().visible).toBe(false);
     expect(layer.getProperties().source).toBeInstanceOf(XYZ);
-    expect(layer.getProperties().source.urls).toContain('s2cloudless-2024_3857');
+    expect(layer.getProperties().source.urls[0]).toContain('s2cloudless-2024_3857');
   });
 
   it('creates a layer group with correct configuration', () => {
@@ -35,9 +42,9 @@ describe('SentinelLayersGroup', () => {
     const group = mockMap.addLayer.mock.calls[0][0];
 
     expect(group).toBeInstanceOf(LayerGroup);
-    expect(group.title).toBe('Sentinel 2');
-    expect(group.displayInLayerSwitcher).toBe(true);
-    expect(group.layers).toHaveLength(8);
+    expect(group.getProperties().title).toBe('Sentinel 2');
+    expect(group.getProperties().displayInLayerSwitcher).toBe(true);
+    expect(group.getProperties().layers.array_).toHaveLength(8);
   });
 
   it('adds the layer group to the map', () => {

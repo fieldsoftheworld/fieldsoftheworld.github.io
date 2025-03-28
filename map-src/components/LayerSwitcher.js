@@ -1,5 +1,6 @@
 export function createCustomLayerSwitcher(s2Layers, attribution, map) {
   const container = document.createElement('div');
+  container.id = 'custom-layer-switcher';
   container.className = 'custom-layer-switcher';
 
   // Create Sentinel 2 radio group
