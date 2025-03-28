@@ -1,26 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { getFieldStyle } from '../../functions/MapStyles';
 import Style from 'ol/style/Style';
-import Fill from 'ol/style/Fill';
-import Stroke from 'ol/style/Stroke';
-
-// Mock OpenLayers style classes
-vi.mock('ol/style/Style', async (importOriginal) => {
-  const style = await importOriginal();
-  return {
-    ...style,
-    getFill: vi.fn().mockReturnValue(style.fill),
-    getStroke: vi.fn().mockReturnValue(style.stroke)
-  };
-});
-
-vi.mock('ol/style/Fill', () => ({
-  default: vi.fn().mockImplementation((options) => options)
-}));
-
-vi.mock('ol/style/Stroke', () => ({
-  default: vi.fn().mockImplementation((options) => options)
-}));
 
 describe('MapStyles', () => {
   describe('getFieldStyle', () => {

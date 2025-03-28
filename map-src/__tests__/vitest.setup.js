@@ -17,6 +17,7 @@ vi.stubGlobal('document', {
     querySelector: vi.fn(),
     querySelectorAll: vi.fn().mockReturnValue([])
   })),
+  createTextNode: vi.fn(),
   querySelector: vi.fn(),
   querySelectorAll: vi.fn().mockReturnValue([]),
   body: {
@@ -46,3 +47,67 @@ vi.stubGlobal('IntersectionObserver', vi.fn().mockImplementation(() => ({
   unobserve: vi.fn(),
   disconnect: vi.fn()
 }))); 
+
+vi.mock('ol/layer/WebGLTile', async (importOriginal) => {
+  const layer = await importOriginal();
+  return {
+    ...layer,
+    setMap: vi.fn()
+  };
+});
+
+vi.mock('ol/source/XYZ', async (importOriginal) => {
+  const source = await importOriginal();
+  return {
+    ...source,
+    getUrl: vi.fn()
+  };
+});
+
+vi.mock('ol/layer/Group', async (importOriginal) => {
+  const group = await importOriginal();
+  return {
+    ...group,
+    setMap: vi.fn()
+  };
+});
+
+//mock ol/Map
+vi.mock('ol/Map', async (importOriginal) => {
+  const map = await importOriginal();
+  return {
+    ...map,
+    addLayer: vi.fn(),
+    getLayers: vi.fn(),
+    getView: vi.fn(),
+    defaultControls: vi.fn(),
+    removeControl: vi.fn(),
+    getControls: vi.fn(),
+    getTarget: vi.fn(),
+    getSize: vi.fn(),
+    getPixel: vi.fn(),
+    getTopLeft: vi.fn(),
+    getTopRight: vi.fn(),
+    getBottomLeft: vi.fn(),
+    getBottomRight: vi.fn(),
+    getCenter: vi.fn(),
+    getZoom: vi.fn(),
+  };
+});
+
+vi.mock('ol/style/Style', async (importOriginal) => {
+  const style = await importOriginal();
+  return {
+    ...style,
+    getFill: vi.fn().mockReturnValue(style.fill),
+    getStroke: vi.fn().mockReturnValue(style.stroke)
+  };
+});
+
+vi.mock('ol/style/Fill', () => ({
+  default: vi.fn().mockImplementation((options) => options)
+}));
+
+vi.mock('ol/style/Stroke', () => ({
+  default: vi.fn().mockImplementation((options) => options)
+}));

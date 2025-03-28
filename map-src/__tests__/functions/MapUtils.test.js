@@ -7,26 +7,6 @@ import {
   handleMapMoveEnd 
 } from '../../functions/MapUtils';
 
-// Mock document methods
-vi.stubGlobal('document', {
-  querySelectorAll: vi.fn().mockReturnValue([
-    {
-      getAttribute: vi.fn().mockReturnValue('2024'),
-      checked: false,
-      setAttribute: vi.fn(),
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn()
-    },
-    {
-      getAttribute: vi.fn().mockReturnValue('2023'),
-      checked: false,
-      setAttribute: vi.fn(),
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn()
-    }
-  ])
-});
-
 describe('MapUtils', () => {
   describe('getYearFromTimestamp', () => {
     it('returns year from valid ISO date string', () => {
