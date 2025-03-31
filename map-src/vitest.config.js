@@ -11,7 +11,9 @@ export default defineConfig({
       exclude: [
         'node_modules/',
         '**/__tests__/**',
-        '**/testUtils.js'
+        '**/testUtils.js',
+        'vitest.config.js',
+        'vite.config.js'
       ]
     }
   }
