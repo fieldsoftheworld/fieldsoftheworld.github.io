@@ -4,10 +4,28 @@ import {
   getYearFromTimestamp, 
   handleMapClick, 
   handleMapPointerMove, 
-  handleMapMoveEnd 
+  handleMapMoveEnd
 } from '../../functions/MapUtils';
+import { createMapAttribution } from '../../components/MapAttribution';
+const MockMap = vi.fn();
+MockMap.prototype.getTargetElement = vi.fn().mockReturnValue({
+  appendChild: vi.fn(),
+  id: 'map',
+  style: {
+    cursor: 'pointer'
+  }
+});
+MockMap.prototype.querySelectorAll = vi.fn().mockReturnValue([]);
+MockMap.prototype.addOverlay = vi.fn();
+MockMap.prototype.hasFeatureAtPixel = vi.fn().mockReturnValue(true);
+MockMap.prototype.getFeaturesAtPixel = vi.fn().mockReturnValue([{
+  getProperties: vi.fn().mockReturnValue({
+    determination_datetime: '2024-03-28T00:00:00'
+  })
+}])
 
 describe('MapUtils', () => {
+  const mockMap = new MockMap();
   describe('getYearFromTimestamp', () => {
     it('returns year from valid ISO date string', () => {
       expect(getYearFromTimestamp('2024-03-28')).toBe(2024);
@@ -52,7 +70,8 @@ describe('MapUtils', () => {
     });
 
     it('generates content with field properties', () => {
-      const content = getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay);
+      const attribution = createMapAttribution(mockMap);
+      const content = getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay, attribution);
       
       expect(content).toContain('<h3>Test Field</h3>');
       expect(content).toContain('<li><strong>area:</strong> 1,000</li>');
@@ -68,20 +87,22 @@ describe('MapUtils', () => {
           dataset: 'test-dataset'
         })
       }];
-
-      const content = getSelectedFieldBoundary(mockEvent, featuresWithoutTitle, mockS2Layers, mockOverlay);
+      const attribution = createMapAttribution(mockMap);
+      const content = getSelectedFieldBoundary(mockEvent, featuresWithoutTitle, mockS2Layers, mockOverlay, attribution);
       expect(content).toContain('<h3>123</h3>');
     });
 
     it('updates layer visibility based on year', () => {
-      getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay);
+      const attribution = createMapAttribution(mockMap);
+      getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay, attribution);
       
       expect(mockS2Layers[0].setVisible).toHaveBeenCalledWith(true);
       expect(mockS2Layers[1].setVisible).toHaveBeenCalledWith(false);
     });
 
     it('handles empty features array', () => {
-      const content = getSelectedFieldBoundary(mockEvent, [], mockS2Layers, mockOverlay);
+      const attribution = createMapAttribution(mockMap);
+      const content = getSelectedFieldBoundary(mockEvent, [], mockS2Layers, mockOverlay, attribution);
       expect(content).toBe('');
       expect(mockOverlay.setPosition).toHaveBeenCalledWith(undefined);
     });
@@ -91,14 +112,6 @@ describe('MapUtils', () => {
     const mockEvent = {
       pixel: [100, 100],
       coordinate: [0, 0]
-    };
-
-    const mockMap = {
-      getFeaturesAtPixel: vi.fn().mockReturnValue([{
-        getProperties: vi.fn().mockReturnValue({
-          determination_datetime: '2024-03-28T00:00:00'
-        })
-      }])
     };
 
     const mockS2Layers = [
@@ -137,13 +150,6 @@ describe('MapUtils', () => {
   describe('handleMapPointerMove', () => {
     const mockEvent = {
       pixel: [100, 100]
-    };
-
-    const mockMap = {
-      hasFeatureAtPixel: vi.fn(),
-      getTargetElement: vi.fn().mockReturnValue({
-        style: {}
-      })
     };
 
     beforeEach(() => {
