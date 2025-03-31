@@ -1,12 +1,17 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { createMapPopup } from '../../components/MapPopup';
-import Map from 'ol/Map';
-import Overlay from 'ol/Overlay';
+
+const MockMap = vi.fn();
+MockMap.prototype.getTargetElement = vi.fn().mockReturnValue({
+  appendChild: vi.fn(),
+  id: 'map'
+});
+MockMap.prototype.querySelectorAll = vi.fn().mockReturnValue([]);
+MockMap.prototype.addOverlay = vi.fn();
 
 describe('MapPopup', () => {
-  const mockMap = new Map();
+  const mockMap = new MockMap();
   let mockPopup;
-  let mockOverlay;
 
   beforeEach(() => {
     // Reset DOM mocks
@@ -31,16 +36,6 @@ describe('MapPopup', () => {
 
     // Mock document methods
     document.getElementById = vi.fn().mockReturnValue(mockPopup);
-    // Mock overlay
-    mockOverlay = {
-      getElement: vi.fn().mockReturnValue(mockPopup),
-      getPositioning: vi.fn().mockReturnValue('bottom-center'),
-      getStopEvent: vi.fn().mockReturnValue(true),
-      setPosition: vi.fn()
-    };
-
-    // Mock Overlay constructor
-    vi.mocked(Overlay).mockImplementation(() => mockOverlay);
   });
 
   it('creates popup with correct structure', () => {
@@ -50,11 +45,11 @@ describe('MapPopup', () => {
     expect(overlay).toBeDefined();
     expect(overlay.getElement()).toBe(mockPopup);
     expect(overlay.getPositioning()).toBe('bottom-center');
-    expect(overlay.getStopEvent()).toBe(true);
+    expect(overlay.stopEvent).toBe(true);
   });
 
   it('adds overlay to map', () => {
-    createMapPopup(mockMap);
-    expect(mockMap.addOverlay).toHaveBeenCalledWith(mockOverlay);
+    const { overlay } = createMapPopup(mockMap);
+    expect(mockMap.addOverlay).toHaveBeenCalledWith(overlay);
   });
 }); 

@@ -1,20 +1,19 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { createMapAttribution } from '../../components/MapAttribution';
-import Map from 'ol/Map';
+
+const MockMap = vi.fn();
+MockMap.prototype.getTargetElement = vi.fn().mockReturnValue({
+  appendChild: vi.fn(),
+  id: 'map'
+});
+MockMap.prototype.querySelectorAll = vi.fn().mockReturnValue([]);
 
 describe('MapAttribution', () => {
-  const mockMap = new Map();
-  let mockContainer;
+  const mockMap = new MockMap();
 
   beforeEach(() => {
     // Reset DOM mocks
     vi.clearAllMocks();
-
-    // Mock DOM elements
-    mockContainer = {
-      appendChild: vi.fn(),
-      id: 'map'
-    };
 
     // Mock document methods
     document.createElement = vi.fn().mockImplementation((tagName) => ({
@@ -33,6 +32,6 @@ describe('MapAttribution', () => {
 
   it('adds attribution to map container', () => {
     createMapAttribution(mockMap);
-    expect(mockContainer.appendChild).toHaveBeenCalled();
+    expect(mockMap.getTargetElement().appendChild).toHaveBeenCalled();
   });
 }); 
