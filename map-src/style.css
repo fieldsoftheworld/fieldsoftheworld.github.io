@@ -178,7 +178,7 @@ h1 a, a:hover {
 /* Legend styles */
 .map-legend {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   right: 1rem;
   background: rgba(0, 0, 0, 0.4);
   padding: 10px;
@@ -224,7 +224,7 @@ h1 a, a:hover {
 
 .ol-zoom-in,
 .ol-zoom-out {
-  background-color: rgba(0, 0, 0, 0.4) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
   color: white !important;
   border: 1px solid white !important;
   margin: 2px;
@@ -241,38 +241,32 @@ h1 a, a:hover {
   border-radius: 0 0 5px 5px !important;
 }
 
-.ol-zoom-in:hover,
-.ol-zoom-out:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 .ol-attribution {
   right: 1rem;
   background: rgba(0, 0, 0, 0.4) !important;
   color: white;
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  font-weight: lighter;
+  
 }
 
 /* CARTO attribution styles */
 .ol-attribution button {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.1);
   color: white !important;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     color: white;
   }
 }
 
 .ol-attribution ul {
-  background: rgba(0, 0, 0, 0.2);
   color: white;
   text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-weight: lighter;
 
   li {
-    background: rgba(0, 0, 0, 0.2);
     color: white;
     list-style: none;
 
