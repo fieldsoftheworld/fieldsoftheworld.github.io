@@ -11,7 +11,6 @@ MockMap.prototype.querySelectorAll = vi.fn().mockReturnValue([]);
 describe('LayerSwitcher', () => {
   const mockMap = new MockMap();
   let mockS2Layers;
-  let mockAttribution;
   let mockContainer;
 
   beforeEach(() => {
@@ -35,12 +34,6 @@ describe('LayerSwitcher', () => {
       { get: vi.fn().mockReturnValue('2024'), setVisible: vi.fn() },
       { get: vi.fn().mockReturnValue('2023'), setVisible: vi.fn() }
     ];
-
-    // Mock attribution element
-    mockAttribution = {
-      innerHTML: '',
-      style: { display: 'none' }
-    };
   });
 
   it('creates layer switcher with correct structure', () => {
@@ -50,7 +43,7 @@ describe('LayerSwitcher', () => {
     ];
     mockContainer.querySelectorAll = vi.fn().mockReturnValue(mockCheckboxes);
 
-    createCustomLayerSwitcher(mockS2Layers, mockAttribution, mockMap);
+    createCustomLayerSwitcher(mockS2Layers, mockMap);
 
     expect(mockMap.getTargetElement().appendChild).toHaveBeenCalled();
     const container = mockMap.getTargetElement().appendChild.mock.calls[0][0];
@@ -69,7 +62,7 @@ describe('LayerSwitcher', () => {
     ];
 
     mockContainer.querySelectorAll = vi.fn().mockReturnValue(mockCheckboxes);
-    createCustomLayerSwitcher(mockS2Layers, mockAttribution, mockMap);
+    createCustomLayerSwitcher(mockS2Layers, mockMap);
 
     expect(mockContainer.querySelectorAll).toHaveBeenCalledWith('input[name="s2"]');
     expect(mockCheckboxes[0].addEventListener).toHaveBeenCalledWith('change', expect.any(Function));
@@ -84,7 +77,7 @@ describe('LayerSwitcher', () => {
     };
 
     mockContainer.querySelectorAll = vi.fn().mockReturnValue([mockCheckbox]);
-    createCustomLayerSwitcher(mockS2Layers, mockAttribution, mockMap);
+    createCustomLayerSwitcher(mockS2Layers, mockMap);
 
     // Simulate checkbox change event
     const changeHandler = mockCheckbox.addEventListener.mock.calls[0][1];
@@ -93,8 +86,6 @@ describe('LayerSwitcher', () => {
     // Verify layer visibility changes
     expect(mockS2Layers[0].setVisible).toHaveBeenCalledWith(true);
     expect(mockS2Layers[1].setVisible).toHaveBeenCalledWith(false);
-    expect(mockAttribution.style.display).toBe('block');
-    expect(mockAttribution.innerHTML).toContain('2024');
   });
 
   it('handles layer unchecking', () => {
@@ -111,7 +102,7 @@ describe('LayerSwitcher', () => {
     };
 
     mockContainer.querySelectorAll = vi.fn().mockReturnValue([mockCheckbox]);
-    createCustomLayerSwitcher(mockS2Layers, mockAttribution, mockMap);
+    createCustomLayerSwitcher(mockS2Layers, mockMap);
 
     // Simulate checkbox change event using the stored handler
     mockCheckbox.changeHandler({ target: mockCheckbox });
@@ -119,6 +110,5 @@ describe('LayerSwitcher', () => {
     // Verify layer visibility changes
     expect(mockS2Layers[0].setVisible).toHaveBeenCalledWith(false);
     expect(mockS2Layers[1].setVisible).toHaveBeenCalledWith(false);
-    expect(mockAttribution.style.display).toBe('none');
   });
 }); 

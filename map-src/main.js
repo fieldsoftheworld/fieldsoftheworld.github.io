@@ -1,8 +1,6 @@
 import { Map, View } from "ol";
 import { useGeographic } from 'ol/proj';
-import { createBaseMapAttribution } from './components/BasemapAttribution.js';
 import { createCustomLayerSwitcher } from './components/LayerSwitcher.js';
-import { createMapAttribution } from './components/MapAttribution.js';
 import { createLegend } from './components/MapLegend.js';
 import { createMapPopup } from './components/MapPopup.js';
 import { handleMapClick, handleMapMoveEnd, handleMapPointerMove } from './functions/MapUtils.js';
@@ -37,9 +35,5 @@ map.on('click', event => handleMapClick(event, map, s2Layers, overlay, popup));
 map.on('pointermove', event => handleMapPointerMove(event, map));
 map.on('moveend', () => handleMapMoveEnd(overlay));
 
-// Create attribution elements
-const attribution = createMapAttribution(map);
-createBaseMapAttribution(map);
-
 // Add custom layer switcher to map
-createCustomLayerSwitcher(s2Layers, attribution, map);
+createCustomLayerSwitcher(s2Layers, map);

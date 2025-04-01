@@ -1,4 +1,4 @@
-export function createCustomLayerSwitcher(s2Layers, attribution, map) {
+export function createCustomLayerSwitcher(s2Layers, map) {
   const container = document.createElement('div');
   container.id = 'custom-layer-switcher';
   container.className = 'custom-layer-switcher';
@@ -33,16 +33,10 @@ export function createCustomLayerSwitcher(s2Layers, attribution, map) {
         });
         s2Layers.forEach(layer => {
           layer.setVisible(layer.get('title') === e.target.value);
-          if (layer.get('title') === e.target.value) {
-            // Show attribution for selected layer
-            attribution.innerHTML = `Sentinel-2 cloudless - <a href="https://s2maps.eu" target="_blank">https://s2maps.eu</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data ${e.target.value})`;
-            attribution.style.display = 'block';
-          }
         });
       } else {
-        // If unchecking, hide all s2 layers and attribution
+        // If unchecking, hide all s2 layers
         s2Layers.forEach(layer => layer.setVisible(false));
-        attribution.style.display = 'none';
       }
     });
   });

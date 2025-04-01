@@ -6,7 +6,6 @@ import {
   handleMapPointerMove, 
   handleMapMoveEnd
 } from '../../functions/MapUtils';
-import { createMapAttribution } from '../../components/MapAttribution';
 const MockMap = vi.fn();
 MockMap.prototype.getTargetElement = vi.fn().mockReturnValue({
   appendChild: vi.fn(),
@@ -70,8 +69,7 @@ describe('MapUtils', () => {
     });
 
     it('generates content with field properties', () => {
-      const attribution = createMapAttribution(mockMap);
-      const content = getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay, attribution);
+      const content = getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay);
       
       expect(content).toContain('<h3>Test Field</h3>');
       expect(content).toContain('<li><strong>area:</strong> 1,000</li>');
@@ -87,22 +85,19 @@ describe('MapUtils', () => {
           dataset: 'test-dataset'
         })
       }];
-      const attribution = createMapAttribution(mockMap);
-      const content = getSelectedFieldBoundary(mockEvent, featuresWithoutTitle, mockS2Layers, mockOverlay, attribution);
+      const content = getSelectedFieldBoundary(mockEvent, featuresWithoutTitle, mockS2Layers, mockOverlay);
       expect(content).toContain('<h3>123</h3>');
     });
 
     it('updates layer visibility based on year', () => {
-      const attribution = createMapAttribution(mockMap);
-      getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay, attribution);
+      getSelectedFieldBoundary(mockEvent, mockFeatures, mockS2Layers, mockOverlay);
       
       expect(mockS2Layers[0].setVisible).toHaveBeenCalledWith(true);
       expect(mockS2Layers[1].setVisible).toHaveBeenCalledWith(false);
     });
 
     it('handles empty features array', () => {
-      const attribution = createMapAttribution(mockMap);
-      const content = getSelectedFieldBoundary(mockEvent, [], mockS2Layers, mockOverlay, attribution);
+      const content = getSelectedFieldBoundary(mockEvent, [], mockS2Layers, mockOverlay);
       expect(content).toBe('');
       expect(mockOverlay.setPosition).toHaveBeenCalledWith(undefined);
     });

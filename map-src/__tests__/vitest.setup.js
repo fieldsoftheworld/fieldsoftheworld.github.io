@@ -81,31 +81,6 @@ vi.mock('ol/control/defaults', async (importOriginal) => {
   return vi.fn().mockImplementation(() => defaults);
 });
 
-//mock ol/Map
-vi.mock('ol/Map', async (importOriginal) => {
-  const map = await importOriginal();
-  return {
-    ...map,
-    target: 'map',
-    defaultControls: vi.fn(),
-    addLayer: vi.fn(),
-    getLayers: vi.fn(),
-    getView: vi.fn(),
-    defaultControls: vi.fn(),
-    removeControl: vi.fn(),
-    getControls: vi.fn(),
-    getTarget: vi.fn(),
-    getSize: vi.fn(),
-    getPixel: vi.fn(),
-    getTopLeft: vi.fn(),
-    getTopRight: vi.fn(),
-    getBottomLeft: vi.fn(),
-    getBottomRight: vi.fn(),
-    getCenter: vi.fn(),
-    getZoom: vi.fn(),
-  };
-});
-
 vi.mock('ol/style/Style', async (importOriginal) => {
   const style = await importOriginal();
   return {

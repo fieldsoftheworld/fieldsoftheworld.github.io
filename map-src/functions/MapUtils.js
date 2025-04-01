@@ -1,8 +1,6 @@
-import { createMapAttribution } from '../components/MapAttribution';
-
 const IGNORE_PROPS = ['geometry', 'bbox.xmin', 'bbox.xmax', 'bbox.ymin', 'bbox.ymax', 'layer'];
 
-export function getSelectedFieldBoundary(event, features, s2Layers, overlay, attribution) {
+export function getSelectedFieldBoundary(event, features, s2Layers, overlay) {
   if (!features || features.length === 0) {
     overlay.setPosition(undefined);
     return '';
@@ -36,8 +34,6 @@ export function getSelectedFieldBoundary(event, features, s2Layers, overlay, att
     if (selectedYear) {
       s2Layers.forEach(layer => {
         layer.setVisible(layer.get('title') === selectedYear.toString());
-        attribution.innerHTML = `Sentinel-2 cloudless - <a href="https://s2maps.eu" target="_blank">https://s2maps.eu</a> by EOX IT Services GmbH (Contains modified Copernicus Sentinel data ${selectedYear})`;
-        attribution.style.display = 'block';
       });
     }
   }
@@ -64,8 +60,7 @@ export function getYearFromTimestamp(timestamp) {
 export function handleMapClick(event, map, s2Layers, overlay, popup) {
   const features = map.getFeaturesAtPixel(event.pixel);
   if (features.length > 0) {
-    const attribution = createMapAttribution(map);
-    const content = getSelectedFieldBoundary(event, features, s2Layers, overlay, attribution);
+    const content = getSelectedFieldBoundary(event, features, s2Layers, overlay);
     popup.innerHTML = content;
     
     // Get the year from the feature
