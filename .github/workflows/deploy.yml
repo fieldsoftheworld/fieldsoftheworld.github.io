@@ -37,7 +37,7 @@ jobs:
         working-directory: ./map-src
         run: npm install
 
-      - name: Run testsg
+      - name: Run tests
         working-directory: ./map-src
         run: npm test
 
