@@ -1,6 +1,11 @@
 const IGNORE_PROPS = ['geometry', 'bbox.xmin', 'bbox.xmax', 'bbox.ymin', 'bbox.ymax', 'layer'];
 
 export function getSelectedFieldBoundary(event, features, s2Layers, overlay) {
+  if (!features || features.length === 0) {
+    overlay.setPosition(undefined);
+    return '';
+  }
+
   let content = '';
   for (const feature of features) {
     const properties = feature.getProperties();
@@ -70,6 +75,10 @@ export function handleMapClick(event, map, s2Layers, overlay, popup) {
         checkbox.checked = false;
       }
     });
+  } else {
+    // Clear popup content and overlay position when no features are found
+    popup.innerHTML = '';
+    overlay.setPosition(undefined);
   }
 }
 

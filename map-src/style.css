@@ -95,52 +95,11 @@ h1 a, a:hover {
   margin: 0 0 0.25rem;
 }
 
-.ol-layerswitcher {
-  background-color: white;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.ol-layerswitcher .layerswitcher {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.ol-layerswitcher .layerswitcher li {
-  margin: 5px 0;
-}
-
-.ol-layerswitcher .layerswitcher input[type="radio"] {
-  margin-right: 5px;
-}
-
-.ol-layerswitcher .layerswitcher .group {
-  margin-left: 15px;
-  border-left: 2px solid #ccc;
-  padding-left: 10px;
-}
-
-.ol-layerswitcher .layerswitcher .group li {
-  margin: 3px 0;
-}
-
-.ol-layerswitcher .layerswitcher label {
-  cursor: pointer;
-  user-select: none;
-}
-
-.ol-layerswitcher .layerswitcher input[type="radio"]:checked + label {
-  font-weight: bold;
-  color: #2196F3;
-}
-
 /* Layer switcher styles */
 .custom-layer-switcher {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1rem;
+  right: 1rem;
   background: rgba(0, 0, 0, 0.4);
   padding: 10px;
   border-radius: 4px;
@@ -220,7 +179,7 @@ h1 a, a:hover {
 .map-legend {
   position: absolute;
   bottom: 40px;
-  right: 20px;
+  right: 1rem;
   background: rgba(0, 0, 0, 0.4);
   padding: 10px;
   border-radius: 4px;
@@ -259,13 +218,13 @@ h1 a, a:hover {
 .ol-zoom {
   top: auto;
   left: auto;
-  bottom: 40px;
-  left: 20px;
+  bottom: 0.5em;
+  left: 1rem;
 }
 
 .ol-zoom-in,
 .ol-zoom-out {
-  background-color: rgba(0, 0, 0, 0.4) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
   color: white !important;
   border: 1px solid white !important;
   margin: 2px;
@@ -282,52 +241,43 @@ h1 a, a:hover {
   border-radius: 0 0 5px 5px !important;
 }
 
-.ol-zoom-in:hover,
-.ol-zoom-out:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-/* Attribution styles */
-.map-attribution {
-  position: absolute;
-  bottom: 5px;
-  left: 20px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 8px 12px;
-  border-radius: 4px;
+.ol-attribution {
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.4) !important;
   color: white;
-  font-size: 12px;
-  z-index: 1000;
-}
-
-.map-attribution a {
-  color: white;
-  text-decoration: none;
-}
-
-.map-attribution a:hover {
-  color: white;
-  text-decoration: underline;
+  
 }
 
 /* CARTO attribution styles */
-.basemap-attribution {
-  position: absolute;
-  bottom: 5px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 8px 12px;
-  border-radius: 4px;
-  color: white;
-  font-size: 12px;
-  z-index: 1000;
+.ol-attribution button {
+  background: rgba(0, 0, 0, 0.1);
+  color: white !important;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+  }
 }
 
-.basemap-attribution a {
+.ol-attribution ul {
   color: white;
   text-decoration: none;
-}
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-weight: lighter;
 
-.basemap-attribution a:hover {
-  text-decoration: underline;
+  li {
+    color: white;
+    list-style: none;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }
