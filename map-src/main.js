@@ -9,6 +9,7 @@ import { handleMapClick, handleMapMoveEnd, handleMapPointerMove } from './functi
 import { createFieldsOfTheWorldLayer } from './layers/FieldsOfTheWorldLayer.js';
 import { createSentinelLayersGroup } from './layers/SentinelLayersGroup.js';
 import { createBaselayer } from './layers/Baselayer.js';
+import { createFiboaLayer } from './layers/FiboaLayer.js';
 import "./style.css";
 
 useGeographic();
@@ -24,6 +25,7 @@ const map = new Map({
 });
 // Add layers to map
 const s2Layers = createSentinelLayersGroup(map);
+createFiboaLayer(map);
 createFieldsOfTheWorldLayer(map);
 
 // Add legend to map

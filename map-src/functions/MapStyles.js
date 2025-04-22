@@ -19,6 +19,7 @@ export function getFieldStyle(feature, resolution) {
   const properties = feature.getProperties();
   const year = getYearFromTimestamp(properties.determination_datetime?.split('T')[0]);
   
+  
   // Default color if year is not found
   const color = yearColors[year] || 'rgb(128, 128, 128)';
 

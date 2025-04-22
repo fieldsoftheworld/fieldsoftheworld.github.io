@@ -1,0 +1,64 @@
+{
+  "fiboa_version": "0.2.0",
+  "fiboa_extensions": [],
+  "stac_version": "1.0.0",
+  "type": "Collection",
+  "id": "ftw",
+  "title": "Fields of the World",
+  "description": "Fields of The World (FTW) is a comprehensive benchmark dataset designed to enhance the development of machine learning models for instance segmentation of agricultural field boundaries. It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 24 countries. ",
+  "license": "various",
+  "providers": [
+    {
+      "name": "Fields of the World",
+      "url": "https://fieldsofthe.world/",
+      "roles": ["producer"]
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [-46.3979962, -34.3992236, 109.0434154, 62.8408051],
+        [13.239975, 48.20418, 16.960944, 48.974516],
+        [3.054481, 50.780005, 4.203776, 51.24217],
+        [-46.397996, -14.00929, -45.494109, -11.764556],
+        [102.902513, 10.728749, 106.443432, 14.001425],
+        [8.684216, 41.726866, 9.559619, 42.808624],
+        [16.527957, 45.144264, 18.478628, 46.164874],
+        [8.737811, 55.191714, 10.417036, 57.432974],
+        [24.700747, 57.63451, 27.381651, 58.953171],
+        [22.498573, 60.60109, 23.306069, 62.840805],
+        [-0.137519, 46.443987, 3.294937, 49.833405],
+        [13.635335, 52.418146, 14.352704, 52.849469],
+        [68.796969, 9.248617, 96.236881, 34.532509],
+        [34.29024, -3.731818, 38.721089, 1.219408],
+        [22.90385, 56.020393, 27.491852, 57.49765],
+        [21.961781, 54.487854, 23.778975, 56.289925],
+        [5.905081, 49.517813, 6.341084, 49.961054],
+        [5.224395, 51.37339, 6.498529, 53.25663],
+        [-31.26636, 39.373986, -31.08573, 39.719243],
+        [30.291994, -1.590079, 30.423433, -1.39177],
+        [17.463739, 47.743659, 22.162779, 49.069989],
+        [14.226763, 45.738418, 16.021732, 46.614452],
+        [20.521492, -34.399224, 21.043415, -33.980506],
+        [-2.499085, 41.911459, -1.512288, 42.996721],
+        [13.066745, 55.42232, 17.34738, 59.822896],
+        [105.398394, 9.642191, 109.043415, 21.344141]
+      ]
+    },
+    "temporal": {
+      "interval": [["2020-01-01T00:00:00Z", null]]
+    }
+  },
+  "count": 1600000,
+  "attribution": "KERNER, Hannah, et al. Fields of The World: A Machine Learning Benchmark Dataset For Global Agricultural Field Boundary Segmentation. arXiv preprint arXiv:2409.16252, 2024.",
+  "links": [
+    {
+      "href": "https://data.source.coop/kerner-lab/fields-of-the-world/ftw-sources.pmtiles",
+      "type": "application/vnd.pmtiles",
+      "rel": "pmtiles"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/web-map-links/v1.2.0/schema.json"
+  ]
+}

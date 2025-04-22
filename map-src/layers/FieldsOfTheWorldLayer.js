@@ -9,6 +9,7 @@ export function createFieldsOfTheWorldLayer(map) {
     declutter: true,
     title: 'FTW Source Data',
     displayInLayerSwitcher: true,
+    minZoom: 6,
     source: new PMTilesVectorSource({
       url: url
     }),

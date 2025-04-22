@@ -1,0 +1,460 @@
+{
+  "stac_version": "1.0.0",
+  "type": "Catalog",
+  "id": "fiboa",
+  "title": "fiboa Field Boundaries",
+  "description": "The Field Boundaries for Agriculture (fiboa) project is focused on making field boundary data openly available in a unified format on a global scale. We believe that the fiboa specification is a foundational aspect of agricultural field boundary data interoperability which enables and accelerates additional layers of collaboration and detail via custom extensions.\n\nThis STAC catalog provides a collection of field boundary data from various sources, but all converted to be fiboa compliant.",
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://fiboa.org/stac/catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "root",
+      "href": "https://fiboa.org/stac/catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/austria/stac/collection.json",
+      "type": "application/json",
+      "title": "Austria",
+      "license": "CC-BY-4.0",
+      "attribution": "Agrarmarkt Austria",
+      "source": "https://source.coop/repositories/fiboa/austria/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-bb/stac/collection.json",
+      "type": "application/json",
+      "title": "Germany, Berlin / Brandenburg",
+      "license": "dl-de/by-2-0",
+      "attribution": "Land Brandenburg",
+      "source": "https://source.coop/repositories/fiboa/de-bb/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-nds/stac/collection.json",
+      "type": "application/json",
+      "title": "Germany, Lower Saxony",
+      "license": "dl-de/by-2-0",
+      "attribution": "Land Niedersachsen",
+      "source": "https://source.coop/repositories/fiboa/de-nds/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-nrw/stac/collection.json",
+      "type": "application/json",
+      "title": "Germany, North Rhine-Westphalia",
+      "license": "dl-de/by-2-0",
+      "attribution": "Land Nordrhein-Westfalen / Open.NRW",
+      "source": "https://source.coop/repositories/fiboa/de-nrw/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-th/stac/collection.json",
+      "type": "application/json",
+      "title": "Germany, Thuringia",
+      "license": "dl-de/by-2-0",
+      "attribution": "Thüringer Landesamt für Landwirtschaft und Ländlichen Raum",
+      "source": "https://source.coop/repositories/fiboa/de-th/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-sh/stac/collection.json",
+      "type": "application/json",
+      "title": "Germany, Schleswig-Holstein",
+      "license": "dl-de/zero-2-0",
+      "attribution": "Land Schleswig-Holstein",
+      "source": "https://source.coop/repositories/fiboa/de-sh/description/"
+    },
+    {
+      "rel": "child",
+      "href": "./datasets/ukfields.json",
+      "type": "application/json",
+      "title": "UKFields",
+      "license": "CC-BY-4.0",
+      "attribution": "Bancroft S, Wilkins J",
+      "source": "https://zenodo.org/records/11110206"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/slovenia-ec/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Slovenia from EuroCrops (2021)",
+      "license": "CC-BY-SA-4.0",
+      "attribution": "Ministrstvo za kmetijstvo, gozdarstvo in prehrano",
+      "source": "https://source.coop/repositories/fiboa/slovenia-ec/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/latvia/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Latvia 2024",
+      "license": "CC-BY-4.0",
+      "attribution": "Lauku atbalsta dienests",
+      "source": "https://source.coop/repositories/fiboa/latvia/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/finland/stac/collection.json",
+      "type": "application/json",
+      "title": "Finnish Crop Fields (Maatalousmaa)",
+      "license": "CC-BY-4.0",
+      "attribution": "Finnish Food Authority",
+      "source": "https://source.coop/repositories/fiboa/finland/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/france-ec/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for France from Eurocrops (2018)",
+      "license": "CC-BY-SA-4.0",
+      "attribution": "Institut National de l'Information Géographique et Forestière",
+      "source": "https://source.coop/repositories/fiboa/france-ec/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/nl-ref/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for The Netherlands",
+      "license": "CC0-1.0",
+      "source": "https://source.coop/repositories/fiboa/nl-ref/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/nl-crop/stac/collection.json",
+      "type": "application/json",
+      "title": "BRP Crop Field Boundaries for The Netherlands (CAP-based)",
+      "license": "CC0-1.0",
+      "source": "https://source.coop/repositories/fiboa/nl-crop/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/ai4sf/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Cambodia and Vietnam (AI4SmallFarms)",
+      "license": "CC-BY-4.0",
+      "source": "https://source.coop/repositories/fiboa/ai4sf/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/portugal/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Portugal",
+      "license": "No conditions apply",
+      "source": "https://source.coop/repositories/fiboa/portugal/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/be-vlg/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Flanders, Belgium",
+      "license": "Licentie modellicentie-gratis-hergebruik/v1.0",
+      "source": "https://source.coop/repositories/fiboa/be-vlg/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/br-ba-lem/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for the west of Bahia state, Brazil",
+      "license": "CC-BY-4.0",
+      "source": "https://source.coop/repositories/fiboa/br-ba-lem/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/denmark/stac/collection.json",
+      "type": "application/json",
+      "title": "Denmark Crop Fields (Marker)",
+      "license": "CC-0",
+      "source": "https://source.coop/repositories/fiboa/denmark/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-sax/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Saxony, Germany",
+      "license": "dl-de/by-2-0",
+      "attribution": "Sächsisches Landesamt für Umwelt, Landwirtschaft und Geologie",
+      "source": "https://source.coop/repositories/fiboa/de-sax/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-mv/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Mecklenburg-Western Pomerania, Germany",
+      "license": "No restrictions apply",
+      "source": "https://source.coop/repositories/fiboa/de-mv/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/de-sl/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Saarland, Germany",
+      "license": "cc-by-4.0",
+      "attribution": "© GDI-SL 2024",
+      "source": "https://source.coop/repositories/fiboa/de-sl/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/sweden/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Sweden",
+      "license": "CC0-1.0",
+      "attribution": "Jordbruksverket",
+      "source": "https://source.coop/repositories/fiboa/sweden/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/ireland/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for ireland",
+      "license": "CC-BY-4.0",
+      "attribution": "Ireland Department of Agriculture, Food and the Marine",
+      "source": "https://source.coop/repositories/fiboa/ireland/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/be-wa/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Belgium Wallonia",
+      "license": "No conditions apply to access and use",
+      "source": "https://source.coop/repositories/fiboa/be-wa/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/luxembourg/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Luxembourg",
+      "license": "CC-BY-4.0",
+      "attribution": "Luxembourg ministry of Agriculture",
+      "source": "https://source.coop/repositories/fiboa/luxembourg/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/estonia-ec/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Estonia",
+      "license": "CC-BY-SA-3.0",
+      "attribution": "Põllumajanduse Registrite ja Informatsiooni Amet",
+      "source": "https://source.coop/repositories/fiboa/estonia-ec/description/"
+    },
+    {
+      "rel": "child",
+      "href": "./datasets/ftw.json",
+      "type": "application/json",
+      "title": "Fields of the World",
+      "license": "various",
+      "source": "https://source.coop/repositories/kerner-lab/fields-of-the-world/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/slovenia/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Slovenia",
+      "license": "Publicly available data",
+      "source": "https://source.coop/repositories/fiboa/slovenia/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/lacunalabels/stac/collection.json",
+      "type": "application/json",
+      "title": "Lacuna labels",
+      "license": "Participant license agreement for the NICFI contract",
+      "source": "https://source.coop/repositories/fiboa/lacunalabels/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/switzerland/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Switzerland",
+      "license": "Open BY",
+      "source": "https://source.coop/repositories/fiboa/switzerland/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-cat/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Catalonia, Spain",
+      "license": "Open Information Use License - Catalonia",
+      "attribution": "Catalonia Department of Agriculture, Livestock, Fisheries and Food",
+      "source": "https://source.coop/repositories/fiboa/es-cat/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-cl/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Castilla y León",
+      "attribution": "Commercial exploitation is prohibited",
+      "license": "Non Commercial",
+      "source": "https://source.coop/repositories/fiboa/es-cl/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-an/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Andalucia",
+      "license": "CC-SA-BY-ND",
+      "attribution": "©Junta de Andalucía",
+      "source": "https://source.coop/repositories/fiboa/es-cl/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-ar/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Aragon",
+      "license": "CC-BY-4.0",
+      "attribution": "(c) Gobierno de Aragon",
+      "source": "https://source.coop/repositories/fiboa/es-ar/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-pv/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Basque Country",
+      "license": "CC-BY-4.0",
+      "attribution": "Basque Government / Gobierno Vasco",
+      "source": "https://source.coop/repositories/fiboa/es-pv/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-ex/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Extremadura",
+      "license": "CC-BY-4.0",
+      "attribution": "Junta de Extremadura",
+      "source": "https://source.coop/repositories/fiboa/es-ex/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-pm/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Balearic Islands",
+      "license": "CC-BY-4.0",
+      "attribution": "Govern de les Illes Balears",
+      "source": "https://source.coop/repositories/fiboa/es-pm/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-cn/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Canary Islands",
+      "license": "CC-BY-4.0",
+      "attribution": "Gobierno de Canarias",
+      "source": "https://source.coop/repositories/fiboa/es-cn/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-vc/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Valencia",
+      "license": "CC-BY-4.0",
+      "attribution": "1403_2024PAC0050 CC BY 4.0 © Institut Cartogràfic Valencià, Generalitat",
+      "source": "https://source.coop/repositories/fiboa/es-vc/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-md/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Madrid",
+      "license": "CC-0",
+      "attribution": "Comunidad de Madrid",
+      "source": "https://source.coop/repositories/fiboa/es-md/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-cb/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Cantabria",
+      "license": "CC-BY-NC-4.0",
+      "attribution": "©Government of Cantabria. Free information available at https://mapas.cantabria.es",
+      "source": "https://source.coop/repositories/fiboa/es-cb/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-ga/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Galicia",
+      "license": "CC-BY-4.0",
+      "attribution": "Información procedente do FOGGA",
+      "source": "https://source.coop/repositories/fiboa/es-ga/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-cm/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Castilla-La Mancha",
+      "license": "CC-BY-SA-4.0",
+      "attribution": "Unidad de Cartografía. Secretaría General. Consejería de Agricultura , Ganadería y Desarrollo Rural.",
+      "source": "https://source.coop/repositories/fiboa/es-cm/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/es-nc/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Spain Navarra",
+      "license": "CC-BY-4.0",
+      "attribution": "Comunidad Foral de Navarra",
+      "source": "https://source.coop/repositories/fiboa/es-nc/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/croatia/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Croatia",
+      "license": "Publicly available data",
+      "source": "https://source.coop/repositories/fiboa/croatia/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/slovakia/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Slovakia",
+      "license": "Publicly available data",
+      "source": "https://source.coop/repositories/fiboa/slovakia/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/czech/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for Czech",
+      "license": "CC-0",
+      "source": "https://source.coop/repositories/fiboa/czech/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/us-usda-cropland/stac/collection.json",
+      "type": "application/json",
+      "title": "USDA Crop Sequence Boundaries",
+      "license": "Freely available at https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries",
+      "source": "https://source.coop/repositories/fiboa/us-usda-cropland/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/us-ca-scm/stac/collection.json",
+      "type": "application/json",
+      "title": "Field boundaries for California Statewide Crop Mapping",
+      "license": "CC-0",
+      "source": "https://source.coop/repositories/fiboa/us-ca-scm/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/japan/stac/collection.json",
+      "type": "application/json",
+      "title": "Japan Fude Parcels",
+      "license": "CC-BY-4.0",
+      "attribution": "Fude Polygon Data (2021-2024). Japanese Ministry of Agriculture, Forestry and Fisheries. Processed by Pacific Spatial Solutions, Inc",
+      "source": "https://source.coop/repositories/fiboa/japan/description/"
+    },
+    {
+      "rel": "child",
+      "href": "https://data.source.coop/fiboa/newzealand/stac/collection.json",
+      "type": "application/json",
+      "title": "New Zealand National irrigated land",
+      "license": "CC-BY-4.0",
+      "attribution": "New Zealand Ministry for the Environment",
+      "source": "https://source.coop/repositories/fiboa/newzealand/description/"
+    }
+  ]
+}

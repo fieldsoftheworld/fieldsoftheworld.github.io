@@ -331,3 +331,37 @@ h1 a, a:hover {
 .basemap-attribution a:hover {
   text-decoration: underline;
 }
+
+.focus-button {
+  background-color: #FFF;
+  border: 1px solid #000;
+  color: #000;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.focus-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.focus-button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.no-viz {
+  color: #666;
+  font-style: italic;
+  padding: 8px 0;
+  display: block;
+}
+
+.field-boundary {
+  padding: 0 0 10px 0;
+}

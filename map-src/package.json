@@ -2,9 +2,10 @@
   "name": "map",
   "version": "1.0.0",
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "prepare": "node prepare.js",
+    "start": "npm run prepare && vite",
+    "build": "npm run prepare && vite build",
+    "serve": "npm run prepare && vite preview"
   },
   "devDependencies": {
     "vite": "^5.4.0"

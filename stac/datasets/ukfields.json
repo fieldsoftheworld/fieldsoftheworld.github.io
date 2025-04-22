@@ -1,0 +1,110 @@
+{
+  "fiboa_version": "0.2.0",
+  "fiboa_extensions": [],
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json"
+  ],
+  "type": "Collection",
+  "id": "ukfields",
+  "title": "UKFields - Field Boundaries for the United Kingdom",
+  "description": "The ukfields dataset is a publicly accessible GeoParquet of automatically delineated field boundaries spanning England, Wales, Scotland, and Northern Ireland.",
+  "license": "CC-BY-4.0",
+  "sci:doi": "10.5281/zenodo.11110206",
+  "sci:citation": "Bancroft, S., & Wilkins, J. (2024). UKFields (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.11110206",
+  "providers": [
+    {
+      "name": "Bancroft, S., & Wilkins, J.",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://github.com/Spiruel/UKFields/"
+    },
+    {
+      "name": "Zenodo",
+      "roles": [
+        "host"
+      ],
+      "url": "https://zenodo.org/records/11110206"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -8.179321,
+          49.891096,
+          1.752319,
+          60.852938
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2021-06-01T00:00:00Z",
+          "2021-06-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "assets": {
+    "data": {
+      "href": "https://zenodo.org/records/11110206/files/ukfields.parquet?download=1",
+      "title": "Field Boundaries",
+      "type": "application/vnd.apache.parquet",
+      "roles": [
+        "data"
+      ],
+      "table:columns": [
+        {
+          "name": "area",
+          "type": "float"
+        },
+        {
+          "name": "perimeter",
+          "type": "float"
+        },
+        {
+          "name": "geometry",
+          "type": "binary"
+        },
+        {
+          "name": "determination_datetime",
+          "type": "timestamp[ms, tz=UTC]"
+        },
+        {
+          "name": "determindation_method",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "table:primary_geometry": "geometry",
+      "table:row_count": 1665637
+    }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://fiboa.org/stac/datasets/ukfields.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "fiboa Field Boundaries"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "fiboa Field Boundaries"
+    }
+  ]
+}
