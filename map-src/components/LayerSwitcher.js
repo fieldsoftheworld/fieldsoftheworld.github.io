@@ -75,30 +75,26 @@ export function createCustomLayerSwitcher(s2Layers, attribution, map) {
     });
   });
 
-  // Handle fiboa layer toggle
-  container.querySelector('input[name="fiboa"]').addEventListener('change', (e) => {
-    const fiboaLayers = map.getLayers().getArray().filter(layer => 
-      layer.get('title') && layer.get('title').toLowerCase().includes('fiboa')
-    ).forEach(layer => layer.setVisible(e.target.checked));
-  });
-
-  // Handle Fields of the World layer toggle
-  container.querySelector('input[name="ftw"]').addEventListener('change', (e) => {
-    const ftwLayers = map.getLayers().getArray().filter(layer => 
-      layer.get('title') && layer.get('title').toLowerCase().includes('ftw')
-    ).forEach(layer => layer.setVisible(e.target.checked));
-  });
-
-  // Set initial visibility for fiboa and ftw layers
   const fiboaLayers = map.getLayers().getArray().filter(layer => 
     layer.get('title') && layer.get('title').toLowerCase().includes('fiboa')
   );
-  fiboaLayers.forEach(layer => layer.setVisible(true));
 
   const ftwLayers = map.getLayers().getArray().filter(layer => 
     layer.get('title') && layer.get('title').toLowerCase().includes('ftw')
   );
-  console.log(ftwLayers);
+
+  // Handle fiboa layer toggle
+  container.querySelector('input[name="fiboa"]').addEventListener('change', (e) => {
+    fiboaLayers.forEach(layer => layer.setVisible(e.target.checked));
+  });
+
+  // Handle Fields of the World layer toggle
+  container.querySelector('input[name="ftw"]').addEventListener('change', (e) => {
+    ftwLayers.forEach(layer => layer.setVisible(e.target.checked));
+  });
+
+  // Set initial visibility for fiboa and ftw layers
+  fiboaLayers.forEach(layer => layer.setVisible(true));
   ftwLayers.forEach(layer => layer.setVisible(true));
 
   map.getTargetElement().appendChild(container);
