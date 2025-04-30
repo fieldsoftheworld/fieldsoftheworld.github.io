@@ -16,5 +16,4 @@ export function createFieldsOfTheWorldLayer(map) {
     style: getFieldStyle
   });
   map.addLayer(fields);
-  return fields;
 } 

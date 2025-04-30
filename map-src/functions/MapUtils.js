@@ -78,7 +78,7 @@ export function handleMapClick(event, map, s2Layers, overlay, popup) {
       
     // Find and check the corresponding checkbox
     if (year) {
-      const checkboxes = document.querySelectorAll('.layer-options input[type="checkbox"]');
+      const checkboxes = document.querySelectorAll('.layer-options input[name="s2"]');
       checkboxes.forEach(checkbox => {
         if (checkbox.getAttribute('data-year') === year.toString()) {
           checkbox.checked = true;
