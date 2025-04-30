@@ -21,6 +21,35 @@ export function createCustomLayerSwitcher(s2Layers, attribution, map) {
   `;
   container.appendChild(s2Group);
 
+  // Create fiboa toggle
+  const fiboaGroup = document.createElement('div');
+  fiboaGroup.className = 'layer-group';
+  fiboaGroup.innerHTML = `
+    <div class="group-title">Fiboa</div>
+    <div class="layer-options">
+      <label>
+        <input type="checkbox" name="fiboa" value="fiboa" checked>
+        <span>Field Boundaries</span>
+      </label>
+    </div>
+  `;
+  container.appendChild(fiboaGroup);
+
+  // Create Fields of the World toggle
+  const ftwGroup = document.createElement('div');
+  ftwGroup.className = 'layer-group';
+  ftwGroup.innerHTML = `
+    <div class="group-title">Fields of the World</div>
+    <div class="layer-options">
+      <label>
+        <input type="checkbox" name="ftw" value="ftw" checked>
+        <span>Field Boundaries</span>
+      </label>
+    </div>
+  `;
+  container.appendChild(ftwGroup);
+
+  // Handle Sentinel 2 layer toggles
   container.querySelectorAll('input[name="s2"]').forEach(checkbox => {
     checkbox.addEventListener('change', (e) => {
       if (e.target.checked) {
@@ -45,5 +74,32 @@ export function createCustomLayerSwitcher(s2Layers, attribution, map) {
       }
     });
   });
+
+  // Handle fiboa layer toggle
+  container.querySelector('input[name="fiboa"]').addEventListener('change', (e) => {
+    const fiboaLayers = map.getLayers().getArray().filter(layer => 
+      layer.get('title') && layer.get('title').toLowerCase().includes('fiboa')
+    ).forEach(layer => layer.setVisible(e.target.checked));
+  });
+
+  // Handle Fields of the World layer toggle
+  container.querySelector('input[name="ftw"]').addEventListener('change', (e) => {
+    const ftwLayers = map.getLayers().getArray().filter(layer => 
+      layer.get('title') && layer.get('title').toLowerCase().includes('ftw')
+    ).forEach(layer => layer.setVisible(e.target.checked));
+  });
+
+  // Set initial visibility for fiboa and ftw layers
+  const fiboaLayers = map.getLayers().getArray().filter(layer => 
+    layer.get('title') && layer.get('title').toLowerCase().includes('fiboa')
+  );
+  fiboaLayers.forEach(layer => layer.setVisible(true));
+
+  const ftwLayers = map.getLayers().getArray().filter(layer => 
+    layer.get('title') && layer.get('title').toLowerCase().includes('ftw')
+  );
+  console.log(ftwLayers);
+  ftwLayers.forEach(layer => layer.setVisible(true));
+
   map.getTargetElement().appendChild(container);
 } 

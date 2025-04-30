@@ -43,7 +43,7 @@ export function createFiboaLayer(map) {
         features.push(feature);
     }
     const bboxLayer = new VectorLayer({
-        title: c.title,
+        title: `Fiboa: ${c.title}`,
         displayInLayerSwitcher: false,
         maxZoom: c.pmtiles || c.id === 'ftw' ? minZoom : undefined,
         source: new Vector({ features }),
@@ -67,7 +67,7 @@ export function createFiboaLayer(map) {
         }
         const fields = new VectorTile({
           declutter: true,
-          title: c.title,
+          title: `Fiboa: ${c.title}`,
           minZoom,
           displayInLayerSwitcher: true,
           source: new PMTilesVectorSource(options),
