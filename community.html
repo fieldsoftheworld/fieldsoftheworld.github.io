@@ -7,27 +7,26 @@ layout: default
 
 <div class="content">
     <p>FTW is an open, community-driven initiative to advance global agricultural intelligence. We welcome contributions from researchers, developers, organizations, and anyone passionate about improving agricultural monitoring through technology.</p>
+    <p>Our aspirations for Fields of The World (FTW) go far beyond what we've built so far. Which means we need your help! We hope to build the project into a unique collaboration where individuals and organizations can contribute to the components that best suit them, working together to advance a commons of data, models, benchmarks, and software for agricultural insights.</p>
 </div>
 
-<!-- Ways to Contribute Section -->
-<section id="ways-to-contribute" class="index">
-    <h3>Ways to Contribute</h3>
+<section id="getting-started-community" class="index">
+    <h3>New to FTW?</h3>
     <div class="content">
-        <p>We welcome contributions of:</p>
-        <ul>
-            <li><strong>Field boundary datasets</strong> - Help expand our global coverage</li>
-            <li><strong>Model improvements</strong> - Advance the state-of-the-art</li>
-            <li><strong>Tool development</strong> - Build better workflows and interfaces</li>
-            <li><strong>Promotion and educational materials</strong> - Blog posts, documentation, talks, papers, social media</li>
-            <li><strong>Feedback and ideas</strong> - Share your experiences and suggestions</li>
-        </ul>
+        <p>Here's how to get started with the FTW community:</p>
+        <ol>
+            <li><strong>Explore the ecosystem:</strong> Visit our <a href="/ecosystem.html">ecosystem page</a> to understand all the components</li>
+            <li><strong>Try the tools:</strong> Follow our <a href="/tutorial.html">tutorial</a> or try the <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank">web app</a></li>
+            <li><strong>Join the community:</strong> Sign up for the <a href="https://groups.google.com/g/ftw-community" target="_blank">ftw-community</a> Google Group</li>
+            <li><strong>Start contributing:</strong> Check out the contribution areas above and <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank">discussions</a></li>
+            <li><strong>Attend a meeting:</strong> Join one of our regular community meetings</li>
+        </ol>
 
         <div class="cta-buttons">
-            <a href="/contributing.html">Detailed Contribution Guide</a>
-            <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank">Share Ideas</a>
+            <a href="/ecosystem.html">Explore Ecosystem</a>
+            <a href="/tutorial.html">Try a Tutorial</a>
+            <a href="https://groups.google.com/g/ftw-community" target="_blank">Join Community</a>
         </div>
-    </div>
-</section>
 
 <!-- Community Meetings Section -->
 <section id="meetings" class="index">
@@ -97,23 +96,51 @@ layout: default
     </div>
 </section>
 
-<!-- Getting Started Section -->
-<section id="getting-started-community" class="index">
-    <h3>New to FTW?</h3>
+<!-- Ways to Contribute Section -->
+<section id="ways-to-contribute" class="index">
+    <h3>Ways to Contribute</h3>
     <div class="content">
-        <p>Here's how to get started with the FTW community:</p>
-        <ol>
-            <li><strong>Explore the ecosystem:</strong> Visit our <a href="/ecosystem.html">ecosystem page</a> to understand all the components</li>
-            <li><strong>Try the tools:</strong> Follow our <a href="/tutorial.html">tutorial</a> or try the <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank">web app</a></li>
-            <li><strong>Join the community:</strong> Sign up for the <a href="https://groups.google.com/g/ftw-community" target="_blank">ftw-community</a> Google Group</li>
-            <li><strong>Start contributing:</strong> Check out our <a href="/contributing.html">contribution guide</a> and <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank">discussions</a></li>
-            <li><strong>Attend a meeting:</strong> Join one of our regular community meetings</li>
-        </ol>
+        <p>We welcome contributions of:</p>
+        <ul>
+            <li><a href="#labeled-data"><strong>Field boundary datasets</strong></a> - Help expand our global coverage</li>
+            <li><a href="#models"><strong>Model improvements</strong></a> - Advance the state-of-the-art</li>
+            <li><a href="#tools"><strong>Tool development</strong></a> - Build better workflows and interfaces</li>
+            <li><a href="#promotion-education"><strong>Promotion and educational materials</strong></a> - Blog posts, documentation, talks, papers, social media</li>
+            <li><a href="#generated-data"><strong>Feedback and ideas</strong></a> - Share your experiences and suggestions</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Detailed Contribution Areas -->
+<section id="contribution-details" class="index">
+    <h3>Contribution Areas</h3>
+    <div class="content">
+        <h4 id="labeled-data">Labeled Data</h4>
+        <p>We built FTW from all the open labeled data we could find, but we know there are many more field boundaries that have been delineated. If you have high quality field boundary data consider opening it up as a contribution to FTW. And if you know of data we're not incorporating or are undertaking a project to build more labeled data we'd love to work with you to make sure it can be included. For the first version we processed lots of data by hand, but going forward we're hoping to establish some standards and tools to make it easier to process and include new data. We've not yet built that yet, so in the meantime please file an issue on our <a href="https://github.com/fieldsoftheworld/ftw-datasets-list">ftw-datasets-list</a> repo or raise it on our <a href="https://github.com/orgs/fieldsoftheworld/discussions">discussion board</a>. And if you're considering opening data, please consider a good open license like <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, for at least a subset of the data.</p>
+        <p>Note that we'd love to see more attributes associated with the field boundaries, like crop type, tillage, cover crops, and other attributes that can be detected from overhead imagery - we just aimed to limit the scope for the initial version. And we'd also be excited by more open satellite imagery over the FTW areas, including things like super resolution of Sentinel-2.</p>
+
+        <h4 id="models">Models</h4>
+        <p>The initial goal of FTW was to gather and harmonize training data, and to establish a baseline of models to demonstrate what's possible. But our hope is that others go far beyond the initial models and experiments to get better results. We've built a number of metrics to compare performance (and hope to build more), so that we can benchmark any model. And we also want to make it super easy for users to run these models, using the <a href="https://github.com/fieldsoftheworld/ftw-baselines?tab=readme-ov-file#setup-ftw-cli">ftw command line tool</a>, so that it's easy to get feedback from the wider community of people who need field boundaries. So if you'd like your model to be included, or just want to discuss ideas for new models for agriculture please <a href="https://github.com/orgs/fieldsoftheworld/discussions/categories/ideas">start a discussion</a>!</p>
+
+        <h4 id="generated-data">Generated Data</h4>
+        <p>We'd love to see the results of anyone using FTW-based models to generate field boundaries, both the good and the bad! Right now the tools make it easy to run on Sentinel-2 scenes, but we hope to improve them to make it easy to <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues/59">run on any area</a> without having to select scenes. In time we hope to develop tools for a complete feedback loop, where users can generate field boundaries, evaluate them, and directly feed the results back into the training data to make the models better. But in the meantime just sharing the outputs and potentially creating new training data for the area you care about it is a great contribution.</p>
+
+        <h4 id="tools">Tools</h4>
+        <p>One differentiator for FTW is that we've invested time to build tools that make it easy to download the data, create models, run models and generate <a href="https://github.com/fiboa">fiboa</a> output. But there's far more we'd love to build! Both expanding on the tools there, and also making it easier to process and create FTW training data. If you're a software developer and want to contribute to the project please check the <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues">ftw-baselines issues</a> or raise a discussion on the <a href="https://github.com/orgs/fieldsoftheworld/discussions">FTW board</a>. We've got lots of ideas, and we welcome more. The focus has been on command line tools, but we'd also love to see web apps, integrations to other tools (like <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues/47">QGIS</a> and ESRI) and libraries in other languages.</p>
+
+        <h4 id="promotion-education">Promotion & Education</h4>
+        <p>We'd love more help telling the world about FTW! Please spread the word in blog posts, talks, papers, on social media and in person. And as you start to use and build on it please share your use cass and results with the world. We'd also really welcome any tutorials and documentation helping others use FTW and learn about using and building geospatial AI.</p>
 
         <div class="cta-buttons">
-            <a href="/ecosystem.html">Explore Ecosystem</a>
-            <a href="/tutorial.html">Try a Tutorial</a>
-            <a href="https://groups.google.com/g/ftw-community" target="_blank">Join Community</a>
+            <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank">Share Ideas</a>
+            <a href="https://github.com/fieldsoftheworld/ftw-datasets-list/issues" target="_blank">Contribute Data</a>
         </div>
+    </div>
+</section>
+
+
+
+<!-- Getting Started Section -->
+
     </div>
 </section>
