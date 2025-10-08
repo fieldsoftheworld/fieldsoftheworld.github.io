@@ -297,3 +297,28 @@ code {
 video {
     margin: 1em 0;
 }
+
+/* List Styling */
+.content ul,
+.content ol {
+  margin: 1.5rem 0 !important;
+  padding-left: 2.5rem !important;
+  list-style-position: outside !important;
+  text-align: left !important;
+}
+
+.content ul li,
+.content ol li {
+  margin-bottom: 1rem !important;
+  margin-left: 0 !important;
+  display: list-item !important;
+  text-align: left !important;
+}
+
+.content ul li {
+  list-style-type: disc !important;
+}
+
+.content ol li {
+  list-style-type: decimal !important;
+}

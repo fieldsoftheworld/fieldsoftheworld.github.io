@@ -7,8 +7,8 @@ layout: default
     <p>This is a quick tutorial on how to download and format a pair of Sentinel-2 scenes for inference, run a FTW Baseline model and produce <a href="https://github.com/fiboa">fiboa</a> (GeoParquet) output. You can do this for anywhere in the world, and we'll use a small area in Austria for this example. The following video shows the process:</p>
 
     <video width="800px" height="452" controls muted>
-        <source src="/static/videos/ftw-tutorial.webm" type="video/webm">
-        Download the <a href="/static/videos/ftw-tutorial.webm">video</a>
+        <source src="static/videos/ftw-tutorial.webm" type="video/webm">
+        Download the <a href="static/videos/ftw-tutorial.webm">video</a>
     </video>
 
     <h3>Downloading the Model</h3>
@@ -36,7 +36,7 @@ layout: default
     <h3>Producing Vector Output</h3>
     <p>Next we'll polygonize the output to produce a vector file. We'll use the polygonize command for this.</p>
     <pre><code>ftw inference polygonize austria-inf.tif</code></pre>
-    <p>This will create a GeoParquet file named <code>austria-inf.parquet</code> in the current directory. It will follow the <a href="https://github.com/fiboa">Fiboa standard</a> for geospatial data, and include the area. The polygonization algorithm is not very complex - right now it simplifies things to 15 meters, which smoothes the edges, and removes any polygons that are under 500 meters (configurable with the <code>--simplify</code> flag). We hope to offer more polygonization options in the future, and <a href="contributing.html">contributions are welcome</a>. You can also generate GeoJSON, FlatGeobuf or GeoPackage output, just use the <code>--out</code> flag and end the file name with the appropriate extension.</p>
+    <p>This will create a GeoParquet file named <code>austria-inf.parquet</code> in the current directory. It will follow the <a href="https://github.com/fiboa">Fiboa standard</a> for geospatial data, and include the area. The polygonization algorithm is not very complex - right now it simplifies things to 15 meters, which smoothes the edges, and removes any polygons that are under 500 meters (configurable with the <code>--simplify</code> flag). We hope to offer more polygonization options in the future, and <a href="community.html">contributions are welcome</a>. You can also generate GeoJSON, FlatGeobuf or GeoPackage output, just use the <code>--out</code> flag and end the file name with the appropriate extension.</p>
     <p>If you haven't managed to get things working feel free to or <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues">file an issue</a> and let us know where things went wrong, and we'll hopefully be able to help you out.</p>
 
     <h3>Summary</h3>
