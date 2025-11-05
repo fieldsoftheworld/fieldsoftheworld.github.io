@@ -1,0 +1,123 @@
+---
+title: The FTW Ecosystem
+layout: default
+---
+
+<h2>🔎 What's in the FTW Ecosystem?</h2>
+
+<div class="content">
+    <p>FTW has evolved from a benchmark dataset into a comprehensive ecosystem supporting research, development, and deployment of geospatial workflows for agricultural field boundary detection. This GitHub organization contains all the tools, models, and data needed to work with field boundaries at scale.</p>
+</div>
+
+<!-- FTW Benchmark Dataset Section -->
+<section id="benchmark-dataset" class="index">
+    <h3>🗂️ FTW Benchmark Dataset</h3>
+    <div class="content">
+        <p>Originally the core of the initiative, the <strong>FTW Benchmark Dataset</strong> is a global collection of labeled agricultural field boundaries, designed to benchmark model performance and support open research. It aggregates and harmonizes a number of open datasets into 1.6 million parcel boundaries and over 70,000 samples covering diverse agricultural landscapes across 4 continents and 24 countries.</p>
+
+        <p>You can explore and download the dataset from <a href="https://source.coop/kerner-lab/fields-of-the-world" target="_blank">Source Cooperative</a>.</p>
+
+        <h4>What's included in the FTW Benchmark Dataset?</h4>
+        <ul>
+            <li>Publicly available, labeled field boundaries from around the world</li>
+            <li>Uniform data formatting and metadata schema</li>
+            <li>A maintained subset of training/validation/test data</li>
+            <li>Tools to evaluate model performance on shared benchmarks</li>
+            <li>Contribution guidelines for submitting new datasets</li>
+        </ul>
+
+        <div class="cta-buttons">
+            <a href="map">Explore the Data</a>
+            <a href="https://source.coop/repositories/kerner-lab/fields-of-the-world/description/" target="_blank">Download Dataset</a>
+            <a href="paper.html">Read the Paper</a>
+        </div>
+    </div>
+</section>
+
+<!-- FTW Baseline Models Section -->
+<section id="baseline-models" class="index">
+    <h3>🧠 FTW Baseline Models</h3>
+    <div class="content">
+        <p>Reference implementations of machine learning models trained on the FTW Benchmark Dataset. These models offer starting points and performance baselines for researchers and practitioners.</p>
+
+        <div class="cta-buttons">
+            <a href="https://github.com/fieldsoftheworld/ftw-baselines/releases/tag/v1" target="_blank">Download Models</a>
+            <a href="tutorial.html">Run a Model</a>
+            <a href="https://github.com/fieldsoftheworld/ftw-baselines/blob/main/EXPERIMENTS.md" target="_blank">Train Your Own</a>
+        </div>
+    </div>
+</section>
+
+<!-- FTW Tools Section -->
+<section id="tools" class="index">
+    <h3>🛠️ FTW Tools</h3>
+    <div class="content">
+        <p>A growing suite of tools to support end-to-end workflows:</p>
+
+        <h4>Data Access Tools</h4>
+        <p>CLI to download and work with the benchmark dataset (FTW CLI, available in the <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">ftw-baselines</a> repository)</p>
+
+        <h4>Inference Tools</h4>
+        <p>CLI to run field boundary detection on new imagery (FTW CLI, available in the <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">ftw-baselines</a> repository)</p>
+
+        <h4>Formatting Tools</h4>
+        <p>Resources to convert raw data into FTW-compliant format (e.g., fiboa to FTW train/test split) using the <a href="https://github.com/fiboa/cli" target="_blank">fiboa CLI</a></p>
+
+        <h4>QGIS Plugin</h4>
+        <p>A plugin to browse and interact with field data within QGIS. Currently in alpha (<a href="https://github.com/fieldsoftheworld/ftw-qgis-plugin" target="_blank">ftw-qgis-plugin</a>)</p>
+
+        <p><em>The goal for both the tools and the web app is to make it easy to run a number of field boundary models, not just FTW baseline models or FTW benchmark data derived ones.</em></p>
+
+        <div class="cta-buttons">
+            <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">FTW CLI Tools</a>
+            <a href="https://github.com/fiboa/cli" target="_blank">Fiboa CLI</a>
+            <a href="https://github.com/fieldsoftheworld/ftw-qgis-plugin" target="_blank">QGIS Plugin</a>
+        </div>
+    </div>
+</section>
+
+<!-- FTW Web App Section -->
+<section id="web-app" class="index">
+    <h3>🌐 FTW Web App</h3>
+    <div class="content">
+        <p>A browser-based interface to easily run FTW models in any area of the world without running any code. The web app is powered by an API and deployed to AWS for global accessibility.</p>
+
+        <p>Improvements to the web app are under progress. The web app is powered by an API (see <a href="https://github.com/fieldsoftheworld/ftw-inference-api" target="_blank">ftw-inference-api</a>) and deployed to AWS via <a href="https://github.com/fieldsoftheworld/ftw-api-deployment" target="_blank">ftw-api-deployment</a>.</p>
+
+        <div class="cta-buttons">
+            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank">Try the Web App</a>
+            <a href="https://github.com/fieldsoftheworld/ftw-inference-app" target="_blank">Web App Code</a>
+            <a href="https://github.com/fieldsoftheworld/ftw-inference-api" target="_blank">API Code</a>
+        </div>
+    </div>
+</section>
+
+<!-- FTW Data Products Section -->
+<section id="data-products" class="index">
+    <h3>🗺️ FTW Data Products</h3>
+    <div class="content">
+        <p>Large-scale outputs of model-inferred field boundaries (e.g., country-wide field maps). While no full-country maps have been published yet, efforts are currently underway in Kenya, Vietnam, Laos, Colombia, and other countries/regions.</p>
+
+        <p>These outputs will be versioned and openly published to support external evaluation, planning, and downstream applications. As model quality improves, we aim to scale toward a global field boundary dataset.</p>
+    </div>
+</section>
+
+<!-- Related Work Section -->
+<section id="related-work" class="index">
+    <h3>Related Work</h3>
+    <div class="content">
+        <h4><strong>Fi</strong>eld <strong>Bo</strong>undaries for <strong>A</strong>griculture (fiboa)</h4>
+        <p>The <strong>Fi</strong>eld <strong>Bo</strong>undaries for <strong>A</strong>griculture (fiboa) project is focused on making field boundary data openly available in a unified format on a global scale.</p>
+
+        <p>Curated public datasets of field boundaries from government sources and hand-labeling campaigns, that may serve as inputs to the benchmark dataset. These are converted to the <a href="https://fiboa.org" target="_blank">fiboa</a> specification. Fiboa data can be found at <a href="https://source.coop/fiboa" target="_blank">https://source.coop/fiboa</a>.</p>
+
+        <p>The data found in the Source Cooperative <a href="https://source.coop/kerner-lab" target="_blank">kerner-lab</a> organization are in the fiboa format.</p>
+
+        <p>In the future, FTW datasets may be sourced from the fiboa datasets prior to FTW subsetting and harmonization.</p>
+
+        <div class="cta-buttons">
+            <a href="https://fiboa.org" target="_blank">Learn about fiboa</a>
+            <a href="https://source.coop/fiboa" target="_blank">Browse fiboa Data</a>
+        </div>
+    </div>
+</section>
