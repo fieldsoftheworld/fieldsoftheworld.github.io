@@ -1,24 +1,49 @@
+/* FTW Brand palette: #004747 dark teal, #22a070 teal, #7ec185 mint, #c0d85b lime */
+/* Typography: Sora for headers, Manrope for body (per brand guidelines) */
+:root {
+  --ftw-dark: #004747;
+  --ftw-teal: #22a070;
+  --ftw-mint: #7ec185;
+  --ftw-lime: #c0d85b;
+  --ftw-bg: #f5f9f5;
+  --ftw-card: #e8f2e8;
+  --font-heading: "Sora", sans-serif;
+  --font-body: "Manrope", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
-  color: #2f3b32; /* Dark greenish brown for text */
-  background-color: #f9f5f0; /* Very light beige/brown background */
+  color: var(--ftw-dark);
+  background-color: var(--ftw-bg);
 }
-/* Header Styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+/* Header Styling - brand hero with pattern */
 header {
-  height: 30vh; /* Reduced height */
+  height: 32vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   color: #fff;
   text-align: center;
   position: relative;
-  min-height: 250px;
+  min-height: 280px;
+  background: var(--ftw-dark);
+  background-image: url("../images/brand/patterns/Fields of The World - Patterns-01.svg");
+  background-size: cover;
+  background-position: center;
+}
+/* Optional: show .fadein to display rotating banner images; hidden for brand-pattern hero */
+header .fadein {
+  display: none;
 }
 header .fadein,
 header .fadein img {
@@ -36,84 +61,69 @@ header .fadein img {
   animation-duration: 9s;
 }
 @keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  28% {
-    opacity: 1;
-  }
-  38% {
-    opacity: 0;
-  }
-  85% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 1; }
+  28% { opacity: 1; }
+  38% { opacity: 0; }
+  85% { opacity: 0; }
+  100% { opacity: 1; }
 }
-#b1 {
-  animation-delay: -9s;
-  z-index: 1;
-  opacity: 1 !important;
-}
-#b2 {
-  animation-delay: -6s;
-  z-index: 2;
-}
-#b3 {
-  animation-delay: -3s;
-  z-index: 3;
-}
-#b2,
-#b3 {
-  opacity: 0;
-  animation-name: fade;
-  animation-iteration-count: infinite;
-  animation-duration: 9s;
-}
+#b1 { animation-delay: -9s; z-index: 1; opacity: 1 !important; }
+#b2 { animation-delay: -6s; z-index: 2; }
+#b3 { animation-delay: -3s; z-index: 3; }
+#b2, #b3 { opacity: 0; animation-name: fade; animation-iteration-count: infinite; animation-duration: 9s; }
 header::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    34,
-    55,
-    30,
-    0.3
-  ); /* Greenish overlay for better text contrast */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(0,71,71,0.75) 0%, rgba(0,71,71,0.9) 100%);
   z-index: 1;
 }
+header .hero-logo {
+  position: relative;
+  z-index: 4;
+  max-width: 320px;
+  height: auto;
+  margin-bottom: 0.75rem;
+}
+header .hero-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  margin: 0;
+  position: relative;
+  z-index: 4;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  letter-spacing: 0.02em;
+}
 header h1 {
-  font-size: 3.5rem; /* Slightly smaller to match reduced height */
+  font-family: var(--font-heading);
+  font-size: 3rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 4;
-  text-shadow: 2px 2px 5px rgba(25, 35, 15, 0.7); /* Dark green shadow for readability */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 header p {
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   margin-bottom: 1rem;
   position: relative;
   z-index: 4;
-  text-shadow: 1px 1px 3px rgba(25, 35, 15, 0.5); /* Dark green shadow for readability */
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
-header h1,
-header p {
-  text-shadow: 2px 2px 4px black;
+header h1, header p {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
-/* Navigation Bar */
+/* Navigation Bar - brand dark teal */
 nav {
-  background: rgba(40, 55, 40, 0.8); /* Dark green with slight transparency */
-  padding: 1rem;
+  background: var(--ftw-dark);
+  padding: 0.9rem 1rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 nav ul {
   display: flex;
@@ -127,35 +137,26 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-weight: normal;
-  transition: color 0.3s;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 nav ul li a:hover {
-  color: #cde0c1; /* Soft green hover color */
+  color: var(--ftw-lime);
 }
 @media screen and (max-width: 800px) {
-  header h1 {
-    margin-top: 0;
-  }
+  header h1 { margin-top: 0; }
   nav {
-    background: rgba(40, 55, 40, 1); /* Dark green with slight transparency */
+    background: var(--ftw-dark);
     position: static;
   }
-  nav ul {
-    display: block;
-    list-style: none;
-  }
+  nav ul { display: block; list-style: none; }
   nav ul li {
     margin: 0 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255,255,255,0.25);
     text-align: center;
   }
-  nav ul li:first-child {
-    border-top: none;
-  }
-  nav ul li a {
-    display: block;
-  }
+  nav ul li:first-child { border-top: none; }
+  nav ul li a { display: block; }
 }
 /* Section Styling */
 main {
@@ -164,16 +165,20 @@ main {
   margin: auto;
 }
 main h2 {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #5f7f55; /* Green tone for headings */
+  color: var(--ftw-dark);
   text-align: center;
+  font-weight: 600;
 }
 .index h3 {
+  font-family: var(--font-heading);
   font-size: 1.5rem;
+  color: var(--ftw-teal);
 }
 .index h3, .index .content {
-    text-align: center;
+  text-align: center;
 }
 .content {
   max-width: 800px;
@@ -184,19 +189,27 @@ main h2 {
   margin-bottom: 1.5rem;
 }
 .content a {
-  color: #5f7f55; /* Muted green for links */
+  color: var(--ftw-teal);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
 .content a:hover {
+  color: var(--ftw-dark);
   text-decoration: underline;
 }
-.content.about img {
-  width: 160px;
+.content.about .about-logo {
+  width: 180px;
   height: auto;
+  flex-shrink: 0;
+}
+.feature-item .feature-icon {
+  height: 72px;
+  width: auto;
+  display: block;
+  margin: 0 auto 1rem;
 }
 @media screen and (min-width: 800px) {
-  .content.about img {
+  .content.about .about-logo {
     margin-left: 30px;
   }
   .content.about {
@@ -215,36 +228,43 @@ main h2 {
   flex: 1 1 30%;
   margin: 1rem;
   padding: 2rem;
-  background: #ebe4c7; /* Updated background color */
-  border-radius: 8px;
-  text-align: center; /* Center text */
+  background: var(--ftw-card);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(34, 160, 112, 0.15);
 }
 .feature-item h3 {
+  font-family: var(--font-heading);
   margin-bottom: 1rem;
-  color: #5f7f55; /* Same green tone for feature headings */
+  color: var(--ftw-teal);
+  font-weight: 600;
 }
-/* CTA Buttons */
+/* CTA Buttons - brand teal */
 .cta-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 0;
+  gap: 0.5rem;
 }
 .cta-buttons a {
   margin: 0.5rem;
   padding: 1rem 2rem;
-  background: #5f7f55; /* Green background for buttons */
+  background: var(--ftw-teal);
   color: #fff;
   text-decoration: none;
   border-radius: 50px;
-  transition: background 0.3s;
+  transition: background 0.2s, transform 0.15s;
+  font-weight: 500;
 }
 .cta-buttons a:hover {
-  background: #49663d; /* Darker green for hover effect */
+  background: var(--ftw-lime);
+  color: var(--ftw-dark);
+  transform: translateY(-1px);
 }
-/* Footer */
+/* Footer - brand dark teal */
 footer {
-  background: #2f3b32; /* Dark greenish brown for footer */
+  background: var(--ftw-dark);
   color: #fff;
   padding: 2rem 0;
   text-align: center;
@@ -263,16 +283,16 @@ footer {
 }
 
 .dark-green-background {
-  background-color: #2f3b32; /* Dark greenish brown background */
+  background-color: var(--ftw-dark);
   padding: 1rem;
   border-radius: 8px;
-  color: #f9f5f0; /* Very light beige/brown text color */
+  color: var(--ftw-bg);
 }
 
 .dark-green-background a {
-  color: #cde0c1; /* Soft green color for links */
+  color: var(--ftw-lime);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .dark-green-background a:hover {

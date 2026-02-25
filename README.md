@@ -1,4 +1,4 @@
-# Fields of The World (FTW) 🌾 Website
+# Fields of The World (FTW) Website
 
 [![Website](https://img.shields.io/badge/website-fieldsofthe.world-green)](https://fieldsofthe.world)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
@@ -9,7 +9,7 @@
 
 This repository drives the website for Fields of The World.
 
-🌐 **Live Website**: [fieldsofthe.world](https://fieldsofthe.world)
+**Live Website**: [fieldsofthe.world](https://fieldsofthe.world)
 
 ## Getting Started
 

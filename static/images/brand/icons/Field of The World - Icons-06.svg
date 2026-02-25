@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 100 100">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st1 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st2 {
+        fill: url(#linear-gradient9);
+      }
+
+      .st3 {
+        fill: url(#linear-gradient3);
+      }
+
+      .st4 {
+        fill: url(#linear-gradient6);
+      }
+
+      .st5 {
+        fill: url(#linear-gradient8);
+      }
+
+      .st6 {
+        fill: url(#linear-gradient7);
+      }
+
+      .st7 {
+        fill: url(#linear-gradient5);
+      }
+
+      .st8 {
+        fill: url(#linear-gradient4);
+      }
+
+      .st9 {
+        fill: url(#linear-gradient18);
+      }
+
+      .st10 {
+        fill: url(#linear-gradient13);
+      }
+
+      .st11 {
+        fill: url(#linear-gradient12);
+      }
+
+      .st12 {
+        fill: url(#linear-gradient15);
+      }
+
+      .st13 {
+        fill: url(#linear-gradient16);
+      }
+
+      .st14 {
+        fill: url(#linear-gradient11);
+      }
+
+      .st15 {
+        fill: url(#linear-gradient10);
+      }
+
+      .st16 {
+        fill: url(#linear-gradient17);
+      }
+
+      .st17 {
+        fill: url(#linear-gradient14);
+      }
+
+      .st18 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="49.79" y1="92.86" x2="50.45" y2="9.7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22a070"/>
+      <stop offset="1" stop-color="#b7db57"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="35.81" y1="92.75" x2="36.47" y2="9.59" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient2" x1="42.68" y1="92.8" x2="43.34" y2="9.64" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient3" x1="49.55" y1="92.86" x2="50.21" y2="9.69" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient4" x1="56.42" y1="92.91" x2="57.08" y2="9.75" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient5" x1="63.29" y1="92.97" x2="63.95" y2="9.8" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient6" x1="35.93" y1="92.75" x2="36.59" y2="9.59" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient7" x1="42.8" y1="92.8" x2="43.46" y2="9.64" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient8" x1="49.68" y1="92.86" x2="50.34" y2="9.7" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient9" x1="56.55" y1="92.91" x2="57.21" y2="9.75" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient10" x1="63.42" y1="92.97" x2="64.08" y2="9.8" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient11" x1="14.31" y1="92.58" x2="14.97" y2="9.41" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient12" x1="21.18" y1="92.63" x2="21.84" y2="9.47" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient13" x1="14.44" y1="92.58" x2="15.1" y2="9.42" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient14" x1="21.31" y1="92.63" x2="21.97" y2="9.47" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient15" x1="78.12" y1="93.09" x2="78.78" y2="9.92" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient16" x1="85" y1="93.14" x2="85.66" y2="9.98" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient17" x1="78.25" y1="93.09" x2="78.91" y2="9.92" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient18" x1="85.13" y1="93.14" x2="85.79" y2="9.98" xlink:href="#linear-gradient"/>
+  </defs>
+  <path class="st18" d="M72.79,41.57v-19.31h-9.92V7.72h-25.74v14.54h-9.92v19.31H6.45v50.71h87.1v-50.71h-20.76ZM39.73,10.32h20.54v11.94h-20.54v-11.94ZM27.21,89.68H9.05v-45.51h18.16v45.51ZM42.1,88.9v-20.67h15.79v20.67h-15.79ZM70.19,89.68h-9.7v-24.06h-20.99v24.06h-9.7V24.86h40.39v64.83ZM90.95,89.68h-18.16v-45.51h18.16v45.51Z"/>
+  <rect class="st1" x="34.96" y="33.19" width="2.6" height="6.32"/>
+  <rect class="st0" x="41.83" y="33.19" width="2.6" height="6.32"/>
+  <rect class="st3" x="48.7" y="33.19" width="2.6" height="6.32"/>
+  <rect class="st8" x="55.57" y="33.19" width="2.6" height="6.32"/>
+  <rect class="st7" x="62.44" y="33.19" width="2.6" height="6.32"/>
+  <rect class="st4" x="34.96" y="48.82" width="2.6" height="6.32"/>
+  <rect class="st6" x="41.83" y="48.82" width="2.6" height="6.32"/>
+  <rect class="st5" x="48.7" y="48.82" width="2.6" height="6.32"/>
+  <rect class="st2" x="55.57" y="48.82" width="2.6" height="6.32"/>
+  <rect class="st15" x="62.44" y="48.82" width="2.6" height="6.32"/>
+  <rect class="st14" x="13.32" y="50.57" width="2.6" height="6.32"/>
+  <rect class="st11" x="20.19" y="50.57" width="2.6" height="6.32"/>
+  <rect class="st10" x="13.32" y="66.93" width="2.6" height="6.32"/>
+  <rect class="st17" x="20.19" y="66.93" width="2.6" height="6.32"/>
+  <rect class="st12" x="77.14" y="50.57" width="2.6" height="6.32"/>
+  <rect class="st13" x="84.01" y="50.57" width="2.6" height="6.32"/>
+  <rect class="st16" x="77.14" y="66.93" width="2.6" height="6.32"/>
+  <rect class="st9" x="84.01" y="66.93" width="2.6" height="6.32"/>
+</svg>
