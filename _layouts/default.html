@@ -36,18 +36,30 @@
             <img id="b2" src="static/images/banner2.webp" alt="">
             <img id="b3" src="static/images/banner3.webp" alt="">
         </div>
-        <img class="hero-logo" src="static/images/brand/logos/ftw-logo-light.svg" alt="Fields of The World (FTW)">
+        <a href="index.html" class="hero-logo-link" aria-label="Fields of The World home">
+            <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World (FTW)" width="320" height="123">
+        </a>
         <p class="hero-tagline">A Global Field Boundary Ecosystem</p>
     </header>
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="ecosystem.html">Ecosystem</a></li>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li class="nav-dropdown">
+                <a href="ecosystem.html" class="nav-dropdown-label">Ecosystem ▾</a>
+                <ul class="nav-dropdown-content">
+                    <li><a href="ecosystem.html#benchmark-dataset">Benchmark Dataset</a></li>
+                    <li><a href="ecosystem.html#baseline-models">Baseline Models</a></li>
+                    <li><a href="ecosystem.html#tools">Tools</a></li>
+                    <li><a href="ecosystem.html#web-app">Web App</a></li>
+                    <li><a href="ecosystem.html#data-products">Data Products</a></li>
+                    <li><a href="ecosystem.html#related-work">Related Work</a></li>
+                </ul>
+            </li>
             <li><a href="community.html">Community</a></li>
             <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="map/">Data</a></li>
-            <li><a href="paper.html">Paper</a></li>
+            <li><a href="map/">Data <span class="nav-external" aria-hidden="true">↗</span></a></li>
+            <li><a href="paper.html">Paper <span class="nav-external" aria-hidden="true">↗</span></a></li>
         </ul>
     </nav>
 
