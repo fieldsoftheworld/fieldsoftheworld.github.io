@@ -7,10 +7,12 @@
     <meta name="description" content="Fields of The World (FTW) is a global field boundary ecosystem featuring benchmark datasets, models, tools, and web applications for agricultural intelligence.">
     <meta name="keywords" content="machine learning, agricultural field boundaries, ecosystem, benchmark dataset, Sentinel-2, global agriculture, AI tools, community">
 
+    <meta name="view-transition" content="same-origin">
+
     <meta property="og:title" content="Fields of The World: {{ page.title }}"/>
     <meta property="og:description" content="FTW is a comprehensive ecosystem for agricultural field boundary detection, featuring benchmark datasets, baseline models, inference tools, web applications, and community-driven development spanning 24 countries on four continents."/>
     <meta property="og:url" content="https://fieldsofthe.world"/>
-    <meta property="og:image" content="https://fieldsofthe.world/static/images/banner1.webp" />
+    <meta property="og:image" content="https://fieldsofthe.world/static/images/banner1.webp"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
 
@@ -21,32 +23,71 @@
 
     <title>Fields of The World: {{ page.title }}</title>
 
-    <link rel="icon" type="image/svg+xml" href="static/images/brand/logos/ftw-logomark.svg" />
+    <script>
+      (function() {
+        var t = localStorage.getItem('ftw-theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+
+    <script>
+      /* Swallow benign view-transition AbortErrors that fire when a navigation
+         transition gets interrupted (clicking another link mid-transition,
+         browser skipping, etc). Per CSS View Transitions spec, the ready
+         promise rejects with AbortError("Transition was skipped"). Harmless. */
+      window.addEventListener('unhandledrejection', function(e) {
+        var r = e && e.reason;
+        if (r && r.name === 'AbortError' && /skipped|transition/i.test(r.message || '')) {
+          e.preventDefault();
+        }
+      });
+    </script>
+
+    <script>
+      /* Resume hero fade loop across page navigations.
+         Stores a session-wide epoch; each page computes elapsed time
+         since the epoch and sets negative animation-delays so the
+         loop keeps running as if it never reloaded. */
+      (function() {
+        var CYCLE = 20000;
+        var BASES = { globe: 0, b3: -5000, b2: -10000, b1: -15000 };
+        var now = Date.now();
+        var epoch = parseInt(sessionStorage.getItem('ftw-hero-epoch') || '0', 10);
+        if (!epoch || now - epoch < 0) {
+          epoch = now;
+          sessionStorage.setItem('ftw-hero-epoch', String(epoch));
+        }
+        var elapsed = (now - epoch) % CYCLE;
+        var style = document.createElement('style');
+        style.id = 'hero-fade-resume';
+        style.textContent =
+          '.hero-layer--globe{animation-delay:' + (BASES.globe - elapsed) + 'ms!important;}' +
+          '.hero-layer--b3{animation-delay:'    + (BASES.b3    - elapsed) + 'ms!important;}' +
+          '.hero-layer--b2{animation-delay:'    + (BASES.b2    - elapsed) + 'ms!important;}' +
+          '.hero-layer--b1{animation-delay:'    + (BASES.b1    - elapsed) + 'ms!important;}';
+        document.head.appendChild(style);
+      })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="static/images/brand/logos/ftw-logomark.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ '/static/css/styles.css' | relative_url }}">
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" crossorigin="anonymous" defer></script>
 </head>
-<body>
+<body class="{% if page.url == '/' or page.url == '/index.html' %}page-home{% else %}page-inner{% endif %}">
 
-    <!-- Include the header -->
-    <header>
-        <div class="fadein" aria-hidden="true">
-            <img id="b1" src="static/images/banner1.webp" alt="">
-            <img id="b2" src="static/images/banner2.webp" alt="">
-            <img id="b3" src="static/images/banner3.webp" alt="">
-        </div>
-        <a href="index.html" class="hero-logo-link" aria-label="Fields of The World home">
-            <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World (FTW)" width="320" height="123">
+    <nav aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home">
+            <img src="{{ '/static/images/brand/logos/ftw-logomark.svg' | relative_url }}" alt="FTW" height="28" width="28">
+            <span class="nav-brand-name">Fields of The World</span>
         </a>
-        <p class="hero-tagline">A Global Field Boundary Ecosystem</p>
-    </header>
-    <!-- Navigation Bar -->
-    <nav>
         <ul>
             <li><a href="{{ '/' | relative_url }}">Home</a></li>
             <li class="nav-dropdown">
-                <a href="ecosystem.html" class="nav-dropdown-label">Ecosystem ▾</a>
+                <a href="ecosystem.html">Ecosystem ▾</a>
                 <ul class="nav-dropdown-content">
                     <li><a href="ecosystem.html#benchmark-dataset">Benchmark Dataset</a></li>
                     <li><a href="ecosystem.html#baseline-models">Baseline Models</a></li>
@@ -56,27 +97,76 @@
                     <li><a href="ecosystem.html#related-work">Related Work</a></li>
                 </ul>
             </li>
-            <li><a href="community.html">Community</a></li>
             <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="map/">Data <span class="nav-external" aria-hidden="true">↗</span></a></li>
-            <li><a href="paper.html">Paper <span class="nav-external" aria-hidden="true">↗</span></a></li>
+            <li><a href="map/">Data</a></li>
+            <li><a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">App ↗</a></li>
         </ul>
+        <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="nav-supported" aria-label="Sponsored by Taylor Geospatial">
+            <span class="nav-supported-label">Sponsored&nbsp;by</span>
+            <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial" class="nav-supported-logo">
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <span id="theme-icon">◑</span>
+        </button>
     </nav>
 
-    <!-- Content -->
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        var icon = document.getElementById('theme-icon');
+        function effective() {
+          var s = document.documentElement.getAttribute('data-theme');
+          return s || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        }
+        function setIcon(t) { icon.textContent = t === 'dark' ? '☀' : '◑'; }
+        setIcon(effective());
+        btn.addEventListener('click', function() {
+          var next = effective() === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('ftw-theme', next);
+          setIcon(next);
+        });
+      })();
+    </script>
+
+    <script src="{{ '/static/js/hero-globe.js' | relative_url }}" defer></script>
+
+    <header class="hero">
+        <div class="hero-stage" aria-hidden="true">
+            <div class="hero-layer hero-layer--globe">
+                <div id="hero-globe"></div>
+            </div>
+            <div class="hero-layer hero-layer--b1">
+                <img src="{{ '/static/images/banner1.webp' | relative_url }}" alt="">
+            </div>
+            <div class="hero-layer hero-layer--b2">
+                <img src="{{ '/static/images/banner2.webp' | relative_url }}" alt="">
+            </div>
+            <div class="hero-layer hero-layer--b3">
+                <img src="{{ '/static/images/banner3.webp' | relative_url }}" alt="">
+            </div>
+            <div class="hero-vignette"></div>
+        </div>
+
+        <div class="hero-center">
+            <a href="{{ '/' | relative_url }}" class="hero-logo-link" aria-label="Fields of The World home">
+                <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World" width="280" height="108">
+            </a>
+            <p class="hero-tagline">A Global Field Boundary Ecosystem</p>
+        </div>
+    </header>
+
     <main>{{ content }}</main>
 
-    <!-- Footer -->
     <footer>
         <div class="dark-green-background footer-row">
+            <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="footer-supported" aria-label="Sponsored by Taylor Geospatial">
+                <span class="footer-supported-label">Sponsored&nbsp;by</span>
+                <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial" class="footer-supported-logo">
+            </a>
             <span class="footer-license">
                 <a property="dct:title" rel="cc:attributionURL" href="https://fieldsofthe.world">Fields of The World website</a> is licensed under
-                <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
-                    CC BY-SA 4.0
-                    <img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC">
-                    <img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY">
-                    <img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA">
-                </a>
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC"><img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY"><img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA"></a>
             </span>
             <a href="{{ '/ethical-statement.html' | relative_url }}" class="footer-ethical-btn">Ethical Statement</a>
         </div>
