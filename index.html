@@ -88,55 +88,9 @@ layout: default
     </div>
 </section>
 
-<!-- Inference App Showcase -->
-<section id="app" class="index">
-    <span class="section-label" data-code="ii">Inference</span>
-    <div class="app-showcase">
-        <div class="app-showcase-text">
-            <h2>Run field boundary detection anywhere</h2>
-            <p>Draw any region on the map and detect agricultural field boundaries in seconds — directly in your browser. No code, no setup, no downloads. Powered by our pretrained models and open API deployed on AWS.</p>
-            <div class="cta-buttons" style="justify-content:flex-start; margin-top:1.25rem;">
-                <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Open Web App</a>
-                <a href="tutorial.html" class="cta-ghost">View Tutorial</a>
-            </div>
-        </div>
-        <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="app-frame" aria-label="Open FTW inference app">
-            <div class="app-frame-chrome">
-                <span class="app-frame-dot"></span>
-                <span class="app-frame-dot"></span>
-                <span class="app-frame-dot"></span>
-                <span class="app-frame-url">fieldsofthe.world/ftw-inference-app</span>
-            </div>
-            <img src="{{ '/static/images/austria-inf.webp' | relative_url }}" alt="FTW inference app showing detected field boundaries over satellite imagery" loading="lazy">
-        </a>
-    </div>
-</section>
-
-<!-- Explore -->
-<section id="explore" class="index">
-    <span class="section-label" data-code="iii">Start Here</span>
-    <div class="explore-grid">
-        <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="explore-item">
-            <div class="explore-item-title">Inference Web App</div>
-            <div class="explore-item-desc">Draw any region on the map and run field boundary detection in your browser — no setup or code required.</div>
-            <div class="explore-item-tag">Open Web App</div>
-        </a>
-        <a href="map/" class="explore-item">
-            <div class="explore-item-title">Dataset Browser</div>
-            <div class="explore-item-desc">Explore 1.6M+ labeled field boundaries interactively across 24 countries with Sentinel-2 satellite context.</div>
-            <div class="explore-item-tag">Browse Interactively</div>
-        </a>
-        <a href="paper.html" class="explore-item">
-            <div class="explore-item-title">Research Papers</div>
-            <div class="explore-item-desc">FTW benchmark (2024) and FTW v2 — accepted to CVPR 2026. Methodology, experiments, and evaluation details.</div>
-            <div class="explore-item-tag">Read on arXiv</div>
-        </a>
-    </div>
-</section>
-
 <!-- News -->
 <section id="news" class="index">
-    <span class="section-label" data-code="iv">News</span>
+    <span class="section-label" data-code="ii">News</span>
     <div class="news-scroll-wrap">
     <div class="news-list">
         <div class="news-item">
@@ -208,6 +162,47 @@ layout: default
   check();
 })();
 </script>
+
+<!-- Inference App Showcase -->
+<section id="app" class="index">
+    <span class="section-label" data-code="iii">Inference</span>
+    <div class="app-showcase">
+        <div class="app-showcase-text">
+            <h2>Run field boundary detection anywhere</h2>
+            <p>Draw any region on the map and detect agricultural field boundaries in seconds — directly in your browser. No code, no setup, no downloads. Powered by our pretrained models and open API deployed on AWS.</p>
+            <div class="cta-buttons" style="justify-content:flex-start; margin-top:1.25rem;">
+                <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Open Web App</a>
+                <a href="tutorial.html" class="cta-ghost">View Tutorial</a>
+            </div>
+        </div>
+        <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="app-frame" aria-label="Open FTW inference app">
+            <div class="app-frame-chrome">
+                <span class="app-frame-dot"></span>
+                <span class="app-frame-dot"></span>
+                <span class="app-frame-dot"></span>
+                <span class="app-frame-url">fieldsofthe.world/ftw-inference-app</span>
+            </div>
+            <img src="{{ '/static/images/austria-inf.webp' | relative_url }}" alt="FTW inference app showing detected field boundaries over satellite imagery" loading="lazy">
+        </a>
+    </div>
+</section>
+
+<!-- Explore -->
+<section id="explore" class="index">
+    <span class="section-label" data-code="iv">Start Here</span>
+    <div class="explore-grid">
+        <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="explore-item">
+            <div class="explore-item-title">Inference Web App</div>
+            <div class="explore-item-desc">Draw any region on the map and run field boundary detection in your browser — no setup or code required.</div>
+            <div class="explore-item-tag">Open Web App</div>
+        </a>
+        <a href="paper.html" class="explore-item">
+            <div class="explore-item-title">Research Papers</div>
+            <div class="explore-item-desc">FTW benchmark (2024) and FTW v2 — accepted to CVPR 2026. Methodology, experiments, and evaluation details.</div>
+            <div class="explore-item-tag">Read on arXiv</div>
+        </a>
+    </div>
+</section>
 
 <!-- Get Involved -->
 <section id="contributing" class="index">

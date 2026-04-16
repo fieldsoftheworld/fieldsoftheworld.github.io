@@ -43,36 +43,10 @@
       });
     </script>
 
-    <script>
-      /* Resume hero fade loop across page navigations.
-         Stores a session-wide epoch; each page computes elapsed time
-         since the epoch and sets negative animation-delays so the
-         loop keeps running as if it never reloaded. */
-      (function() {
-        var CYCLE = 20000;
-        var BASES = { globe: 0, b3: -5000, b2: -10000, b1: -15000 };
-        var now = Date.now();
-        var epoch = parseInt(sessionStorage.getItem('ftw-hero-epoch') || '0', 10);
-        if (!epoch || now - epoch < 0) {
-          epoch = now;
-          sessionStorage.setItem('ftw-hero-epoch', String(epoch));
-        }
-        var elapsed = (now - epoch) % CYCLE;
-        var style = document.createElement('style');
-        style.id = 'hero-fade-resume';
-        style.textContent =
-          '.hero-layer--globe{animation-delay:' + (BASES.globe - elapsed) + 'ms!important;}' +
-          '.hero-layer--b3{animation-delay:'    + (BASES.b3    - elapsed) + 'ms!important;}' +
-          '.hero-layer--b2{animation-delay:'    + (BASES.b2    - elapsed) + 'ms!important;}' +
-          '.hero-layer--b1{animation-delay:'    + (BASES.b1    - elapsed) + 'ms!important;}';
-        document.head.appendChild(style);
-      })();
-    </script>
-
     <link rel="icon" type="image/svg+xml" href="static/images/brand/logos/ftw-logomark.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ '/static/css/styles.css' | relative_url }}">
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" crossorigin="anonymous" defer></script>
@@ -98,7 +72,6 @@
                 </ul>
             </li>
             <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="map/">Data</a></li>
             <li><a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">App ↗</a></li>
         </ul>
         <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="nav-supported" aria-label="Sponsored by Taylor Geospatial">
@@ -131,30 +104,12 @@
       })();
     </script>
 
-    <script src="{{ '/static/js/hero-globe.js' | relative_url }}" defer></script>
-
     <header class="hero">
-        <div class="hero-stage" aria-hidden="true">
-            <div class="hero-layer hero-layer--globe">
-                <div id="hero-globe"></div>
-            </div>
-            <div class="hero-layer hero-layer--b1">
-                <img src="{{ '/static/images/banner1.webp' | relative_url }}" alt="">
-            </div>
-            <div class="hero-layer hero-layer--b2">
-                <img src="{{ '/static/images/banner2.webp' | relative_url }}" alt="">
-            </div>
-            <div class="hero-layer hero-layer--b3">
-                <img src="{{ '/static/images/banner3.webp' | relative_url }}" alt="">
-            </div>
-            <div class="hero-vignette"></div>
-        </div>
-
         <div class="hero-center">
             <a href="{{ '/' | relative_url }}" class="hero-logo-link" aria-label="Fields of The World home">
-                <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World" width="280" height="108">
+                <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World" width="320" height="123">
             </a>
-            <p class="hero-tagline">A Global Field Boundary Ecosystem</p>
+            <p class="hero-tagline">{% if page.url == '/' or page.url == '/index.html' %}A Global Field Boundary Ecosystem{% else %}{{ page.title }}{% endif %}</p>
         </div>
     </header>
 
