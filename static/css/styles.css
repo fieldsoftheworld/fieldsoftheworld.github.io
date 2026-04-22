@@ -77,9 +77,12 @@ footer { view-transition-name: site-footer; }
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Dark mode — applied by system preference (unless user overrode to light)
+   or by explicit data-theme="dark". Two blocks because you can't combine
+   selectors across a media-query boundary in vanilla CSS; keep them in
+   sync. FTW brand: Cyprus base, Yellow Green accent, Porcelain text. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    /* Dark mode — FTW brand: Cyprus base, Yellow Green accent, Porcelain text */
     --bg: #003535;
     --surface: #004747;
     --card: #00595a;
@@ -1236,9 +1239,6 @@ video {
 }
 .content ul { list-style: disc !important; }
 .content ol { list-style: decimal !important; }
-
-.eyebrow,
-.showcase-card-icon { display: none; }
 
 /* Brand icons — kept modest in size per brand "generous spacing around each" note. */
 .feature-icon {
