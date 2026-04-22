@@ -46,7 +46,7 @@
     <link rel="icon" type="image/svg+xml" href="static/images/brand/logos/ftw-logomark.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ '/static/css/styles.css' | relative_url }}">
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" crossorigin="anonymous" defer></script>
@@ -66,13 +66,12 @@
                     <li><a href="ecosystem.html#benchmark-dataset">Benchmark Dataset</a></li>
                     <li><a href="ecosystem.html#baseline-models">Baseline Models</a></li>
                     <li><a href="ecosystem.html#tools">Tools</a></li>
-                    <li><a href="ecosystem.html#web-app">Web App</a></li>
                     <li><a href="ecosystem.html#data-products">Data Products</a></li>
                     <li><a href="ecosystem.html#related-work">Related Work</a></li>
                 </ul>
             </li>
             <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">App ↗</a></li>
+            <li><a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">Explorer ↗</a></li>
         </ul>
         <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="nav-supported" aria-label="Sponsored by Taylor Geospatial">
             <span class="nav-supported-label">Sponsored&nbsp;by</span>
@@ -109,7 +108,7 @@
             <a href="{{ '/' | relative_url }}" class="hero-logo-link" aria-label="Fields of The World home">
                 <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World" width="320" height="123">
             </a>
-            <p class="hero-tagline">{% if page.url == '/' or page.url == '/index.html' %}A Global Field Boundary Ecosystem{% else %}{{ page.title }}{% endif %}</p>
+            {% if page.url == '/' or page.url == '/index.html' %}<p class="hero-tagline">Mapping the world&rsquo;s agricultural fields at scale.</p>{% endif %}
         </div>
     </header>
 

@@ -4,17 +4,17 @@ layout: default
 ---
 
 <section id="web-app-tutorial" class="index">
-    <h2>Try the Web App</h2>
+    <h2>Try the Explorer App</h2>
     <div class="content">
-        <p>The fastest way to run FTW field boundary detection is in your browser — no install, no code. Draw a region anywhere on the map, pick a model, and the app runs inference on Sentinel-2 imagery for that area. Results download as GeoParquet or GeoJSON for use in any GIS. The web app runs the same FTW baseline models as the command-line workflow below.</p>
+        <p>The fastest way to run FTW field boundary detection is in your browser — no install, no code. Draw a region anywhere on the map, pick a model, and the app runs inference on Sentinel-2 imagery for that area. Results download as GeoParquet or GeoJSON for use in any GIS. The Explorer App runs the same FTW baseline models as the command-line workflow below.</p>
         <div class="cta-buttons">
-            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Open the Web App</a>
+            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Open the Explorer App</a>
         </div>
     </div>
 </section>
 
 <section id="cli-tutorial" class="index">
-    <h2>Tutorial: Run the FTW Baseline model (command line)</h2>
+    <h2>Tutorial: Run the FTW Baseline model</h2>
     <div class="content">
     <p>This tutorial walks through downloading a pair of Sentinel-2 scenes, running an FTW Baseline model on them, and producing <a href="https://github.com/fiboa">fiboa</a>-compliant GeoParquet output. It works anywhere in the world; we'll use a small area in Austria as the example. The video below shows the process end to end:</p>
 
@@ -23,35 +23,61 @@ layout: default
         Download the <a href="static/videos/ftw-tutorial.webm">video</a>
     </video>
 
-    <h3>Downloading the Model</h3>
-    <p>Grab a pretrained model from the <a href="https://github.com/fieldsoftheworld/ftw-baselines">FTW Baselines</a> <a href="https://github.com/fieldsoftheworld/ftw-baselines/releases">Releases</a> page. There are four checkpoints: two-class and three-class variants, each available in CCBY and FULL flavors. The two-class models predict field vs. non-field; the three-class variant adds an explicit boundary class, used during training but not exposed in the fiboa polygonization output.</p>
-    <p>The <strong>CC-BY</strong> models are trained only on data under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a> (or more permissive) licenses — use these if you need clean IP provenance. The <strong>FULL</strong> models use the entire FTW corpus; all of it is openly licensed, but includes share-alike and non-commercial sources. Per-dataset licensing is documented at the bottom of the <a href="https://source.coop/repositories/kerner-lab/fields-of-the-world/description">FTW data homepage</a> on Source Cooperative. You can also <a href="https://github.com/fieldsoftheworld/ftw-baselines/blob/main/EXPERIMENTS.md">train your own models</a> on a custom dataset subset — for this tutorial we'll stick with the pretrained ones.</p>
+    <p><em>Note: the video above shows the older v1/v2 workflow where model checkpoints were downloaded manually. The current CLI (shown below) uses a central model registry — the commands are structurally the same, but you reference models by name instead of by a local <code>.ckpt</code> file.</em></p>
 
-    <h3>Downloading the Data</h3>
-    <p>Next, fetch a pair of Sentinel-2 scenes for the area of interest. The command below writes them to the current directory as <code>austria.tif</code>:</p>
-    <pre><code>ftw inference download \
+    <h3>Choosing a Model</h3>
+    <p>FTW Baselines ships with a central model registry, so you don't need to download checkpoints manually — the CLI fetches them on demand by name. Browse the available models with:</p>
+    <pre><code class="language-bash">ftw model list
+ftw model show FTW_PRUE_EFNET_B5</code></pre>
+    <p>The current default is <code>FTW_PRUE_EFNET_B5</code>, part of the <strong>FTW v3 (PRUE) release</strong> — a three-class (field, boundary, background) U-Net with an EfficientNet-B5 encoder that balances speed and accuracy. B3 is faster, B7 is slower but more accurate. Each PRUE variant comes in two flavors:</p>
+    <ul>
+        <li><strong>Standard</strong> (e.g. <code>FTW_PRUE_EFNET_B5</code>) — trained on the full FTW corpus including CC-BY-NC-SA and other open sources. Generally best accuracy.</li>
+        <li><strong>CC-BY</strong> (e.g. <code>FTW_PRUE_EFNET_B5_CCBY</code>) — trained only on CC-BY or CC0 data if you need clean IP provenance.</li>
+    </ul>
+    <p>Per-dataset licensing is documented at the bottom of the <a href="https://source.coop/repositories/kerner-lab/fields-of-the-world/description">FTW data homepage</a> on Source Cooperative. Legacy v1 / v2 models and the alternative <a href="https://lavreniuk.github.io/Delineate-Anything/">Delineate Anything</a> instance-segmentation model are also available via the registry; see <code>ftw model list</code> for the full catalog. You can also <a href="https://github.com/fieldsoftheworld/ftw-baselines/blob/main/EXPERIMENTS.md">train your own models</a> on a custom dataset subset.</p>
+
+    <h3>Fast Path: End-to-End in One Command</h3>
+    <p>For most cases, <code>ftw inference all</code> handles the whole pipeline in a single call — it selects Sentinel-2 scenes from the USDA crop calendar for the target year, downloads them, runs inference, and polygonizes the output:</p>
+    <pre><code class="language-bash">ftw inference all \
+--bbox 13.0,48.0,13.2,48.2 \
+--year 2024 \
+--out austria-output \
+--model FTW_PRUE_EFNET_B5 \
+--gpu 0 \
+--overwrite</code></pre>
+    <p>This writes three files into the output directory: <code>inference_data.tif</code> (stacked Sentinel-2 imagery), <code>inference_output.tif</code> (raw segmentation raster), and <code>polygons.parquet</code> (fiboa-compliant field boundaries). Set <code>--gpu -1</code> to run on CPU, or pass <code>--mps_mode</code> on Apple Silicon. If this is all you need, skip ahead to the summary.</p>
+
+    <h3>Step-by-Step: Manual Scene Selection</h3>
+    <p>If you want more control — picking specific Sentinel-2 STAC IDs rather than letting the crop calendar choose — run the pipeline in three stages.</p>
+
+    <h4>1. Download the Data</h4>
+    <p>First, fetch a pair of Sentinel-2 scenes for your planting and harvest windows. The command below writes an 8-band stacked GeoTIFF to <code>austria.tif</code>:</p>
+    <pre><code class="language-bash">ftw inference download \
 --win_a S2B_MSIL2A_20210617T100559_R022_T33UUP_20210624T063729 \
 --win_b S2B_MSIL2A_20210925T101019_R022_T33UUP_20210926T121923 \
--f -o austria.tif --bbox=12.7,48.4,12.97,48.57</code></pre>
-    <p>The result is an 8-band GeoTIFF: bands 1–4 are the RGB + NIR of the first (Window A) scene; bands 5–8 are the same for the second (Window B) scene. To pick your own scenes, use the <a href="https://planetarycomputer.microsoft.com/explore">Planetary Computer Explorer</a> to find candidates in your AOI.</p>
-    <p>To choose the two timeframes (Window A and Window B), consult the USDA <a href="https://ipad.fas.usda.gov/ogamaps/cropcalendar.aspx">crop calendar</a> for the planting and harvest windows of your target region. For example, the <a href="https://ipad.fas.usda.gov/rssiws/al/crop_calendar/che.aspx">China</a> calendar shows most crops planted Feb–May and harvested Aug–Nov. Use those months as filters in the Planetary Computer Explorer, set the cloud-cover threshold to 10% or less, and pick a clear observation covering the full AOI.</p>
-    <p>Pass <code>--bbox</code> to limit the download to a subset of the Sentinel-2 scene. Without it, the tool downloads the full scene, which takes much longer to fetch and run inference on. We chose a small area so results come back quickly.</p>
+-f -o austria.tif --bbox 13.0,48.0,13.3,48.3</code></pre>
+    <p>Bands 1–4 are RGB + NIR for Window A; bands 5–8 are the same for Window B. Use the <a href="https://planetarycomputer.microsoft.com/explore">Planetary Computer Explorer</a> to find candidate scenes. To choose the two windows, consult the USDA <a href="https://ipad.fas.usda.gov/ogamaps/cropcalendar.aspx">crop calendar</a> for the planting and harvest periods of your target region. For example, the <a href="https://ipad.fas.usda.gov/rssiws/al/crop_calendar/che.aspx">China</a> calendar shows most crops planted Feb–May and harvested Aug–Nov. Set the cloud-cover filter to 10% or less and pick a clear observation covering the AOI. Pass <code>--bbox</code> to limit the download to a subset of each scene — without it, the tool fetches the full tiles, which takes much longer.</p>
 
-    <h3>Running the Model</h3>
-    <p>With the data prepared, copy the downloaded model checkpoint into the current directory and run:</p>
-    <pre><code>ftw inference run austria.tif -f -o austria-inf.tif \
---gpu 0 -m 3_Class_FULL_FTW_Pretrained.ckpt</code></pre>
-    <p>This writes the output to a GeoTIFF named <code>austria-inf.tif</code>. The <code>--gpu</code> flag selects which CUDA device to use (indexed from 0); omit it to run on CPU (much slower). On Apple Silicon, use <code>--mps_mode</code> to run on the integrated GPU.</p>
-    <p>The result should look something like this, overlaid on the original imagery in QGIS:</p>
+    <h4>2. Run Inference</h4>
+    <p>Pass the stacked image to <code>ftw inference run</code> and reference the model by its registry name:</p>
+    <pre><code class="language-bash">ftw inference run austria.tif \
+--model FTW_PRUE_EFNET_B5 \
+-f -o austria-inf.tif --gpu 0</code></pre>
+    <p>The output is a GeoTIFF of predicted classes. Use <code>--gpu -1</code> for CPU (much slower) or <code>--mps_mode</code> on Apple Silicon. The result should look something like this, overlaid on the original imagery in QGIS:</p>
     <img src="static/images/austria-inf.webp" alt="Inference Result" style="width: 100%;">
 
-    <h3>Producing Vector Output</h3>
-    <p>Finally, polygonize the raster output into vector field boundaries:</p>
-    <pre><code>ftw inference polygonize austria-inf.tif</code></pre>
-    <p>This writes <code>austria-inf.parquet</code>, a GeoParquet file following the <a href="https://github.com/fiboa">fiboa</a> specification and including per-parcel area. The polygonization step is intentionally simple: it simplifies geometries to 15 meters (smoothing edges) and drops polygons below a minimum size threshold — both configurable via <code>--simplify</code>. Richer polygonization options are on the roadmap, and <a href="community.html">contributions are welcome</a>. To write other formats (GeoJSON, FlatGeobuf, GeoPackage), pass <code>--out</code> with the matching extension.</p>
+    <h4>3. Produce Vector Output</h4>
+    <p>Finally, polygonize the raster into vector field boundaries:</p>
+    <pre><code class="language-bash">ftw inference polygonize austria-inf.tif --simplify 20</code></pre>
+    <p>This writes <code>austria-inf.parquet</code>, a GeoParquet file following the <a href="https://github.com/fiboa">fiboa</a> specification and including per-parcel area. The simplification factor is in CRS units (meters for Sentinel-2 in UTM); 15–20 usually strikes a good balance between geometry fidelity and file size. Additional options like <code>--min_size</code>, <code>--close_interiors</code>, and the morphological <code>--erode_dilate</code> / <code>--dilate_erode</code> filters let you tune the output. To write other formats (GeoJSON, FlatGeobuf, GeoPackage), pass <code>-o</code> with the matching extension.</p>
     <p>If you hit a snag, <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues">file an issue</a> describing where things went wrong and we'll help you work through it.</p>
 
     <h3>Summary</h3>
-    <p>That's it — you've generated field boundaries from satellite imagery end to end. From here, try the other pretrained models, run inference on new areas, or train your own variant on a custom dataset subset. Results won't be perfect everywhere; improving coverage depends on feedback and contributions from a global community of users. If you've made it this far, we'd love to hear from you — <a href="https://github.com/orgs/fieldsoftheworld/discussions">start a discussion</a> with your use case, results, or questions.</p>
+    <p>That's it — field boundaries from satellite imagery, end to end. From here, try the other PRUE variants (<code>FTW_PRUE_EFNET_B3</code> for speed, <code>FTW_PRUE_EFNET_B7</code> for accuracy), the <a href="https://lavreniuk.github.io/Delineate-Anything/">Delineate Anything</a> instance-segmentation model, or train your own variant on a custom dataset subset. Results won't be perfect everywhere; improving coverage depends on feedback and contributions from a global community of users. If you've made it this far, we'd love to hear from you — <a href="https://github.com/orgs/fieldsoftheworld/discussions">start a discussion</a> with your use case, results, or questions.</p>
     </div>
 </section>
+
+<script>window.Prism = window.Prism || {}; window.Prism.manual = true;</script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script>Prism.highlightAll();</script>
