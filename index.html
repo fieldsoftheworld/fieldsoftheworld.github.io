@@ -3,119 +3,251 @@ title: A Global Field Boundary Ecosystem
 layout: default
 ---
 
-<!-- About Section -->
+<!-- Datapoints -->
+<div class="stats-row stats-row--four" role="region" aria-label="Global dataset statistics">
+    <div class="stat-cell">
+        <span class="stat-num">3.17B</span>
+        <span class="stat-lab">Field polygons</span>
+    </div>
+    <div class="stat-cell">
+        <span class="stat-num">241</span>
+        <span class="stat-lab">Countries &amp; territories</span>
+    </div>
+    <div class="stat-cell">
+        <span class="stat-num">10m</span>
+        <span class="stat-lab">Resolution</span>
+    </div>
+    <div class="stat-cell">
+        <span class="stat-num">2024&ndash;25</span>
+        <span class="stat-lab">Global coverage</span>
+    </div>
+</div>
+
+<!-- About -->
 <section id="about" class="index">
-    <div class="content about">
-        <div>
+    <div class="about-block">
+        <div class="about-block-text">
+            <h2>A global field boundary ecosystem</h2>
             <p>
-                The goal of <strong>Fields of The World (FTW)</strong> is to build a global
-                field boundary dataset. The effort originally launched as a benchmark
-                dataset, which is still the core of the effort. FTW has expanded into a
-                full ecosystem supporting research, development, and deployment of
-                geospatial workflows for the cloud.
+                <strong>Fields of The World (FTW)</strong> is an open ecosystem for
+                agricultural field boundary detection — combining a global benchmark
+                dataset, baseline ML models, inference tools, and web applications
+                for geospatial workflows in the cloud.
             </p>
             <p>
-                Most countries don't have comprehensive maps of their agricultural
-                fields, and even fewer have up-to-date information on what crops are
-                growing or whether sustainable practices are being used. Our approach to
-                solving this is to leverage Earth observation data and AI to
-                automatically detect field boundaries at scale.
+                Most countries lack complete maps of their agricultural fields.
+                FTW uses open Sentinel-2 satellite imagery and machine learning
+                to detect field boundaries at scale, enabling land use monitoring,
+                food security assessments, and agricultural intelligence worldwide.
             </p>
-            <p>
-                FTW is sponsored by <strong>Taylor Geospatial</strong>, in collaboration with the
-                ASU Kerner Lab, Microsoft AI for Good,
-                and Washington University in St. Louis, together with a broad 
-                community of researchers, technical fellows, and geospatial practioners working 
-                to improve field boundary detection.
-            </p>
+        </div>
+        <div class="partner-block">
+            <span class="partner-block-label">Sponsored by</span>
+            <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="partner-primary" aria-label="Taylor Geospatial Institute">
+                <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial">
+            </a>
+            <span class="partner-block-label partner-block-label--sub">Co-Developed By</span>
+            <a href="https://www.microsoft.com/en-us/research/group/ai-for-good-research-lab/" target="_blank" rel="noopener noreferrer" class="partner-secondary" aria-label="Microsoft AI for Good Lab">
+                <img src="{{ '/static/images/partners/microsoft-ai-for-good.svg' | relative_url }}" alt="Microsoft AI for Good Lab">
+            </a>
+            <span class="partner-block-label partner-block-label--sub">Academic Partners</span>
             <div class="partner-logos">
-                <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="partner-logo" aria-label="Taylor Geospatial">
-                    <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial" width="160" height="48">
-                </a>
-                <a href="https://kernerlab.asu.edu" target="_blank" rel="noopener noreferrer" class="partner-logo" aria-label="ASU Kerner Lab">
-                    <img src="{{ '/static/images/partners/asu.svg' | relative_url }}" alt="ASU Kerner Lab" width="160" height="48">
-                </a>
-                <a href="https://www.microsoft.com/en-us/research/group/ai-for-good-research-lab/" target="_blank" rel="noopener noreferrer" class="partner-logo" aria-label="Microsoft AI for Good">
-                    <img src="{{ '/static/images/partners/microsoft.svg' | relative_url }}" alt="Microsoft AI for Good" width="160" height="48">
+                <a href="https://hannah-rae.github.io/" target="_blank" rel="noopener noreferrer" class="partner-logo partner-logo--asu" aria-label="ASU Kerner Lab">
+                    <img class="partner-logo-light" src="{{ '/static/images/partners/asu.svg' | relative_url }}" alt="ASU Kerner Lab" width="130" height="40">
+                    <img class="partner-logo-dark" src="{{ '/static/images/partners/asu-dark.svg' | relative_url }}" alt="" width="130" height="40" aria-hidden="true">
                 </a>
                 <a href="https://washu.edu" target="_blank" rel="noopener noreferrer" class="partner-logo" aria-label="Washington University in St. Louis">
-                    <img src="{{ '/static/images/partners/washu.svg' | relative_url }}" alt="Washington University in St. Louis" width="160" height="48">
+                    <img src="{{ '/static/images/partners/washu.svg' | relative_url }}" alt="Washington University in St. Louis" width="130" height="40">
+                </a>
+                <a href="https://www.clarku.edu" target="_blank" rel="noopener noreferrer" class="partner-logo partner-logo--clark" aria-label="Clark University">
+                    <img class="partner-logo-light" src="{{ '/static/images/partners/clark.svg' | relative_url }}" alt="Clark University" width="130" height="40">
+                    <img class="partner-logo-dark" src="{{ '/static/images/partners/clark-dark.svg' | relative_url }}" alt="" width="130" height="40" aria-hidden="true">
+                </a>
+            </div>
+            <span class="partner-block-label partner-block-label--sub">Infrastructure &amp; Support</span>
+            <div class="partner-logos partner-logos--two">
+                <a href="https://source.coop" target="_blank" rel="noopener noreferrer" class="partner-logo" aria-label="Source Cooperative">
+                    <img src="{{ '/static/images/partners/source-coop.svg' | relative_url }}" alt="Source Cooperative" width="130" height="40">
+                </a>
+                <a href="https://wherobots.com" target="_blank" rel="noopener noreferrer" class="partner-logo partner-logo--wherobots" aria-label="Wherobots">
+                    <img src="{{ '/static/images/partners/wherobots.png' | relative_url }}" alt="Wherobots" width="130" height="40">
                 </a>
             </div>
         </div>
     </div>
+</section>
 
-    <h3>Key Features</h3>
-    <div class="features">
-        <div class="feature-item">
-            <img class="feature-icon" src="static/images/brand/icons/Field of The World - Icons-02.svg" alt="">
-            <h3>Complete Ecosystem</h3>
-            <p>
-                Beyond the benchmark dataset, FTW provides baseline models, inference
-                tools, web applications, and data products to support end-to-end field
-                boundary workflows.
-            </p>
+<!-- News -->
+<section id="news" class="index">
+    <span class="section-label">News</span>
+    <div class="news-scroll-wrap">
+    <div class="news-list">
+        <div class="news-item">
+            <span class="news-badge news-badge--highlight">Global Release</span>
+            <div class="news-body">
+                <strong>FTW global field boundaries released &mdash; 3.17B polygons across 241 countries and territories</strong>
+                <p>A global 10m field boundary dataset covering 2024 (1.62B polygons) and 2025 (1.55B polygons), produced by running the FTW PRUE model worldwide. Funded by <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer">Taylor Geospatial</a> and run on the <a href="https://wherobots.com" target="_blank" rel="noopener noreferrer">Wherobots</a> RasterFlow platform. Browse in the <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">Explorer App</a> or download from <a href="https://source.coop/ftw/global-data" target="_blank" rel="noopener noreferrer">Source Cooperative</a>.</p>
+            </div>
         </div>
-        <div class="feature-item">
-            <img class="feature-icon" src="static/images/brand/icons/Field of The World - Icons-01.svg" alt="">
-            <h3>Global Impact</h3>
-            <p>
-                By combining open satellite imagery with machine learning, we aim to
-                build a global, open, and regularly updated map of the world's
-                agricultural fields.
-            </p>
+        <div class="news-item">
+            <span class="news-badge news-badge--highlight">ICLR 2026</span>
+            <div class="news-body">
+                <strong>Fields of The World: A Field Guide for Extracting Agricultural Field Boundaries — tutorial accepted to ICLR 2026 Workshop on Machine Learning for Remote Sensing</strong>
+                <p>Tutorial materials and Colab notebooks are available at <a href="https://github.com/fieldsoftheworld/iclr2026-ml4rs-tutorial" target="_blank" rel="noopener noreferrer">iclr2026-ml4rs-tutorial</a>. <a href="https://arxiv.org/abs/2602.08131" target="_blank" rel="noopener noreferrer">Read the paper on arXiv</a></p>
+            </div>
         </div>
-        <div class="feature-item">
-            <img class="feature-icon" src="static/images/brand/icons/Field of The World - Icons-03.svg" alt="">
-            <h3>Community Driven</h3>
-            <p>
-                FTW is an open, community-driven initiative where individuals and
-                organizations can contribute data, models, tools, and expertise to
-                advance global agricultural intelligence.
-            </p>
+        <div class="news-item">
+            <span class="news-badge news-badge--highlight">CVPR 2026</span>
+            <div class="news-body">
+                <strong>FTW Prue accepted to CVPR 2026 — code &amp; models released</strong>
+                <p>Our updated paper introducing the expanded FTW ecosystem was accepted to CVPR 2026. Code is open source at <a href="https://github.com/fieldsoftheworld/ftw-prue" target="_blank" rel="noopener noreferrer">ftw-prue</a> and models are runnable via the <code>ftw-tools</code> package. <a href="https://arxiv.org/abs/2603.27101" target="_blank" rel="noopener noreferrer">Read on arXiv</a></p>
+            </div>
+        </div>
+        <div class="news-item">
+            <span class="news-badge news-badge--highlight">NeurIPS 2025</span>
+            <div class="news-body">
+                <strong>Tutorial accepted to NeurIPS 2025 Workshop: Tackling Climate Change with Machine Learning</strong>
+                <p>Our tutorial on agricultural monitoring with FTW was accepted to the <a href="https://www.climatechange.ai/events/neurips2025" target="_blank" rel="noopener noreferrer">NeurIPS 2025 CCAI Workshop</a>. Materials are open source at <a href="https://github.com/climatechange-ai-tutorials/agricultural-monitoring-ftw" target="_blank" rel="noopener noreferrer">climatechange-ai-tutorials/agricultural-monitoring-ftw</a>. <a href="https://colab.research.google.com/github/fieldsoftheworld/neurips2025-ccai-tutorial/blob/main/1.0-agriculture-monitoring-with-ftw.ipynb" target="_blank" rel="noopener noreferrer">Run the Colab notebook</a></p>
+            </div>
+        </div>
+        <div class="news-item">
+            <span class="news-badge">Blog · Sep 2025</span>
+            <div class="news-body">
+                <strong>FTW Phase 2: Building AI and ML Infrastructure for Global Field Boundaries</strong>
+                <p>Taylor Geospatial Engine published an update on the second phase of FTW — expanding the dataset, scaling inference infrastructure, and shipping open ML tools for global field boundary mapping. <a href="https://tgengine.org/fields-of-the-world-building-ai-and-ml-infrastructure-for-global-field-boundaries/" target="_blank" rel="noopener noreferrer">Read the update</a></p>
+            </div>
+        </div>
+        <div class="news-item">
+            <span class="news-badge">Dataset</span>
+            <div class="news-body">
+                <strong>Dataset available on Source Cooperative</strong>
+                <p>1.6M+ labeled parcels across 24 countries, openly licensed. <a href="https://source.coop/repositories/kerner-lab/fields-of-the-world/description/" target="_blank" rel="noopener noreferrer">Download the dataset</a></p>
+            </div>
+        </div>
+        <div class="news-item">
+            <span class="news-badge">Blog · Nov 2024</span>
+            <div class="news-body">
+                <strong>Introducing Fields of The World</strong>
+                <p>Taylor Geospatial Engine announced the launch of the Fields of The World initiative — a global open benchmark and ML infrastructure effort for agricultural field boundary detection. <a href="https://tgengine.org/introducing-fields-of-the-world/" target="_blank" rel="noopener noreferrer">Read the launch post</a></p>
+            </div>
+        </div>
+        <div class="news-item">
+            <span class="news-badge">Community</span>
+            <div class="news-body">
+                <strong>Bi-weekly community meetings</strong>
+                <p>Open progress calls every other Thursday at 8 am PT / 11 am ET. <a href="https://groups.google.com/g/ftw-community" target="_blank" rel="noopener noreferrer">Join the mailing list</a> to receive calendar invites.</p>
+            </div>
         </div>
     </div>
-
-    <h3>Why?</h3>
-    <div class="content">
-        <p>
-            There is a growing need for accurate and scalable field boundary data for
-            global agricultural monitoring and assessments. By combining open satellite
-            imagery with machine learning, we aim to build a global, open, and
-            regularly updated map of the world's fields. The intention is that these
-            field boundaries will enable better land use monitoring, food security
-            efforts, and agricultural insights.
-        </p>
     </div>
 </section>
 
-<!-- Get Started Section -->
-<section id="get-started" class="index">
-    <h2>Get Started</h2>
-    <div class="content">
-        <div class="cta-buttons cta-buttons--grid">
-            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">Try the Web App</a>
-            <a href="ecosystem.html">Explore the Ecosystem</a>
-            <a href="tutorial.html">Run a Model</a>
-            <a href="map">Explore the Data</a>
-            <a href="https://source.coop/repositories/kerner-lab/fields-of-the-world/description/" target="_blank" rel="noopener noreferrer">Get the Data</a>
-            <a href="paper.html">Read the Paper</a>
+<script>
+(function() {
+  var list = document.querySelector('.news-list');
+  var wrap = document.querySelector('.news-scroll-wrap');
+  if (!list || !wrap) return;
+  function check() {
+    if (list.scrollHeight - list.scrollTop - list.clientHeight < 8) {
+      wrap.classList.add('news-at-bottom');
+    } else {
+      wrap.classList.remove('news-at-bottom');
+    }
+  }
+  list.addEventListener('scroll', check, { passive: true });
+  check();
+})();
+</script>
+
+<!-- Explorer / Inference App Showcase -->
+<section id="app" class="index">
+    <span class="section-label">Explore the Global FTW or Run Inference</span>
+    <div class="app-showcase">
+        <div class="app-showcase-text">
+            <h2>Explore the global dataset or run inference yourself</h2>
+            <p>Pan the world map to browse 3.17B field boundaries, download polygons for any region, or optionally run inference directly in your browser — pick a model and a Sentinel-2 tile and go. No code, no setup, no downloads required.</p>
+            <div class="cta-buttons" style="justify-content:flex-start; margin-top:1.25rem;">
+                <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Open Explorer App</a>
+                <a href="tutorial.html" class="cta-ghost">View Tutorial</a>
+            </div>
         </div>
+        <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="app-frame" aria-label="Open FTW Explorer app">
+            <div class="app-frame-chrome">
+                <span class="app-frame-dot"></span>
+                <span class="app-frame-dot"></span>
+                <span class="app-frame-dot"></span>
+                <span class="app-frame-url">fieldsofthe.world/ftw-inference-app</span>
+            </div>
+            <img src="{{ '/static/images/austria-inf.webp' | relative_url }}" alt="FTW Explorer app showing detected field boundaries over satellite imagery" loading="lazy">
+        </a>
     </div>
 </section>
 
-<!-- Contributing Section -->
+<!-- Research -->
+<section id="research" class="index">
+    <span class="section-label">Research</span>
+    <div class="explore-grid explore-grid--3col">
+        <a href="https://arxiv.org/abs/2409.16252" target="_blank" rel="noopener noreferrer" class="explore-item">
+            <div class="explore-item-title">FTW Benchmark Dataset</div>
+            <div class="explore-item-desc">A machine learning benchmark dataset for global agricultural field boundary segmentation — 1.6M+ labeled parcels across 24 countries on four continents, paired with multi-date Sentinel-2 imagery. Kerner et al., <strong>AAAI 2025</strong>.</div>
+            <div class="explore-item-tag">Read on arXiv</div>
+        </a>
+        <a href="https://arxiv.org/abs/2603.27101" target="_blank" rel="noopener noreferrer" class="explore-item">
+            <div class="explore-item-title">FTW PRUE</div>
+            <div class="explore-item-desc">A U-Net segmentation model with tiling-artifact mitigation, designed for large-scale deployment across Sentinel-2 mosaics. Muhawenayo et al., <strong>CVPR 2026</strong>.</div>
+            <div class="explore-item-tag">Read on arXiv</div>
+        </a>
+        <a href="https://source.coop/ftw/global-data" target="_blank" rel="noopener noreferrer" class="explore-item">
+            <div class="explore-item-title">FTW Global Mapping</div>
+            <div class="explore-item-desc">A first global agricultural field boundary map at 10m resolution — 3.17B polygons across 241 countries for 2024 and 2025, with a 500m confidence layer (AUC 0.82) and full-country F1 of 0.89 / 0.88 / 0.74 in Austria / Latvia / Finland. <strong>Preprint in preparation</strong>.</div>
+            <div class="explore-item-tag">Browse on Source Cooperative</div>
+        </a>
+    </div>
+</section>
+
+<!-- Ecosystem & Get Involved -->
 <section id="contributing" class="index">
-    <h2>Get Involved</h2>
-    <div class="content">
-        <p>
-            We welcome contributions from the community! Our goal is to create an open,
-            collaborative ecosystem where we all work together to advance a commons of
-            data, models, benchmarks and software for agricultural insights.
-        </p>
-        <div class="cta-buttons">
-            <a href="community.html">Join the Community</a>
-            <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank">Get in Touch</a>
+    <span class="section-label">Get Involved</span>
+    <div class="about-block">
+        <div class="about-block-text">
+            <h2>A community-driven commons</h2>
+            <p>FTW is built in the open. Contribute data, models, tools, or help spread the word — every contribution advances a global, open map of the world's fields.</p>
+            <div class="cta-buttons" style="justify-content:flex-start; margin-top:1rem;">
+                <a href="https://groups.google.com/g/ftw-community" target="_blank" rel="noopener noreferrer" class="cta-primary">Join Mailing List</a>
+                <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank" rel="noopener noreferrer" class="cta-ghost">GitHub Discussions</a>
+            </div>
+        </div>
+        <div>
+            <div class="features features--2col">
+                <div class="feature-item">
+                    <img class="feature-icon" src="{{ '/static/images/brand/icons/Field of The World - Icons-10.svg' | relative_url }}" alt="" aria-hidden="true">
+                    <div class="feature-item-body">
+                        <h3>Benchmark Dataset</h3>
+                        <p>1.6M+ labeled parcels across 24 countries, unified for training and evaluation. Share or open-license more datasets — <a href="https://github.com/fieldsoftheworld/ftw-datasets-list/issues" target="_blank" rel="noopener noreferrer">file an issue</a>.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <img class="feature-icon" src="{{ '/static/images/brand/icons/Field of The World - Icons-08.svg' | relative_url }}" alt="" aria-hidden="true">
+                    <div class="feature-item-body">
+                        <h3>Baseline Models</h3>
+                        <p>Pretrained baselines including FTW PRUE, runnable via <code>ftw-tools</code>. Train improved models — see the <a href="https://github.com/fieldsoftheworld/ftw-baselines/blob/main/EXPERIMENTS.md" target="_blank" rel="noopener noreferrer">experiments guide</a>.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <img class="feature-icon" src="{{ '/static/images/brand/icons/Field of The World - Icons-01.svg' | relative_url }}" alt="" aria-hidden="true">
+                    <div class="feature-item-body">
+                        <h3>Tools, Apps &amp; API</h3>
+                        <p>Explorer App, CLI, and open API for browsing, downloading, and producing fiboa-compliant output. Improve the CLI, web apps, or QGIS integration — see <a href="https://github.com/fieldsoftheworld/ftw-baselines/issues" target="_blank" rel="noopener noreferrer">open issues</a>.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <img class="feature-icon" src="{{ '/static/images/brand/icons/Field of The World - Icons-03.svg' | relative_url }}" alt="" aria-hidden="true">
+                    <div class="feature-item-body">
+                        <h3>Promotion &amp; Education</h3>
+                        <p>Blog posts, talks, papers, tutorials, social media — help spread the word.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

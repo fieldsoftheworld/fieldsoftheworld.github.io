@@ -7,76 +7,120 @@
     <meta name="description" content="Fields of The World (FTW) is a global field boundary ecosystem featuring benchmark datasets, models, tools, and web applications for agricultural intelligence.">
     <meta name="keywords" content="machine learning, agricultural field boundaries, ecosystem, benchmark dataset, Sentinel-2, global agriculture, AI tools, community">
 
+    <meta name="view-transition" content="same-origin">
+
     <meta property="og:title" content="Fields of The World: {{ page.title }}"/>
-    <meta property="og:description" content="FTW is a comprehensive ecosystem for agricultural field boundary detection, featuring benchmark datasets, baseline models, inference tools, web applications, and community-driven development spanning 24 countries on four continents."/>
+    <meta property="og:description" content="FTW is an open ecosystem for agricultural field boundary detection — benchmark datasets, baseline models, inference tools, and web apps. 1.6M+ labeled parcels across 24 countries on four continents."/>
     <meta property="og:url" content="https://fieldsofthe.world"/>
-    <meta property="og:image" content="https://fieldsofthe.world/static/images/banner1.webp" />
+    <meta property="og:image" content="https://fieldsofthe.world/static/images/banner1.webp"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
 
     <meta name="twitter:title" content="Fields of The World: {{ page.title }}">
-    <meta name="twitter:description" content="FTW is a comprehensive ecosystem for agricultural field boundary detection, featuring benchmark datasets, baseline models, inference tools, web applications, and community-driven development spanning 24 countries on four continents.">
+    <meta name="twitter:description" content="FTW is an open ecosystem for agricultural field boundary detection — benchmark datasets, baseline models, inference tools, and web apps. 1.6M+ labeled parcels across 24 countries on four continents.">
     <meta name="twitter:image" content="https://fieldsofthe.world/static/images/banner1.webp">
     <meta name="twitter:card" content="summary_large_image">
 
     <title>Fields of The World: {{ page.title }}</title>
 
-    <link rel="icon" type="image/svg+xml" href="static/images/brand/logos/ftw-logomark.svg" />
+    <script>
+      (function() {
+        var t = localStorage.getItem('ftw-theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+
+    <script>
+      /* Swallow benign view-transition AbortErrors that fire when a navigation
+         transition gets interrupted (clicking another link mid-transition,
+         browser skipping, etc). Per CSS View Transitions spec, the ready
+         promise rejects with AbortError("Transition was skipped"). Harmless. */
+      window.addEventListener('unhandledrejection', function(e) {
+        var r = e && e.reason;
+        if (r && r.name === 'AbortError' && /skipped|transition/i.test(r.message || '')) {
+          e.preventDefault();
+        }
+      });
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="static/images/brand/logos/ftw-logomark.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/static/css/styles.css' | relative_url }}">
 </head>
-<body>
+<body class="{% if page.url == '/' or page.url == '/index.html' %}page-home{% else %}page-inner{% endif %}">
 
-    <!-- Include the header -->
-    <header>
-        <div class="fadein" aria-hidden="true">
-            <img id="b1" src="static/images/banner1.webp" alt="">
-            <img id="b2" src="static/images/banner2.webp" alt="">
-            <img id="b3" src="static/images/banner3.webp" alt="">
-        </div>
-        <a href="index.html" class="hero-logo-link" aria-label="Fields of The World home">
-            <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World (FTW)" width="320" height="123">
+    <nav aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home">
+            <img src="{{ '/static/images/brand/logos/ftw-logomark.svg' | relative_url }}" alt="FTW" height="28" width="28">
+            <span class="nav-brand-name">Fields of The World</span>
         </a>
-        <p class="hero-tagline">A Global Field Boundary Ecosystem</p>
-    </header>
-    <!-- Navigation Bar -->
-    <nav>
         <ul>
             <li><a href="{{ '/' | relative_url }}">Home</a></li>
             <li class="nav-dropdown">
-                <a href="ecosystem.html" class="nav-dropdown-label">Ecosystem ▾</a>
+                <a href="ecosystem.html">Ecosystem ▾</a>
                 <ul class="nav-dropdown-content">
                     <li><a href="ecosystem.html#benchmark-dataset">Benchmark Dataset</a></li>
                     <li><a href="ecosystem.html#baseline-models">Baseline Models</a></li>
                     <li><a href="ecosystem.html#tools">Tools</a></li>
-                    <li><a href="ecosystem.html#web-app">Web App</a></li>
                     <li><a href="ecosystem.html#data-products">Data Products</a></li>
                     <li><a href="ecosystem.html#related-work">Related Work</a></li>
                 </ul>
             </li>
-            <li><a href="community.html">Community</a></li>
             <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="map/">Data <span class="nav-external" aria-hidden="true">↗</span></a></li>
-            <li><a href="paper.html">Paper <span class="nav-external" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">Explorer ↗</a></li>
         </ul>
+        <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="nav-supported" aria-label="Sponsored by Taylor Geospatial">
+            <span class="nav-supported-label">Sponsored&nbsp;by</span>
+            <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial" class="nav-supported-logo">
+        </a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/></svg>
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2"/><path d="M12 19.5v2"/><path d="M4.8 4.8l1.4 1.4"/><path d="M17.8 17.8l1.4 1.4"/><path d="M2.5 12h2"/><path d="M19.5 12h2"/><path d="M4.8 19.2l1.4-1.4"/><path d="M17.8 6.2l1.4-1.4"/></svg>
+        </button>
     </nav>
 
-    <!-- Content -->
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        function effective() {
+          var s = document.documentElement.getAttribute('data-theme');
+          return s || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        }
+        function setLabel(t) {
+          btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+        setLabel(effective());
+        btn.addEventListener('click', function() {
+          var next = effective() === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('ftw-theme', next);
+          setLabel(next);
+        });
+      })();
+    </script>
+
+    <header class="hero">
+        <div class="hero-center">
+            <a href="{{ '/' | relative_url }}" class="hero-logo-link" aria-label="Fields of The World home">
+                <img class="hero-logo" src="{{ '/static/images/brand/logos/ftw-logo-light.svg' | relative_url }}" alt="Fields of The World" width="320" height="123">
+            </a>
+            {% if page.url == '/' or page.url == '/index.html' %}<p class="hero-tagline">Mapping the world&rsquo;s agricultural fields at scale.</p>{% endif %}
+        </div>
+    </header>
+
     <main>{{ content }}</main>
 
-    <!-- Footer -->
     <footer>
         <div class="dark-green-background footer-row">
+            <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="footer-supported" aria-label="Sponsored by Taylor Geospatial">
+                <span class="footer-supported-label">Sponsored&nbsp;by</span>
+                <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial" class="footer-supported-logo">
+            </a>
             <span class="footer-license">
                 <a property="dct:title" rel="cc:attributionURL" href="https://fieldsofthe.world">Fields of The World website</a> is licensed under
-                <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
-                    CC BY-SA 4.0
-                    <img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC">
-                    <img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY">
-                    <img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA">
-                </a>
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC"><img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY"><img class="license-img" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA"></a>
             </span>
             <a href="{{ '/ethical-statement.html' | relative_url }}" class="footer-ethical-btn">Ethical Statement</a>
         </div>

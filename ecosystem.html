@@ -3,32 +3,32 @@ title: The FTW Ecosystem
 layout: default
 ---
 
-<h2>What's in the FTW Ecosystem?</h2>
-
-<div class="content">
-    <p>
-        FTW has evolved from a benchmark dataset into a comprehensive ecosystem
-        supporting research, development, and deployment of geospatial workflows for
-        agricultural field boundary detection. This GitHub organization contains all
-        the tools, models, and data needed to work with field boundaries at scale.
-    </p>
-</div>
+<section id="ecosystem-intro" class="index">
+    <h2>What's in the FTW Ecosystem?</h2>
+    <div class="content">
+        <p>
+            FTW started as a benchmark dataset and has grown into a full stack for
+            agricultural field boundary detection — datasets, pretrained models, a CLI,
+            a QGIS plugin, a browser-based inference app, and an open API. Everything
+            lives in the <a href="https://github.com/fieldsoftheworld">fieldsoftheworld</a>
+            GitHub organization.
+        </p>
+    </div>
+</section>
 
 <!-- FTW Benchmark Dataset Section -->
 <section id="benchmark-dataset" class="index">
     <h3>FTW Benchmark Dataset</h3>
     <div class="content">
         <p>
-            Originally the core of the initiative, the <strong>FTW Benchmark
-            Dataset</strong> is a global collection of labeled agricultural field
-            boundaries, designed to benchmark model performance and support open
-            research. It aggregates and harmonizes a number of open datasets into 1.6
-            million parcel boundaries and over 70,000 samples covering diverse
-            agricultural landscapes across 4 continents and 24 countries.
+            The <strong>FTW Benchmark Dataset</strong> is a global collection of labeled
+            agricultural field boundaries built for open benchmarking. It harmonizes a
+            range of open sources into <strong>1.6 million parcels</strong> and
+            <strong>70,000+ labeled samples</strong> spanning 24 countries across 4 continents.
         </p>
 
         <p>
-            You can explore and download the dataset from
+            Explore and download the dataset from
             <a href="https://source.coop/kerner-lab/fields-of-the-world" target="_blank">Source Cooperative</a>.
         </p>
 
@@ -54,9 +54,11 @@ layout: default
     <h3>FTW Baseline Models</h3>
     <div class="content">
         <p>
-            Reference implementations of machine learning models trained on the FTW
-            Benchmark Dataset. These models offer starting points and performance
-            baselines for researchers and practitioners.
+            Reference segmentation models trained on the FTW Benchmark Dataset. They
+            serve as both starting points for fine-tuning and as performance baselines
+            for new methods. Four pretrained checkpoints are available — two-class and
+            three-class variants, each in CCBY (permissive-license data only) and FULL
+            (all FTW data) flavors.
         </p>
 
         <div class="cta-buttons">
@@ -71,62 +73,43 @@ layout: default
 <section id="tools" class="index">
     <h3>FTW Tools</h3>
     <div class="content">
-        <p>A growing suite of tools to support end-to-end workflows:</p>
+        <p>Open-source tools that cover the full workflow — from dataset conversion, to inference on new imagery, to visualization in QGIS.</p>
 
-        <h4>Data Access Tools</h4>
-        <p>
-            CLI to download and work with the benchmark dataset (FTW CLI, available in
-            the <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">ftw-baselines</a>
-            repository)
-        </p>
+        <div class="tools-grid">
+            <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank" class="tool-card">
+                <h4>FTW CLI Tools</h4>
+                <p>Download data &amp; run inference on new imagery.</p>
+            </a>
 
-        <h4>Inference Tools</h4>
-        <p>
-            CLI to run field boundary detection on new imagery (FTW CLI, available in
-            the <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">ftw-baselines</a>
-            repository)
-        </p>
+            <a href="https://github.com/fiboa/cli" target="_blank" class="tool-card">
+                <h4>Fiboa CLI</h4>
+                <p>Convert raw data into FTW-compliant format.</p>
+            </a>
 
-        <h4>Formatting Tools</h4>
-        <p>
-            Resources to convert raw data into FTW-compliant format (e.g., fiboa to
-            FTW train/test split) using the
-            <a href="https://github.com/fiboa/cli" target="_blank">fiboa CLI</a>
-        </p>
+            <a href="https://github.com/fieldsoftheworld/ftw-qgis-plugin" target="_blank" class="tool-card">
+                <h4>QGIS Plugin</h4>
+                <p>Browse &amp; interact with field data in QGIS.</p>
+            </a>
 
-        <h4>QGIS Plugin</h4>
-        <p>
-            A plugin to browse and interact with field data within QGIS. Currently in
-            alpha (<a href="https://github.com/fieldsoftheworld/ftw-qgis-plugin" target="_blank">ftw-qgis-plugin</a>)
-        </p>
-
-        <p>
-            <em>
-                The goal for both the tools and the web app is to make it easy to run
-                a number of field boundary models, not just FTW baseline models or FTW
-                benchmark data derived ones.
-            </em>
-        </p>
-
-        <div class="cta-buttons">
-            <a href="https://github.com/fieldsoftheworld/ftw-baselines" target="_blank">FTW CLI Tools</a>
-            <a href="https://github.com/fiboa/cli" target="_blank">Fiboa CLI</a>
-            <a href="https://github.com/fieldsoftheworld/ftw-qgis-plugin" target="_blank">QGIS Plugin</a>
+            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="tool-card">
+                <h4>Explorer App</h4>
+                <p>Run models globally without writing code.</p>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- FTW Web App Section -->
+<!-- FTW Explorer App Section -->
 <section id="web-app" class="index">
-    <h3>FTW Web App</h3>
+    <h3>FTW Explorer App</h3>
     <div class="content">
-        <p>A browser-based interface to easily run FTW models in any area of the world without running any code. The web app is powered by an API and deployed to AWS for global accessibility.</p>
+        <p>Browse the global FTW dataset — 3.17B field polygons across 241 countries — directly in your browser. Pan the map, zoom into any region, and download field boundaries as GeoParquet or GeoJSON for your own workflows. <a href="https://github.com/fieldsoftheworld/ftw-inference-app/issues" target="_blank" rel="noopener noreferrer">File an issue</a> if you spot something off or want to request a feature.</p>
 
-        <p>Improvements to the web app are under progress. The web app is powered by an API (see <a href="https://github.com/fieldsoftheworld/ftw-inference-api" target="_blank">ftw-inference-api</a>) and deployed to AWS via <a href="https://github.com/fieldsoftheworld/ftw-api-deployment" target="_blank">ftw-api-deployment</a>.</p>
+        <p>You can also run inference on demand — draw an area of interest, pick a model, and get vector field boundaries back without writing any code. Powered by the open-source <a href="https://github.com/fieldsoftheworld/ftw-inference-api" target="_blank" rel="noopener noreferrer">ftw-inference-api</a>, and under active development.</p>
 
         <div class="cta-buttons">
-            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Try the Web App</a>
-            <a href="https://github.com/fieldsoftheworld/ftw-inference-app" target="_blank" rel="noopener noreferrer">Web App Code</a>
+            <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Try the Explorer App</a>
+            <a href="https://github.com/fieldsoftheworld/ftw-inference-app" target="_blank" rel="noopener noreferrer">Explorer App Code</a>
             <a href="https://github.com/fieldsoftheworld/ftw-inference-api" target="_blank" rel="noopener noreferrer">API Code</a>
         </div>
     </div>
@@ -136,9 +119,9 @@ layout: default
 <section id="data-products" class="index">
     <h3>FTW Data Products</h3>
     <div class="content">
-        <p>Large-scale outputs of model-inferred field boundaries (e.g., country-wide field maps). While no full-country maps have been published yet, efforts are currently underway in Kenya, Vietnam, Laos, Colombia, and other countries/regions.</p>
+        <p>Large-scale outputs of model-inferred field boundaries, such as country-wide field maps. No full-country release has shipped yet, but work is underway in Kenya, Vietnam, Laos, Colombia, and other regions.</p>
 
-        <p>These outputs will be versioned and openly published to support external evaluation, planning, and downstream applications. As model quality improves, we aim to scale toward a global field boundary dataset.</p>
+        <p>These products will be versioned and openly published to support external evaluation, planning, and downstream applications. As model quality improves we aim to scale toward a complete global field boundary map.</p>
     </div>
 </section>
 
@@ -147,13 +130,9 @@ layout: default
     <h3>Related Work</h3>
     <div class="content">
         <h4><strong>Fi</strong>eld <strong>Bo</strong>undaries for <strong>A</strong>griculture (fiboa)</h4>
-        <p>The <strong>Fi</strong>eld <strong>Bo</strong>undaries for <strong>A</strong>griculture (fiboa) project is focused on making field boundary data openly available in a unified format on a global scale.</p>
+        <p>The <a href="https://fiboa.org" target="_blank">fiboa</a> project publishes field boundary datasets in a unified open specification, curated from government open data and hand-labeling campaigns. Fiboa datasets live at <a href="https://source.coop/fiboa" target="_blank">source.coop/fiboa</a>, and the data in the Source Cooperative <a href="https://source.coop/kerner-lab" target="_blank">kerner-lab</a> organization is already in fiboa format.</p>
 
-        <p>Curated public datasets of field boundaries from government sources and hand-labeling campaigns, that may serve as inputs to the benchmark dataset. These are converted to the <a href="https://fiboa.org" target="_blank">fiboa</a> specification. Fiboa data can be found at <a href="https://source.coop/fiboa" target="_blank">https://source.coop/fiboa</a>.</p>
-
-        <p>The data found in the Source Cooperative <a href="https://source.coop/kerner-lab" target="_blank">kerner-lab</a> organization are in the fiboa format.</p>
-
-        <p>In the future, FTW datasets may be sourced from the fiboa datasets prior to FTW subsetting and harmonization.</p>
+        <p>Going forward, FTW benchmark datasets may draw from fiboa sources before subsetting and harmonization — fiboa acts as the upstream collection layer, FTW as the curated training and benchmarking layer on top.</p>
 
         <div class="cta-buttons">
             <a href="https://fiboa.org" target="_blank">Learn about fiboa</a>
