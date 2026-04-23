@@ -31,19 +31,18 @@ layout: default
             <p>
                 <strong>Fields of The World (FTW)</strong> is an open ecosystem for
                 agricultural field boundary detection — combining a global benchmark
-                dataset, baseline ML models, inference tools, and web applications
-                for geospatial workflows in the cloud.
+                dataset, baseline ML models, inference tools, and web applications.
             </p>
             <p>
                 Most countries lack complete maps of their agricultural fields.
                 FTW uses open Sentinel-2 satellite imagery and machine learning
-                to detect field boundaries at scale, enabling land use monitoring,
-                food security assessments, and agricultural intelligence worldwide.
+                to detect and map field boundaries at scale — supporting land use monitoring,
+                food security assessment, and crop analysis worldwide.
             </p>
         </div>
         <div class="partner-block">
             <span class="partner-block-label">Sponsored by</span>
-            <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="partner-primary" aria-label="Taylor Geospatial Institute">
+            <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer" class="partner-primary" aria-label="Taylor Geospatial">
                 <img src="{{ '/static/images/partners/taylor-geospatial.svg' | relative_url }}" alt="Taylor Geospatial">
             </a>
             <span class="partner-block-label partner-block-label--sub">Co-Developed By</span>
@@ -86,7 +85,7 @@ layout: default
             <span class="news-badge news-badge--highlight">Global Release</span>
             <div class="news-body">
                 <strong>FTW global field boundaries released &mdash; 3.17B polygons across 241 countries and territories</strong>
-                <p>A global 10m field boundary dataset covering 2024 (1.62B polygons) and 2025 (1.55B polygons), produced by running the FTW PRUE model worldwide. Funded by <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer">Taylor Geospatial</a> and run on the <a href="https://wherobots.com" target="_blank" rel="noopener noreferrer">Wherobots</a> RasterFlow platform. Browse in the <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">Explorer App</a> or download from <a href="https://source.coop/ftw/global-data" target="_blank" rel="noopener noreferrer">Source Cooperative</a>.</p>
+                <p>A global 10m field boundary dataset covering 2024 (1.62B polygons) and 2025 (1.55B polygons), produced by running the FTW PRUE model worldwide. Funded by <a href="https://taylorgeospatial.org" target="_blank" rel="noopener noreferrer">Taylor Geospatial</a> and run on the <a href="https://wherobots.com" target="_blank" rel="noopener noreferrer">Wherobots</a> RasterFlow platform. Browse in the <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer">Explorer App</a> or download from <a href="https://source.coop/ftw/global-data" target="_blank" rel="noopener noreferrer">Source Cooperative</a>. See the <a href="https://aka.ms/ftw-global-paper" target="_blank" rel="noopener noreferrer">preprint</a> for more information.</p>
             </div>
         </div>
         <div class="news-item">
@@ -99,8 +98,8 @@ layout: default
         <div class="news-item">
             <span class="news-badge news-badge--highlight">CVPR 2026</span>
             <div class="news-body">
-                <strong>FTW Prue accepted to CVPR 2026 — code &amp; models released</strong>
-                <p>Our updated paper introducing the expanded FTW ecosystem was accepted to CVPR 2026. Code is open source at <a href="https://github.com/fieldsoftheworld/ftw-prue" target="_blank" rel="noopener noreferrer">ftw-prue</a> and models are runnable via the <code>ftw-tools</code> package. <a href="https://arxiv.org/abs/2603.27101" target="_blank" rel="noopener noreferrer">Read on arXiv</a></p>
+                <strong>FTW PRUE accepted to CVPR 2026 — code &amp; models released</strong>
+                <p>The FTW PRUE paper was accepted to CVPR 2026. Code is open source at <a href="https://github.com/fieldsoftheworld/ftw-prue" target="_blank" rel="noopener noreferrer">ftw-prue</a> and models are runnable via the <code>ftw-tools</code> package. <a href="https://arxiv.org/abs/2603.27101" target="_blank" rel="noopener noreferrer">Read on arXiv</a></p>
             </div>
         </div>
         <div class="news-item">
@@ -114,7 +113,7 @@ layout: default
             <span class="news-badge">Blog · Sep 2025</span>
             <div class="news-body">
                 <strong>FTW Phase 2: Building AI and ML Infrastructure for Global Field Boundaries</strong>
-                <p>Taylor Geospatial Engine published an update on the second phase of FTW — expanding the dataset, scaling inference infrastructure, and shipping open ML tools for global field boundary mapping. <a href="https://tgengine.org/fields-of-the-world-building-ai-and-ml-infrastructure-for-global-field-boundaries/" target="_blank" rel="noopener noreferrer">Read the update</a></p>
+                <p>Taylor Geospatial published an update on the second phase of FTW — expanding the dataset, scaling inference infrastructure, and shipping open ML tools for global field boundary mapping. <a href="https://tgengine.org/fields-of-the-world-building-ai-and-ml-infrastructure-for-global-field-boundaries/" target="_blank" rel="noopener noreferrer">Read the update</a></p>
             </div>
         </div>
         <div class="news-item">
@@ -128,7 +127,7 @@ layout: default
             <span class="news-badge">Blog · Nov 2024</span>
             <div class="news-body">
                 <strong>Introducing Fields of The World</strong>
-                <p>Taylor Geospatial Engine announced the launch of the Fields of The World initiative — a global open benchmark and ML infrastructure effort for agricultural field boundary detection. <a href="https://tgengine.org/introducing-fields-of-the-world/" target="_blank" rel="noopener noreferrer">Read the launch post</a></p>
+                <p>Taylor Geospatial announced the launch of the Fields of The World initiative — a global open benchmark and ML infrastructure effort for agricultural field boundary detection. <a href="https://tgengine.org/introducing-fields-of-the-world/" target="_blank" rel="noopener noreferrer">Read the launch post</a></p>
             </div>
         </div>
         <div class="news-item">
@@ -166,6 +165,7 @@ layout: default
         <div class="app-showcase-text">
             <h2>Explore the global dataset or run inference yourself</h2>
             <p>Pan the world map to browse 3.17B field boundaries, download polygons for any region, or optionally run inference directly in your browser — pick a model and a Sentinel-2 tile and go. No code, no setup, no downloads required.</p>
+            <p>The full dataset is publicly available on <a href="https://source.coop/ftw/global-data" target="_blank" rel="noopener noreferrer">Source Cooperative</a>. The <a href="https://app.earthmover.io/marketplace/69e935646f290ce55a5b5c7a" target="_blank" rel="noopener noreferrer">predictions</a> and <a href="https://app.earthmover.io/marketplace/69e9378f67bd894513461947" target="_blank" rel="noopener noreferrer">Sentinel-2 mosaics</a> are also available through the Earthmover Marketplace.</p>
             <div class="cta-buttons" style="justify-content:flex-start; margin-top:1.25rem;">
                 <a href="https://fieldsofthe.world/ftw-inference-app" target="_blank" rel="noopener noreferrer" class="cta-primary">Open Explorer App</a>
                 <a href="tutorial.html" class="cta-ghost">View Tutorial</a>
@@ -178,7 +178,7 @@ layout: default
                 <span class="app-frame-dot"></span>
                 <span class="app-frame-url">fieldsofthe.world/ftw-inference-app</span>
             </div>
-            <img src="{{ '/static/images/austria-inf.webp' | relative_url }}" alt="FTW Explorer app showing detected field boundaries over satellite imagery" loading="lazy">
+            <img src="{{ '/static/images/ftw-global-map.webp' | relative_url }}" alt="FTW Explorer app showing detected field boundaries over satellite imagery" loading="lazy">
         </a>
     </div>
 </section>
@@ -186,7 +186,12 @@ layout: default
 <!-- Research -->
 <section id="research" class="index">
     <span class="section-label">Research</span>
-    <div class="explore-grid explore-grid--3col">
+    <div class="explore-grid explore-grid--4col">
+        <a href="https://aka.ms/ftw-global-paper" target="_blank" rel="noopener noreferrer" class="explore-item">
+            <div class="explore-item-title">FTW Global Mapping</div>
+            <div class="explore-item-desc">A first global agricultural field boundary map at 10m resolution — 3.17B polygons across 241 countries for 2024 and 2025, with a 500m confidence layer (AUC 0.82) and full-country F1 of 0.89 / 0.88 / 0.74 in Austria / Latvia / Finland. Robinson et al., <strong>Preprint 2026</strong>.</div>
+            <div class="explore-item-tag">Read the paper</div>
+        </a>
         <a href="https://arxiv.org/abs/2409.16252" target="_blank" rel="noopener noreferrer" class="explore-item">
             <div class="explore-item-title">FTW Benchmark Dataset</div>
             <div class="explore-item-desc">A machine learning benchmark dataset for global agricultural field boundary segmentation — 1.6M+ labeled parcels across 24 countries on four continents, paired with multi-date Sentinel-2 imagery. Kerner et al., <strong>AAAI 2025</strong>.</div>
@@ -197,10 +202,10 @@ layout: default
             <div class="explore-item-desc">A U-Net segmentation model with tiling-artifact mitigation, designed for large-scale deployment across Sentinel-2 mosaics. Muhawenayo et al., <strong>CVPR 2026</strong>.</div>
             <div class="explore-item-tag">Read on arXiv</div>
         </a>
-        <a href="https://source.coop/ftw/global-data" target="_blank" rel="noopener noreferrer" class="explore-item">
-            <div class="explore-item-title">FTW Global Mapping</div>
-            <div class="explore-item-desc">A first global agricultural field boundary map at 10m resolution — 3.17B polygons across 241 countries for 2024 and 2025, with a 500m confidence layer (AUC 0.82) and full-country F1 of 0.89 / 0.88 / 0.74 in Austria / Latvia / Finland. <strong>Preprint in preparation</strong>.</div>
-            <div class="explore-item-tag">Browse on Source Cooperative</div>
+        <a href="https://arxiv.org/abs/2602.08131" target="_blank" rel="noopener noreferrer" class="explore-item">
+            <div class="explore-item-title">FTW Field Guide</div>
+            <div class="explore-item-desc">A tutorial and field guide covering the full FTW ecosystem — dataset, pre-trained models, and tools for agricultural field boundary extraction. Corley et al., <strong>ICLR 2026 ML4RS Workshop</strong>.</div>
+            <div class="explore-item-tag">Read on arXiv</div>
         </a>
     </div>
 </section>
@@ -211,7 +216,7 @@ layout: default
     <div class="about-block">
         <div class="about-block-text">
             <h2>A community-driven commons</h2>
-            <p>FTW is built in the open. Contribute data, models, tools, or help spread the word — every contribution advances a global, open map of the world's fields.</p>
+            <p>FTW is built in the open. Contribute data, models, tools, or help spread the word — all contributions are welcome.</p>
             <div class="cta-buttons" style="justify-content:flex-start; margin-top:1rem;">
                 <a href="https://groups.google.com/g/ftw-community" target="_blank" rel="noopener noreferrer" class="cta-primary">Join Mailing List</a>
                 <a href="https://github.com/orgs/fieldsoftheworld/discussions" target="_blank" rel="noopener noreferrer" class="cta-ghost">GitHub Discussions</a>
