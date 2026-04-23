@@ -814,6 +814,9 @@ html[data-theme="dark"] .partner-logos .partner-logo--clark .partner-logo-dark {
   text-align: left;
 }
 .explore-grid.explore-grid--3col { max-width: 1000px; }
+.explore-grid.explore-grid--4col { max-width: 1280px; grid-template-columns: repeat(4, 1fr); gap: 2rem 2.25rem; }
+.explore-grid.explore-grid--4col .explore-item-title { font-size: 1rem; }
+.explore-grid.explore-grid--4col .explore-item-desc { font-size: 0.76rem; }
 .explore-item {
   position: relative;
   display: flex;
@@ -868,6 +871,8 @@ html[data-theme="dark"] .partner-logos .partner-logo--clark .partner-logo-dark {
 }
 .app-showcase-text h2 { text-align: left; margin-bottom: 0.75rem; }
 .app-showcase-text p { color: var(--text-2); font-size: 0.92rem; line-height: 1.7; text-align: justify; hyphens: auto; }
+.app-showcase-text p a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent-mid); transition: color 0.15s, border-color 0.15s; }
+.app-showcase-text p a:hover { color: var(--text); border-bottom-color: var(--border-2); }
 .app-frame {
   display: block;
   border: 1px solid var(--border);
