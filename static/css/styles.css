@@ -711,7 +711,8 @@ html[data-theme="dark"] .partner-logos .partner-logo:not(.partner-logo--asu):not
   object-fit: contain;
 }
 .partner-logos.partner-logos--support {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  justify-content: center;
   width: 100%;
 }
 .partner-logos--support .partner-logo { min-width: 0; }
