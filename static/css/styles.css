@@ -697,12 +697,6 @@ html[data-theme="dark"] .partner-logos .partner-logo:not(.partner-logo--asu):not
   align-items: center;
   justify-items: center;
 }
-.partner-logos--two {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 360px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .partner-logos .partner-logo {
   display: block;
   line-height: 0;
@@ -716,9 +710,16 @@ html[data-theme="dark"] .partner-logos .partner-logo:not(.partner-logo--asu):not
   max-width: 140px;
   object-fit: contain;
 }
+.partner-logos.partner-logos--support {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+}
+.partner-logos--support .partner-logo { min-width: 0; }
+.partner-logos--support .partner-logo img { max-width: min(140px, 100%); }
 
-/* Recolor Wherobots raster logo (purple/blue icon + dark wordmark) to FTW brand teal #004747 */
-.partner-logos .partner-logo--wherobots img {
+/* Recolor raster partner logos to FTW brand teal #004747. */
+.partner-logos .partner-logo--wherobots img,
+.partner-logos .partner-logo--aws img {
   filter: brightness(0) saturate(100%) invert(19%) sepia(55%) saturate(1431%) hue-rotate(154deg) brightness(92%) contrast(103%);
 }
 .partner-logos .partner-logo--asu img { filter: none !important; }
@@ -741,7 +742,6 @@ html[data-theme="dark"] .partner-logos .partner-logo--clark .partner-logo-dark {
 
 @media (max-width: 700px) {
   .partner-logos { grid-template-columns: repeat(3, auto); gap: 1rem; }
-  .partner-logos.partner-logos--two { grid-template-columns: repeat(2, auto); }
   .partner-logos .partner-logo img { height: 28px; }
   .partner-secondary img { height: 38px; }
 }
@@ -1362,7 +1362,6 @@ video {
     gap: 1.75rem !important;
   }
   .partner-logos { grid-template-columns: repeat(3, auto); justify-content: center; gap: 1rem; }
-  .partner-logos.partner-logos--two { grid-template-columns: repeat(2, auto); }
   .partner-logos .partner-logo img { height: 26px; }
   .partner-primary img { height: 42px; }
   .partner-secondary img { height: 36px; }
