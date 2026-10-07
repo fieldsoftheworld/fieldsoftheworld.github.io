@@ -67,6 +67,8 @@ To run the website locally for development:
 
 The site will automatically regenerate when you make changes to the files. Press `Ctrl+C` to stop the server.
 
+The main stylesheet URL includes a build timestamp so browsers load updated styles after each deployment.
+
 ### Troubleshooting
 
 **Jekyll command not found?**
