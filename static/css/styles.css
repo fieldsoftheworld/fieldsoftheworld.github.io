@@ -710,7 +710,8 @@ html[data-theme="dark"] .partner-logos .partner-logo:not(.partner-logo--asu):not
   max-width: 140px;
   object-fit: contain;
 }
-.partner-logos.partner-logos--support {
+.partner-logos.partner-logos--support,
+.partner-logos.partner-logos--validation {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -720,9 +721,11 @@ html[data-theme="dark"] .partner-logos .partner-logo:not(.partner-logo--asu):not
 
 /* Recolor raster partner logos to FTW brand teal #004747. */
 .partner-logos .partner-logo--wherobots img,
-.partner-logos .partner-logo--aws img {
+.partner-logos .partner-logo--aws img,
+.partner-logos .partner-logo--harvest img {
   filter: brightness(0) saturate(100%) invert(19%) sepia(55%) saturate(1431%) hue-rotate(154deg) brightness(92%) contrast(103%);
 }
+.partner-logos .partner-logo.partner-logo--harvest img { height: clamp(56px, 10vw, 72px); }
 .partner-logos .partner-logo--asu img { filter: none !important; }
 .partner-logos .partner-logo--asu .partner-logo-dark { display: none; }
 html[data-theme="dark"] .partner-logos .partner-logo--asu .partner-logo-light { display: none; }
